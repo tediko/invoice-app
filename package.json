@@ -1,0 +1,31 @@
+{
+    "name": "invoice-app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "npx mix",
+        "mix-watch": "npx mix watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tediko/invoice-app.git"
+    },
+    "keywords": [],
+    "author": "Dawid Weber",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/tediko/invoice-app/issues"
+    },
+    "homepage": "https://github.com/tediko/invoice-app#readme",
+    "devDependencies": {
+        "laravel-mix": "^6.0.25",
+        "prettier": "2.3.2"
+    },
+    "dependencies": {
+        "@babel/preset-react": "^7.14.5",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "styled-components": "^5.3.0"
+    }
+}
