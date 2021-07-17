@@ -3,24 +3,33 @@ import logo from '../../assets/images/logo.svg';
 import avatar from '../../assets/images/image-avatar.jpg';
 
 export const StyledHeader = styled.header`
-    background-color: ${({ theme }) => theme.colors.gray100};
-    height: 72px;
-`;
-
-export const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr auto auto;
-    height: 100%;
+    background-color: ${({ theme }) => theme.colors.gray100};
+    height: clamp(72px, 10.5vw, 80px);
+
+    @media (min-width: 1024px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto auto;
+        height: 100vh;
+        width: 103px;
+        border-radius: 0 20px 20px 0;
+    }
 `;
 
 export const Logo = styled.a`
     position: relative;
     background-color: ${({ theme }) => theme.colors.purple};
-    width: 72px;
+    width: clamp(72px, 10.5vw, 80px);
     height: 100%;
     border-radius: 0 20px 20px 0;
     cursor: pointer;
     overflow: hidden;
+
+    @media (min-width: 1024px) {
+        width: 100%;
+        height: 103px;
+    }
 
     &::before {
         position: absolute;
@@ -35,26 +44,60 @@ export const Logo = styled.a`
 
     &::after {
         position: absolute;
-        content: url('${logo}');
+        content: '';
         top: 50%;
         left: 50%;
         width: 28px;
-        height: 26px;
+        height: 28px;
+        background-image: url('${logo}');
+        background-repeat: no-repeat;
+        background-size: contain;
         transform: translate(-50%, -50%);
+
+        @media (min-width: 768px) {
+            width: 31px;
+            height: 31px;
+        }
+
+        @media (min-width: 1024px) {
+            width: 40px;
+            height: 40px;
+        }
     }
 `;
 
 export const ThemeToggle = styled.button`
+    align-self: center;
     background-color: transparent;
     border: none;
-    padding: 0 24px;
+    padding: 5px;
+    margin-right: clamp(19px, 4vw, 27px);
     cursor: pointer;
+
+    @media (min-width: 768px) {
+        &:hover svg {
+            color: ${({ theme }) => theme.colors.blue200};
+            transition: color 300ms ease-in;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        margin: 0 0 27px 0;
+    }
 `;
 
 export const Profile = styled.div`
     position: relative;
     width: 80px;
+    width: clamp(80px, 12.5vw, 96px);
     border-left: 1px solid ${({ theme }) => theme.colors.gray200};
+
+    @media (min-width: 1024px) {
+        height: 88px;
+        width: 100%;
+        border-left: unset;
+        border-top: 1px solid ${({ theme }) => theme.colors.gray200};
+    }
 
     &::before {
         position: absolute;
@@ -68,5 +111,10 @@ export const Profile = styled.div`
         background-size: cover;
         border-radius: 50%;
         transform: translate(-50%, -50%);
+
+        @media (min-width: 1024px) {
+            width: 40px;
+            height: 40px;
+        }
     }
 `;
