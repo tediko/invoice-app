@@ -1,5 +1,15 @@
+import Provider from '../Provider/Provider';
+import Wrapper from '../Wrapper/Wrapper';
+import Header from '../Header/Header';
+
 const App = () => {
-    return <h1>Hello World! :)</h1>;
+    return (
+        <Provider>
+            <Wrapper>
+                <Header />
+            </Wrapper>
+        </Provider>
+    );
 };
 
 export default App;
