@@ -33,6 +33,8 @@ export const theme = {
             btnDeleteHover: 'hsl(0°, 100%, 80%)',
             btnNewItem: 'hsl(231, 67%, 99%)',
             btnNewItemHover: 'hsl(231, 73%, 93%)',
+            btnTheme: 'hsl(231, 36%, 63%)',
+            btnThemeHover: 'hsl(231, 75%, 93%)',
             // Shared
             white: 'hsl(0, 0%, 100%)',
             black: 'hsl(0, 0%, 0%)',
@@ -82,6 +84,8 @@ export const theme = {
             btnDeleteHover: 'hsl(0°, 100%, 80%)',
             btnNewItem: 'hsl(231, 67%, 99%)',
             btnNewItemHover: 'hsl(231, 73%, 93%)',
+            btnTheme: 'hsl(232, 23%, 61%)',
+            btnThemeHover: 'hsl(231, 75%, 93%)',
             // Shared
             white: 'hsl(0, 0%, 100%)',
             black: 'hsl(0, 0%, 0%)',
