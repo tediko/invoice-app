@@ -7,6 +7,7 @@ export const StyledHeader = styled.header`
     grid-template-columns: 1fr auto auto;
     background-color: ${({ theme }) => theme.colors.bgHeader};
     height: clamp(72px, 10.5vw, 80px);
+    transition: background-color 400s ease-in-out;
 
     @media (min-width: 1024px) {
         grid-template-columns: 1fr;
