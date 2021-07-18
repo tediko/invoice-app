@@ -5,7 +5,7 @@ import avatar from '../../assets/images/image-avatar.jpg';
 export const StyledHeader = styled.header`
     display: grid;
     grid-template-columns: 1fr auto auto;
-    background-color: ${({ theme }) => theme.colors.gray100};
+    background-color: ${({ theme }) => theme.colors.bgHeader};
     height: clamp(72px, 10.5vw, 80px);
 
     @media (min-width: 1024px) {
@@ -76,7 +76,7 @@ export const ThemeToggle = styled.button`
 
     @media (min-width: 768px) {
         &:hover svg {
-            color: ${({ theme }) => theme.colors.blue200};
+            color: ${({ theme }) => theme.colors.btnThemeHover};
             transition: color 300ms ease-in;
         }
     }
@@ -90,13 +90,13 @@ export const Profile = styled.div`
     position: relative;
     width: 80px;
     width: clamp(80px, 12.5vw, 96px);
-    border-left: 1px solid ${({ theme }) => theme.colors.gray200};
+    border-left: 1px solid ${({ theme }) => theme.colors.grayLight};
 
     @media (min-width: 1024px) {
         height: 88px;
         width: 100%;
         border-left: unset;
-        border-top: 1px solid ${({ theme }) => theme.colors.gray200};
+        border-top: 1px solid ${({ theme }) => theme.colors.grayLight};
     }
 
     &::before {

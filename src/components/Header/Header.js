@@ -4,7 +4,7 @@ import { StyledHeader, Logo, ThemeToggle, Profile } from './HeaderStyles';
 
 const Header = () => {
     const theme = useTheme();
-
+    console.log(theme);
     return (
         <StyledHeader>
             <Logo aria-label="Home Page" />
@@ -12,7 +12,7 @@ const Header = () => {
                 <Icon
                     name="moon"
                     size={20}
-                    color={theme.colors.blue600}
+                    color={theme.colors.btnTheme}
                     customStyle={{ transition: 'color 350ms ease-in-out' }}
                 />
             </ThemeToggle>
