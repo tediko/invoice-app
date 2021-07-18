@@ -67,11 +67,9 @@ export const Logo = styled.a`
 `;
 
 export const ThemeToggle = styled.button`
-    align-self: center;
     background-color: transparent;
     border: none;
-    padding: 5px;
-    margin-right: clamp(19px, 4vw, 27px);
+    padding: 0 clamp(24px, 4.5vw, 32px);
     cursor: pointer;
 
     @media (min-width: 768px) {
@@ -82,7 +80,7 @@ export const ThemeToggle = styled.button`
     }
 
     @media (min-width: 1024px) {
-        margin: 0 0 27px 0;
+        padding: 32px 0;
     }
 `;
 
