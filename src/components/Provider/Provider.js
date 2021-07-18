@@ -49,9 +49,11 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-const Provider = ({ children }) => {
+const Provider = ({ children, themeColor }) => {
     return (
-        <ThemeProvider theme={theme.light}>
+        <ThemeProvider
+            theme={themeColor === 'light' ? theme.light : theme.dark}
+        >
             <GlobalStyle />
             {children}
         </ThemeProvider>
