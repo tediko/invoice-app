@@ -1,4 +1,4 @@
-import Icon from '../Icon/Icon';
+import Icon from '../shared/Icon/Icon';
 import { useTheme } from 'styled-components';
 import { StyledHeader, Logo, ThemeToggle, Profile } from './HeaderStyles';
 import { useGlobalContext } from '../App/context';

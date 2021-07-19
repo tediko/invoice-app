@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Provider from '../Provider/Provider';
+import Provider from '../shared/Provider/Provider';
 import useThemeToggle from './useThemeToggle';
 
 const AppContext = React.createContext();
