@@ -1,12 +1,10 @@
 import styled, { css } from 'styled-components';
 import checkIcon from '../../../assets/images/icon-check.svg';
+import { primaryFontStyles } from '../../shared/Typography';
 
 const ButtonDefault = styled.button`
-    font-family: ${({ theme }) => theme.fonts.primary};
-    font-size: 0.75rem;
+    ${primaryFontStyles}
     font-weight: 600;
-    letter-spacing: 0.016rem;
-    line-height: 1.25;
     color: ${({ theme }) => theme.colors.textPrimary};
     border: none;
     background-color: transparent;
