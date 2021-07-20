@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { primaryFontStyles } from '../../shared/Typography';
 
 export const StyledList = styled.ul`
     display: flex;
@@ -36,14 +35,12 @@ export const Hashtag = styled.span`
 `;
 
 export const PaymentDue = styled.p`
-    ${primaryFontStyles}
     grid-area: paymentdue;
     color: ${({ theme }) => theme.colors.textSecondary};
     transition: color 400ms ease-in-out;
 `;
 
 export const ClientName = styled.p`
-    ${primaryFontStyles}
     grid-area: clientname;
     justify-self: end;
     color: ${({ theme }) => theme.colors.textSecondary};
@@ -61,7 +58,6 @@ export const TotalPrice = styled.p`
 `;
 
 export const Status = styled.div`
-    ${primaryFontStyles}
     grid-area: status;
     align-self: center;
     justify-self: center;
