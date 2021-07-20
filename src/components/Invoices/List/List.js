@@ -35,7 +35,9 @@ const List = () => {
                         </Uid>
                         <PaymentDue>Due {paymentDue}</PaymentDue>
                         <ClientName>{clientName}</ClientName>
-                        <TotalPrice>£ {languageSensitiveNum(total)}</TotalPrice>
+                        <TotalPrice>
+                            £&nbsp;{languageSensitiveNum(total)}
+                        </TotalPrice>
                         <Status $statusType={status}>
                             <StatusCircle $statusType={status} />
                             {capitalizeFirstLetter(status)}
