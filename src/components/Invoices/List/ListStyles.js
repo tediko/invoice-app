@@ -10,6 +10,7 @@ export const StyledList = styled.ul`
 export const Item = styled.li`
     background-color: ${({ theme }) => theme.colors.bgInvoiceItem};
     border-radius: 8px;
+    box-shadow: 0 10px 10px -10px ${({ theme }) => theme.colors.bgInvoiceItemShadow};
     transition: background-color 400ms ease-in-out;
 `;
 
