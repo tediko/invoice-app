@@ -4,10 +4,18 @@
  * @param    {Number}  number - Number to convert
  * @return {String} String with a language-sensitive number
  */
-export const languageSensitiveNum = (num) => {
-    const stringNumber = parseFloat(num);
-    console.log(typeof stringNumber.toLocaleString('en'));
-    return stringNumber.toLocaleString('en');
+export const languageSensitiveNum = (number) => {
+    const stringNumber = number.toString();
+    const integerDigits = parseFloat(stringNumber.split('.')[0]);
+    const decimalDigits = stringNumber.split('.')[1];
+
+    if (decimalDigits != null && decimalDigits.length >= 2) {
+        return `${integerDigits}.${decimalDigits}`;
+    } else if (decimalDigits != null) {
+        return `${integerDigits}.${decimalDigits}0`;
+    } else {
+        return `${integerDigits}.00`;
+    }
 };
 
 /**
