@@ -10,6 +10,7 @@ const ButtonDefault = styled.button`
     color: ${({ theme }) => theme.colors.textPrimary};
     border: none;
     background-color: transparent;
+    cursor: pointer;
     transition: color 400ms ease-in;
 `;
 
@@ -66,5 +67,14 @@ export const StatusFilter = styled(ButtonDefault)`
                 background-size: 10px;
                 background-position: center;
             `}
+    }
+
+    @media (min-width: 768px) {
+        &:hover {
+            &::before {
+                border: 1px solid ${({ theme }) => theme.colors.purple};
+                border-radius: 2px;
+            }
+        }
     }
 `;
