@@ -6,7 +6,7 @@ import { HeadingTitle } from '../shared/Headings';
 export const Container = styled.div`
     padding: 0 24px;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         width: 100%;
         max-width: 730px;
         margin: 0 auto;
