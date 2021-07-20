@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { HeadingSmall, HeadingMedium } from '../../shared/Headings';
 
 export const StyledList = styled.ul`
     display: flex;
@@ -20,14 +21,9 @@ export const Link = styled.a`
     padding: 24px;
 `;
 
-export const Uid = styled.h4`
+export const Uid = styled.p`
+    ${HeadingSmall}
     grid-area: uid;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.016rem;
-    line-height: 1.25;
-    color: ${({ theme }) => theme.colors.textPrimary};
-    transition: color 400ms ease-in-out;
 `;
 
 export const Hashtag = styled.span`
@@ -48,13 +44,8 @@ export const ClientName = styled.p`
 `;
 
 export const TotalPrice = styled.p`
+    ${HeadingMedium}
     grid-area: totalprice;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.05rem;
-    line-height: 1.5;
-    color: ${({ theme }) => theme.colors.textPrimary};
-    transition: color 400ms ease-in-out;
 `;
 
 export const Status = styled.div`
