@@ -20,11 +20,30 @@ export const Link = styled.a`
     grid-template-areas: 'uid clientname' 'paymentdue status' 'totalprice status';
     justify-content: space-between;
     padding: 24px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    transition: border 350ms ease-in-out;
+
+    @media (min-width: 768px) {
+        grid-template-rows: unset;
+        grid-template-areas: unset;
+        grid-template-columns: 80px 144px 1fr min-content 150px min-content;
+        align-items: center;
+        padding: 15px 24px;
+
+        &:hover {
+            border: 1px solid ${({ theme }) => theme.colors.purple};
+        }
+    }
 `;
 
 export const Uid = styled.p`
     ${HeadingSmall}
     grid-area: uid;
+
+    @media (min-width: 768px) {
+        grid-area: unset;
+    }
 `;
 
 export const Hashtag = styled.span`
@@ -35,18 +54,31 @@ export const PaymentDue = styled.p`
     grid-area: paymentdue;
     color: ${({ theme }) => theme.colors.textSecondary};
     transition: color 400ms ease-in-out;
+
+    @media (min-width: 768px) {
+        grid-area: unset;
+    }
 `;
 
 export const ClientName = styled.p`
     grid-area: clientname;
     justify-self: end;
-    color: ${({ theme }) => theme.colors.textSecondary};
+    color: ${({ theme }) => theme.colors.textTertiary};
     transition: color 400ms ease-in-out;
+
+    @media (min-width: 768px) {
+        grid-area: unset;
+        justify-self: start;
+    }
 `;
 
 export const TotalPrice = styled.p`
     ${HeadingMedium}
     grid-area: totalprice;
+
+    @media (min-width: 768px) {
+        grid-area: unset;
+    }
 `;
 
 export const Status = styled.div`
@@ -80,6 +112,10 @@ export const Status = styled.div`
             background-color: ${({ theme }) => theme.colors.statusPaidBg};
             color: ${({ theme }) => theme.colors.statusPaid};
         `}
+
+    @media (min-width: 768px) {
+        grid-area: unset;
+    }
 `;
 
 export const StatusCircle = styled.span`
