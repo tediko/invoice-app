@@ -34,7 +34,6 @@ export const Title = styled.h1`
 `;
 
 export const Text = styled.p`
-    ${primaryFontStyles}
     color: ${({ theme }) => theme.colors.textTertiary};
     transition: color 400ms ease-in;
 `;
