@@ -26,7 +26,7 @@ export const Button = styled(ButtonDefault)`
 `;
 
 export const List = styled.ul`
-    display: flex;
+    display: none;
     position: absolute;
     flex-flow: column;
     gap: 10px;
