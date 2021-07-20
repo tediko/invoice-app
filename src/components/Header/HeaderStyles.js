@@ -87,7 +87,6 @@ export const ThemeToggle = styled.button`
 
 export const Profile = styled.div`
     position: relative;
-    width: 80px;
     width: clamp(80px, 12.5vw, 96px);
     border-left: 1px solid ${({ theme }) => theme.colors.grayLight};
 
