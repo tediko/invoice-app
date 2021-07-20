@@ -1,5 +1,6 @@
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { theme } from './theme';
+import { primaryFontStyles } from '../Typography';
 
 const GlobalStyle = createGlobalStyle`
     *,
@@ -39,8 +40,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        font-family: ${theme.light.fonts.primary};
-        font-size: 1rem;
+        ${primaryFontStyles}
     }
 
     a {
