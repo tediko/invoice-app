@@ -17,10 +17,10 @@ export const Header = styled.div`
     grid-template-columns: 1fr auto auto;
     gap: 18px;
     align-items: center;
-    margin-top: 32px;
+    margin: 32px 0;
 
     @media (min-width: 1024px) {
-        margin-top: 72px;
+        margin: 72px 0;
     }
 `;
 
