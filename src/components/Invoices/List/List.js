@@ -4,6 +4,7 @@ import Icon from '../../shared/Icon/Icon';
 import {
     languageSensitiveNum,
     capitalizeFirstLetter,
+    dateToString,
 } from '../../shared/utilities';
 import { useGlobalContext } from '../../App/context';
 import {
@@ -33,7 +34,7 @@ const List = () => {
                             <Hashtag>#</Hashtag>
                             {id}
                         </Uid>
-                        <PaymentDue>Due {paymentDue}</PaymentDue>
+                        <PaymentDue>Due {dateToString(paymentDue)}</PaymentDue>
                         <ClientName>{clientName}</ClientName>
                         <TotalPrice>
                             £&nbsp;{languageSensitiveNum(total)}

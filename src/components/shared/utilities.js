@@ -27,3 +27,20 @@ export const languageSensitiveNum = (number) => {
 export const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
 };
+
+/**
+ * Function that converts a date to a formatted date.
+ * (YYYY-MM-DD -> DD MonthName YYYY)
+ * @param    {String}  date - Date to convert
+ * @return {String} String with a formatted date.
+ */
+export const dateToString = (date) => {
+    const displayOptions = {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+    };
+    const newDate = new Date(date).toLocaleString('en-GB', displayOptions);
+
+    return newDate;
+};
