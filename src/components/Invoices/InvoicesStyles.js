@@ -3,6 +3,13 @@ import plusIcon from '../../assets/images/icon-plus.svg';
 
 export const Container = styled.div`
     padding: 0 24px;
+
+    @media (min-width: 1024px) {
+        width: 100%;
+        max-width: 730px;
+        margin: 0 auto;
+        padding: 0;
+    }
 `;
 
 export const Header = styled.div`
@@ -11,6 +18,10 @@ export const Header = styled.div`
     gap: 18px;
     align-items: center;
     margin-top: 32px;
+
+    @media (min-width: 1024px) {
+        margin-top: 72px;
+    }
 `;
 
 export const Info = styled.div``;
