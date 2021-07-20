@@ -1,5 +1,6 @@
 import { useGlobalContext } from '../App/context';
 import Filter from './Filter/Filter';
+import List from './List/List';
 import {
     Container,
     Header,
@@ -23,6 +24,7 @@ const Invoices = () => {
                 <Filter isDesktop={isDesktop} />
                 <NewInvoice>New {isDesktop && 'Invoice'}</NewInvoice>
             </Header>
+            <List />
         </Container>
     );
 };
