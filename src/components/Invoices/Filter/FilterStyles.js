@@ -36,7 +36,7 @@ export const List = styled.ul`
     box-shadow: 0 10px 20px 0 ${({ theme }) => theme.colors.bgFilterShadow};
     border-radius: 8px;
     transform: translateX(-50%);
-    transition: background-color 400ms ease-in;
+    transition: background-color 400ms ease-in-out;
 `;
 
 export const Item = styled.li``;
@@ -53,14 +53,15 @@ export const StatusFilter = styled(ButtonDefault)`
         width: 16px;
         height: 16px;
         background-color: ${({ theme }) => theme.colors.bgFilterBox};
+        border: 1px solid transparent;
         border-radius: 2px;
-        transition: background-color 400ms ease-in;
+        transition: background-color 400ms ease-in-out, border 300ms ease-in-out;
 
         ${({ $isActive }) =>
             $isActive &&
             css`
                 background-color: ${({ theme }) => theme.colors.purple};
-                background-image: url(${checkIcon});
+                background-image: url('${checkIcon}');
                 background-repeat: no-repeat;
                 background-size: 10px;
                 background-position: center;
