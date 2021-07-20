@@ -4,13 +4,16 @@ export const theme = {
             // Backgrounds
             bgMain: 'hsl(240, 27%, 98%)',
             bgHeader: 'hsl(231, 20%, 27%)',
-            bgItem: 'hsl(0, 0%, 100%)',
+            bgInvoiceItem: 'hsl(0, 0%, 100%)',
             bgView: 'hsl(0, 0%, 100%)',
             bgViewSummary: 'hsl(231, 67%, 99%)',
             bgViewSummaryFooter: 'hsl(231, 20%, 27%)',
             bgEdit: 'hsl(0, 0%, 100%',
             bgInput: 'hsl(0, 0%, 100%)',
             bgInputBorder: 'hsl(231, 75%, 93%)',
+            bgFilter: 'hsl(0, 0%, 100%)',
+            bgFilterBox: 'hsl(231, 73%, 93%)',
+            bgFilterShadow: 'rgba(72, 84, 159, 25%)',
             // Typography
             textPrimary: 'hsl(231, 28%, 7%)',
             textSecondary: 'hsl(231, 36%, 63%)',
@@ -46,22 +49,22 @@ export const theme = {
             grayLight: 'hsl(231, 20%, 36%)',
             grayMedium: 'hsl(225, 14%, 53%)',
         },
-        fonts: {
-            primary: `'Spartan', sans-serif`,
-        },
     },
     dark: {
         colors: {
             // Backgrounds
             bgMain: 'hsl(231, 30%, 11%)',
             bgHeader: 'hsl(233, 31%, 17%)',
-            bgItem: 'hsl(233, 31%, 17%)',
+            bgInvoiceItem: 'hsl(233, 31%, 17%)',
             bgView: 'hsl(231, 31%, 17%)',
             bgViewSummary: 'hsl(233, 30%, 21%)',
             bgViewSummaryFooter: 'hsl(231, 28%, 7%)',
             bgEdit: 'hsl(233, 30%, 11%',
             bgInput: 'hsl(233, 31%, 17%)',
             bgInputBorder: 'hsl(233, 30%, 21%)',
+            bgFilter: 'hsl(233, 30%, 21%)',
+            bgFilterBox: 'hsl(233, 31%, 17%)',
+            bgFilterShadow: 'rgba(0, 0, 0, 25%)',
             // Typography
             textPrimary: 'hsl(0, 0%, 100%)',
             textSecondary: 'hsl(231, 75%, 93%)',
