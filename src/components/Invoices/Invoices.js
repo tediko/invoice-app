@@ -1,14 +1,8 @@
 import { useGlobalContext } from '../App/context';
 import Filter from './Filter/Filter';
 import List from './List/List';
-import {
-    Container,
-    Header,
-    Info,
-    Title,
-    Text,
-    NewInvoice,
-} from './InvoicesStyles';
+import Button from '../shared/Button/Button';
+import { Container, Header, Info, Title, Text } from './InvoicesStyles';
 
 const Invoices = () => {
     const { windowWidth } = useGlobalContext();
@@ -22,7 +16,7 @@ const Invoices = () => {
                     <Text>7 invoices</Text>
                 </Info>
                 <Filter isDesktop={isDesktop} />
-                <NewInvoice>New {isDesktop && 'Invoice'}</NewInvoice>
+                <Button $newInvoice>New {isDesktop && 'Invoice'}</Button>
             </Header>
             <List />
         </Container>

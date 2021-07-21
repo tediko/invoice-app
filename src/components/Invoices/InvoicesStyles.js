@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import plusIcon from '../../assets/images/icon-plus.svg';
 import { primaryFontStyles } from '../shared/Typography';
 import { HeadingTitle } from '../shared/Headings';
 
@@ -40,38 +39,4 @@ export const Title = styled.h1`
 export const Text = styled.p`
     color: ${({ theme }) => theme.colors.textTertiary};
     transition: color 400ms ease-in;
-`;
-
-export const NewInvoice = styled.button`
-    ${primaryFontStyles}
-    position: relative;
-    background-color: ${({ theme }) => theme.colors.btnPrimary};
-    font-weight: 600;
-    color: ${({ theme }) => theme.colors.white};
-    padding: 15px 15px 14px 46px;
-    border: none;
-    border-radius: 24px;
-
-    &::before {
-        position: absolute;
-        content: '';
-        top: 50%;
-        left: 6px;
-        width: 32px;
-        height: 32px;
-        background-color: ${({ theme }) => theme.colors.white};
-        background-image: url('${plusIcon}');
-        background-position: center;
-        background-repeat: no-repeat;
-        border-radius: 50%;
-        transform: translateY(-50%);
-
-        @media (min-width: 768px) {
-            left: 8px;
-        }
-    }
-
-    @media (min-width: 768px) {
-        padding: 17px 15px 16px 58px;
-    }
 `;
