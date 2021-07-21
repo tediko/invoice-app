@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { HeadingTitle } from '../shared/Headings';
 
-export const Container = styled.div`
+export const Container = styled.section`
     padding: 0 24px;
 
     @media (min-width: 768px) {
