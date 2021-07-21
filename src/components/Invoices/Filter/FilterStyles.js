@@ -21,6 +21,10 @@ export const Button = styled(ButtonDefault)`
     flex-flow: row;
     gap: 12px;
     align-items: center;
+
+    @media (min-width: 768px) {
+        gap: 16px;
+    }
 `;
 
 export const List = styled.ul`
