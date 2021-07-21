@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { primaryFontStyles } from '../shared/Typography';
 import { HeadingTitle } from '../shared/Headings';
 
 export const Container = styled.div`
