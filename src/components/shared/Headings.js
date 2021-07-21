@@ -23,6 +23,10 @@ export const HeadingLarge = css`
 
 export const HeadingBig = css`
     ${commonStyles}
+    font-size: 1.25rem;
+    letter-spacing: -0.04rem;
+    color: ${({ theme }) => theme.colors.textPrimary};
+    transition: color 400ms ease-in-out;
 `;
 
 export const HeadingMedium = css`
