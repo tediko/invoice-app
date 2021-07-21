@@ -1,11 +1,8 @@
 import { useTheme } from 'styled-components';
 import data from './data.json';
 import Icon from '../../shared/Icon/Icon';
-import {
-    languageSensitiveNum,
-    capitalizeFirstLetter,
-    dateToString,
-} from '../../shared/utilities';
+import Status from '../../shared/Status/Status';
+import { languageSensitiveNum, dateToString } from '../../shared/utilities';
 import { useGlobalContext } from '../../App/context';
 import {
     StyledList,
@@ -16,8 +13,6 @@ import {
     PaymentDue,
     ClientName,
     TotalPrice,
-    Status,
-    StatusCircle,
 } from './ListStyles';
 
 const List = () => {
@@ -39,10 +34,7 @@ const List = () => {
                         <TotalPrice>
                             £&nbsp;{languageSensitiveNum(total)}
                         </TotalPrice>
-                        <Status $statusType={status}>
-                            <StatusCircle $statusType={status} />
-                            {capitalizeFirstLetter(status)}
-                        </Status>
+                        <Status currStatus={status} />
                         {isDesktop && (
                             <Icon
                                 name={'arrow-right'}
