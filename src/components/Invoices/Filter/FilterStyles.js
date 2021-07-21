@@ -1,26 +1,18 @@
 import styled, { css } from 'styled-components';
 import checkIcon from '../../../assets/images/icon-check.svg';
-import { primaryFontStyles } from '../../shared/Typography';
-
-const ButtonDefault = styled.button`
-    ${primaryFontStyles}
-    font-weight: 600;
-    color: ${({ theme }) => theme.colors.textPrimary};
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    transition: color 400ms ease-in;
-`;
+import { buttonDefault } from '../../shared/Button/ButtonStyles';
 
 export const StyledFilter = styled.div`
     position: relative;
 `;
 
-export const Button = styled(ButtonDefault)`
+export const Button = styled.button`
+    ${buttonDefault}
     display: flex;
     flex-flow: row;
     gap: 12px;
     align-items: center;
+    padding: 0;
 
     @media (min-width: 768px) {
         gap: 16px;
@@ -45,7 +37,8 @@ export const List = styled.ul`
 
 export const Item = styled.li``;
 
-export const StatusFilter = styled(ButtonDefault)`
+export const StatusFilter = styled.button`
+    ${buttonDefault}
     position: relative;
     padding-left: 29px;
 
