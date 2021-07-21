@@ -27,12 +27,16 @@ export const Link = styled.a`
     @media (min-width: 768px) {
         grid-template-rows: unset;
         grid-template-areas: unset;
-        grid-template-columns: 80px 144px 1fr min-content 150px min-content;
+        grid-template-columns: 103px 151px 145px 103px 146px 28px;
         align-items: center;
-        padding: 15px 24px;
+        padding: 15px 20px 15px 32px;
 
         &:hover {
             border: 1px solid ${({ theme }) => theme.colors.purple};
+        }
+
+        svg {
+            margin-left: auto;
         }
     }
 `;
@@ -78,6 +82,7 @@ export const TotalPrice = styled.p`
 
     @media (min-width: 768px) {
         grid-area: unset;
+        justify-self: end;
     }
 `;
 
@@ -115,6 +120,7 @@ export const Status = styled.div`
 
     @media (min-width: 768px) {
         grid-area: unset;
+        justify-self: end;
     }
 `;
 
