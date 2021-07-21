@@ -21,8 +21,12 @@ export const Header = styled.div`
     align-items: center;
     margin: 32px 0;
 
+    @media (min-width: 768px) {
+        gap: 40px;
+    }
+
     @media (min-width: 1024px) {
-        margin: 72px 0;
+        margin: 72px 0 64px 0;
     }
 `;
 
@@ -44,7 +48,7 @@ export const NewInvoice = styled.button`
     background-color: ${({ theme }) => theme.colors.btnPrimary};
     font-weight: 600;
     color: ${({ theme }) => theme.colors.white};
-    padding: 15px 14px 14px 45px;
+    padding: 15px 15px 14px 46px;
     border: none;
     border-radius: 24px;
 
@@ -61,5 +65,13 @@ export const NewInvoice = styled.button`
         background-repeat: no-repeat;
         border-radius: 50%;
         transform: translateY(-50%);
+
+        @media (min-width: 768px) {
+            left: 8px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        padding: 17px 15px 16px 58px;
     }
 `;
