@@ -6,7 +6,10 @@
  */
 export const languageSensitiveNum = (number) => {
     const stringNumber = number.toString();
-    const integerDigits = parseFloat(stringNumber.split('.')[0]);
+    let integerDigits = parseFloat(stringNumber.split('.')[0]);
+    integerDigits = integerDigits.toLocaleString('en', {
+        maximumFractionDigits: 0,
+    });
     const decimalDigits = stringNumber.split('.')[1];
 
     if (decimalDigits != null && decimalDigits.length >= 2) {
