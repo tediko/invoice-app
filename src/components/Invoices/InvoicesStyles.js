@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { HeadingTitle } from '../shared/Headings';
+import { headingTitle } from '../shared/Headings';
 
 export const Container = styled.section`
     padding: 0 24px;
@@ -31,7 +31,7 @@ export const Header = styled.div`
 export const Info = styled.div``;
 
 export const Title = styled.h1`
-    ${HeadingTitle}
+    ${headingTitle}
     margin-bottom: 4px;
 `;
 

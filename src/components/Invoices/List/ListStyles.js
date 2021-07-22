@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { HeadingSmall, HeadingMedium } from '../../shared/Headings';
+import { headingSmall, headingMedium } from '../../shared/Headings';
 
 export const StyledList = styled.ul`
     display: flex;
@@ -42,7 +42,7 @@ export const Link = styled.a`
 `;
 
 export const Uid = styled.p`
-    ${HeadingSmall}
+    ${headingSmall}
     grid-area: uid;
 
     @media (min-width: 768px) {
@@ -77,7 +77,7 @@ export const ClientName = styled.p`
 `;
 
 export const TotalPrice = styled.p`
-    ${HeadingMedium}
+    ${headingMedium}
     grid-area: totalprice;
 
     @media (min-width: 768px) {

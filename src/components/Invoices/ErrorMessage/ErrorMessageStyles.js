@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { HeadingBig } from '../../shared/Headings';
+import { headingBig } from '../../shared/Headings';
 import errorImage from '../../../assets/images/illustration-empty.svg';
 
 export const StyledErrorMessage = styled.div`
@@ -20,7 +20,7 @@ export const Illustration = styled.div`
 `;
 
 export const Title = styled.h2`
-    ${HeadingBig}
+    ${headingBig}
     margin-bottom: 24px;
 `;
 
