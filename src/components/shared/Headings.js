@@ -1,11 +1,11 @@
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 
 const commonStyles = css`
     font-family: 'Spartan', sans-serif;
     font-weight: 600;
 `;
 
-export const HeadingTitle = css`
+export const headingTitle = css`
     ${commonStyles}
     font-size: clamp(1.25rem, 5vw, 2rem);
     letter-spacing: -0.04rem;
@@ -17,11 +17,11 @@ export const HeadingTitle = css`
     }
 `;
 
-export const HeadingLarge = css`
+export const headingLarge = css`
     ${commonStyles}
 `;
 
-export const HeadingBig = css`
+export const headingBig = css`
     ${commonStyles}
     font-size: 1.25rem;
     letter-spacing: -0.04rem;
@@ -29,7 +29,7 @@ export const HeadingBig = css`
     transition: color 400ms ease-in-out;
 `;
 
-export const HeadingMedium = css`
+export const headingMedium = css`
     ${commonStyles}
     font-size: 1rem;
     letter-spacing: -0.05rem;
@@ -38,7 +38,7 @@ export const HeadingMedium = css`
     transition: color 400ms ease-in-out;
 `;
 
-export const HeadingSmall = css`
+export const headingSmall = css`
     ${commonStyles}
     font-size: 0.75rem;
     letter-spacing: -0.016rem;
