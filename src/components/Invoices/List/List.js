@@ -34,7 +34,7 @@ const List = () => {
                         <TotalPrice>
                             £&nbsp;{languageSensitiveNum(total)}
                         </TotalPrice>
-                        <Status currStatus={status} />
+                        <Status currStatus={status} $grid />
                         {isDesktop && (
                             <Icon
                                 name={'arrow-right'}
