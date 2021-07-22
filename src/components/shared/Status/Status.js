@@ -1,9 +1,9 @@
 import { capitalizeFirstLetter } from '../../shared/utilities';
 import { StyledStatus, Circle } from './StatusStyles';
 
-const Status = ({ currStatus }) => {
+const Status = ({ currStatus, ...props }) => {
     return (
-        <StyledStatus $statusType={currStatus}>
+        <StyledStatus $statusType={currStatus} {...props}>
             <Circle $statusType={currStatus} />
             {capitalizeFirstLetter(currStatus)}
         </StyledStatus>

@@ -1,9 +1,6 @@
 import styled, { css } from 'styled-components';
 
 export const StyledStatus = styled.div`
-    grid-area: status;
-    align-self: center;
-    justify-self: center;
     width: 104px;
     padding: 13px 0;
     font-weight: 600;
@@ -32,10 +29,17 @@ export const StyledStatus = styled.div`
             color: ${({ theme }) => theme.colors.statusPaid};
         `}
 
-    @media (min-width: 768px) {
-        grid-area: unset;
-        justify-self: end;
-    }
+    ${({ $grid }) =>
+        $grid &&
+        css`
+            grid-area: status;
+            align-self: center;
+
+            @media (min-width: 768px) {
+                grid-area: unset;
+                justify-self: end;
+            }
+        `}
 `;
 
 export const Circle = styled.span`
