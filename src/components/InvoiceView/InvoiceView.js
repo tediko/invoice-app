@@ -1,6 +1,7 @@
 import Icon from '../shared/Icon/Icon';
 import Status from '../shared/Status/Status';
 import Button from '../shared/Button/Button';
+import InvoiceInfo from '../InvoiceInfo/InvoiceInfo';
 import { useTheme } from 'styled-components';
 import { useGlobalContext } from '../App/context';
 import {
@@ -28,6 +29,7 @@ const InvoiceView = () => {
                     <Text>Status</Text>
                     <Status currStatus="pending" />
                 </Controller>
+                <InvoiceInfo />
             </Container>
             {!isDesktop && (
                 <ButtonWrapper>
