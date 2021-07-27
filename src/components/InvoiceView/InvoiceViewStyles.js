@@ -1,6 +1,19 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { buttonDefault } from '../shared/Button/ButtonStyles';
 import { primaryFontStyles } from '../shared/Typography';
+
+const pulseAnimation = keyframes`
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+`;
 
 export const StyledInvoiceView = styled.div`
     max-width: 730px;
@@ -32,6 +45,20 @@ export const Link = styled.a`
     padding: 0;
     margin-bottom: 32px;
     line-height: 1;
+    max-width: max-content;
+
+    & svg {
+        transition: transform 350ms ease-in-out;
+    }
+
+    @media (min-width: 768px) {
+        &:hover {
+            color: ${({ theme }) => theme.colors.blueGrayish};
+            & svg {
+                animation: ${pulseAnimation} 2s ease infinite;
+            }
+        }
+    }
 `;
 
 export const Controller = styled.div`
