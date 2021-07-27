@@ -6,7 +6,7 @@ import {
     headingLargeSmall,
 } from '../shared/Headings';
 
-export const Info = styled.article`
+export const StyledInvoiceInfo = styled.article`
     background-color: ${({ theme }) => theme.colors.bgView};
     transition: background-color 400ms ease-in-out;
     border-radius: 8px;
@@ -14,7 +14,7 @@ export const Info = styled.article`
     padding: clamp(24px, 4vw, 48px);
 `;
 
-export const InfoContainer = styled.div`
+export const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 'key .' 'senderAddress .' 'createdDate clientInfo' 'paymentDue clientInfo' 'email email';

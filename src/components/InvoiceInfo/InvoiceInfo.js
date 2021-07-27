@@ -1,7 +1,7 @@
 import Summary from './Summary/Summary';
 import {
-    Info,
-    InfoContainer,
+    StyledInvoiceInfo,
+    Container,
     Key,
     Uid,
     Hashtag,
@@ -20,8 +20,8 @@ import {
 
 const InvoiceInfo = () => {
     return (
-        <Info>
-            <InfoContainer>
+        <StyledInvoiceInfo>
+            <Container>
                 <Key>
                     <Uid>
                         <Hashtag>#</Hashtag>XM9141
@@ -56,13 +56,13 @@ const InvoiceInfo = () => {
                     <Heading>Payment Due</Heading>
                     <Text>20 Sep 2021</Text>
                 </PaymentDue>
-            </InfoContainer>
+            </Container>
             <Summary />
             <Total>
                 <TotalHeading>Amount Due</TotalHeading>
                 <TotalText>£ 556.00</TotalText>
             </Total>
-        </Info>
+        </StyledInvoiceInfo>
     );
 };
 
