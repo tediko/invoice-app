@@ -20,7 +20,7 @@ export const StyledInvoiceView = styled.div`
     margin: 32px auto 0 auto;
 
     @media (min-width: 768px) {
-        margin: 32px auto;
+        margin: 48px auto;
     }
 
     @media (min-width: 1024px) {
