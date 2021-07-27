@@ -28,6 +28,13 @@ const InvoiceView = () => {
                 <Controller>
                     <Text>Status</Text>
                     <Status currStatus="pending" />
+                    {isDesktop && (
+                        <ButtonWrapper>
+                            <Button $secondary>Edit</Button>
+                            <Button $delete>Delete</Button>
+                            <Button $primary>Mark as Paid</Button>
+                        </ButtonWrapper>
+                    )}
                 </Controller>
                 <InvoiceInfo />
             </Container>
