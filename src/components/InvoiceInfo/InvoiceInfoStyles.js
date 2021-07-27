@@ -11,7 +11,7 @@ export const Info = styled.article`
     transition: background-color 400ms ease-in-out;
     border-radius: 8px;
     box-shadow: 0 10px 10px -10px ${({ theme }) => theme.colors.bgViewShadow};
-    padding: 24px;
+    padding: clamp(24px, 4vw, 48px);
 `;
 
 export const InfoContainer = styled.div`
@@ -20,6 +20,12 @@ export const InfoContainer = styled.div`
     grid-template-areas: 'key .' 'senderAddress .' 'createdDate clientInfo' 'paymentDue clientInfo' 'email email';
     gap: 30px;
     margin-bottom: 40px;
+
+    @media (min-width: 600px) {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 'key . senderAddress' 'createdDate clientInfo email' 'paymentDue clientInfo email';
+        gap: 20px;
+    }
 `;
 
 export const Key = styled.div`
@@ -50,6 +56,7 @@ export const CreatedDate = styled(DescWrapper)`
 
 export const PaymentDue = styled(DescWrapper)`
     grid-area: paymentDue;
+    align-self: end;
 `;
 
 export const ClientInfo = styled(DescWrapper)`
@@ -82,6 +89,11 @@ export const Address = styled.address`
 
 export const SenderAddress = styled(Address)`
     grid-area: senderAddress;
+
+    @media (min-width: 600px) {
+        justify-self: end;
+        text-align: right;
+    }
 `;
 
 export const ClientAddress = styled(Address)``;
@@ -99,18 +111,46 @@ export const SummaryContainer = styled.div`
     padding: 24px;
 `;
 
+export const SummaryHead = styled.div`
+    display: grid;
+    grid-template-columns:
+        minmax(200px, 270px) minmax(40px, 80px) minmax(40px, 100px)
+        1fr;
+`;
+
 export const SummaryItem = styled.div`
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-areas: 'name total' 'qty total';
     gap: 10px;
     align-items: center;
+
+    @media (min-width: 768px) {
+        grid-template-columns:
+            minmax(200px, 270px) minmax(40px, 80px) minmax(40px, 100px)
+            1fr;
+        grid-template-areas: 'name qty price total';
+        gap: unset;
+    }
 `;
 
 export const SummaryHeading = styled.h5`
-    ${primaryFontStyles}
+    ${secondaryFontStyles}
     color: ${({ theme }) => theme.colors.textSecondary};
+    font-weight: 400;
     transition: color 400ms ease-in-out;
+
+    ${({ $jsCenter }) =>
+        $jsCenter &&
+        css`
+            justify-self: center;
+        `};
+
+    ${({ $jsEnd }) =>
+        $jsEnd &&
+        css`
+            justify-self: end;
+        `};
 `;
 
 export const SummaryText = styled.p`
@@ -127,15 +167,27 @@ export const ItemName = styled(SummaryText)`
 export const ItemQty = styled(SummaryText)`
     grid-area: qty;
     color: ${({ theme }) => theme.colors.textSecondary};
+
+    @media (min-width: 768px) {
+        justify-self: center;
+    }
 `;
 
 export const ItemPrice = styled(SummaryText)`
     grid-area: price;
     color: ${({ theme }) => theme.colors.textSecondary};
+
+    @media (min-width: 768px) {
+        justify-self: end;
+    }
 `;
 
 export const ItemTotal = styled(SummaryText)`
     grid-area: total;
+
+    @media (min-width: 768px) {
+        justify-self: end;
+    }
 `;
 
 export const Total = styled.div`
@@ -145,7 +197,7 @@ export const Total = styled.div`
     background-color: ${({ theme }) => theme.colors.bgViewSummaryFooter};
     transition: background-color 400ms ease-in-out;
     border-radius: 0 0 8px 8px;
-    padding: 24px 32px;
+    padding: 14px 32px;
 `;
 
 export const TotalHeading = styled.h5`
