@@ -15,9 +15,9 @@ import {
     ClientAddress,
     Summary,
     SummaryContainer,
+    SummaryHead,
     SummaryItem,
     SummaryHeading,
-    SummaryText,
     ItemName,
     ItemQty,
     ItemPrice,
@@ -70,6 +70,14 @@ const InvoiceInfo = () => {
             </InfoContainer>
             <Summary>
                 <SummaryContainer>
+                    {isDesktop && (
+                        <SummaryHead>
+                            <SummaryHeading>Item Name</SummaryHeading>
+                            <SummaryHeading $jsCenter>QTY.</SummaryHeading>
+                            <SummaryHeading $jsEnd>Price</SummaryHeading>
+                            <SummaryHeading $jsEnd>Total</SummaryHeading>
+                        </SummaryHead>
+                    )}
                     <SummaryItem>
                         <ItemName>Banner Design</ItemName>
                         <ItemQty>1 {!isDesktop && ' x £ 156.00'}</ItemQty>
