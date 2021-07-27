@@ -22,7 +22,7 @@ export const InfoContainer = styled.div`
     margin-bottom: 40px;
 
     @media (min-width: 600px) {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: auto auto auto;
         grid-template-areas: 'key . senderAddress' 'createdDate clientInfo email' 'paymentDue clientInfo email';
         gap: 20px;
     }
