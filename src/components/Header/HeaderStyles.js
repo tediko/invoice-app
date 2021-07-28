@@ -8,8 +8,11 @@ export const StyledHeader = styled.header`
     background-color: ${({ theme }) => theme.colors.bgHeader};
     height: clamp(72px, 10.5vw, 80px);
     transition: background-color 400s ease-in-out;
+    z-index: 10;
 
     @media (min-width: 1024px) {
+        position: sticky;
+        top: 0;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr auto auto;
         height: 100vh;
