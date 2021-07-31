@@ -13,7 +13,6 @@ export const Cta = styled.button`
     justify-content: space-between;
     align-items: center;
     padding: 16px 13px 16px 20px;
-    width: 100%;
     cursor: pointer;
 
     svg {
