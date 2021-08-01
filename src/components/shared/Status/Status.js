@@ -1,4 +1,4 @@
-import { capitalizeFirstLetter } from '../../shared/utilities';
+import capitalizeFirstLetter from '../../../utilities/capitalizeFirstLetter';
 import { StyledStatus, Circle } from './StatusStyles';
 
 const Status = ({ currStatus, ...props }) => {

@@ -2,7 +2,8 @@ import { useTheme } from 'styled-components';
 import data from './data.json';
 import Icon from '../../shared/Icon/Icon';
 import Status from '../../shared/Status/Status';
-import { languageSensitiveNum, dateToString } from '../../shared/utilities';
+import languageSensitiveNum from '../../../utilities/languageSensitiveNum';
+import dateToString from '../../../utilities/dateToString';
 import { useGlobalContext } from '../../App/context';
 import {
     StyledList,

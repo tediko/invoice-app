@@ -2,7 +2,7 @@ import { forwardRef, useState } from 'react';
 import { useTheme } from 'styled-components';
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { dateToString } from '../../shared/utilities';
+import dateToString from '../../../utilities/dateToString';
 import Icon from '../../shared/Icon/Icon';
 import { CustomPicker } from './DatePickerStyles';
 
