@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Provider from '../shared/Provider/Provider';
-import useThemeToggle from './useThemeToggle';
+import useThemeToggle from '../../hooks/useThemeToggle';
 
 const AppContext = React.createContext();
 
