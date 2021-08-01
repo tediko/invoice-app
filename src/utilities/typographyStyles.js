@@ -63,6 +63,15 @@ export const headingBig = css`
     transition: color 400ms ease-in-out;
 `;
 
+export const headingMediumLarge = css`
+    ${commonHeadingStyles}
+    font-size: 1.125rem;
+    letter-spacing: -0.024rem;
+    line-height: 1.7778;
+    color: ${({ theme }) => theme.colors.textPrimary};
+    transition: color 400ms ease-in-out;
+`;
+
 export const headingMedium = css`
     ${commonHeadingStyles}
     font-size: 1rem;
