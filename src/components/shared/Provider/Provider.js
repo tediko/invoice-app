@@ -1,6 +1,6 @@
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { theme } from './theme';
-import { primaryFontStyles } from '../Typography';
+import { primaryFontStyles } from '../../../utilities/typographyStyles';
 
 const GlobalStyle = createGlobalStyle`
     *,

@@ -1,5 +1,8 @@
-import styled, { css } from 'styled-components';
-import { headingExtraSmall, headingMedium } from '../../shared/Headings';
+import styled from 'styled-components';
+import {
+    headingExtraSmall,
+    headingMedium,
+} from '../../../utilities/typographyStyles';
 
 export const StyledList = styled.ul`
     display: flex;

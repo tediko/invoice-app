@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import {
     primaryFontStyles,
     secondaryFontStyles,
-} from '../../shared/Typography';
+} from '../../../utilities/typographyStyles';
 
 export const StyledSummary = styled.div`
     background-color: ${({ theme }) => theme.colors.bgViewSummary};

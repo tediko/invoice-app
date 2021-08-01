@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { headingTitle } from '../shared/Headings';
+import { headingTitle } from '../../utilities/typographyStyles';
 
 export const Container = styled.section`
     padding: 0 24px;

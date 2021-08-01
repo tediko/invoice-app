@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { headingBig } from '../../shared/Headings';
+import { headingBig } from '../../../utilities/typographyStyles';
 import errorImage from '../../../assets/images/illustration-empty.svg';
 
 export const StyledErrorMessage = styled.div`

@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
-import { primaryFontStyles, secondaryFontStyles } from '../shared/Typography';
 import {
+    primaryFontStyles,
+    secondaryFontStyles,
     headingSmall,
     headingMediumSmall,
     headingLargeSmall,
-} from '../shared/Headings';
+} from '../../utilities/typographyStyles';
 
 export const StyledInvoiceInfo = styled.article`
     background-color: ${({ theme }) => theme.colors.bgView};

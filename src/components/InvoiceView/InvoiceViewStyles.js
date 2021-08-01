@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { buttonDefault } from '../shared/Button/ButtonStyles';
-import { primaryFontStyles } from '../shared/Typography';
+import { primaryFontStyles } from '../../utilities/typographyStyles';
 
 const pulseAnimation = keyframes`
     0% {
