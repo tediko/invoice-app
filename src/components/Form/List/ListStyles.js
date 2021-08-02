@@ -64,4 +64,16 @@ export const Delete = styled.button`
     background-color: transparent;
     margin-bottom: 15px;
     cursor: pointer;
+
+    @media (min-width: 768px) {
+        svg {
+            transition: color 300ms ease-in-out;
+        }
+
+        &:hover {
+            svg {
+                color: ${({ theme }) => theme.colors.red};
+            }
+        }
+    }
 `;
