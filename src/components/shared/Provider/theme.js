@@ -47,6 +47,7 @@ export const theme = {
             // Shared
             white: 'hsl(0, 0%, 100%)',
             black: 'hsl(0, 0%, 0%)',
+            blackAlpha50: 'hsla(0, 0%, 0%, 50%)',
             purple: 'hsl(252, 94%, 67%)',
             purpleLight: 'hsl(252, 100%, 73%)',
             red: 'hsl(0, 80%, 63%)',
@@ -104,6 +105,7 @@ export const theme = {
             // Shared
             white: 'hsl(0, 0%, 100%)',
             black: 'hsl(0, 0%, 0%)',
+            blackAlpha50: 'hsla(0, 0%, 0%, 50%)',
             purple: 'hsl(252, 94%, 67%)',
             purpleLight: 'hsl(252, 100%, 73%)',
             red: 'hsl(0, 80%, 63%)',
