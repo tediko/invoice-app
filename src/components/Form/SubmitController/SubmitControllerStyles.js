@@ -11,6 +11,7 @@ export const StyledSubmitController = styled.div`
     padding: 24px;
     background-color: ${({ theme }) => theme.colors.bgForm};
     z-index: 3;
+    transition: background-color 400ms ease-in-out;
 
     & > :first-child {
         margin-right: auto;
