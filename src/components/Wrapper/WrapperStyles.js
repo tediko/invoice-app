@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
+    position: relative;
     display: flex;
     flex-flow: column;
     min-height: 100vh;
