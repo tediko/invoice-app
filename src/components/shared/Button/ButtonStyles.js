@@ -12,6 +12,16 @@ export const buttonDefault = css`
     border-radius: 24px;
     cursor: pointer;
     transition: background-color 300ms ease-in-out, color 400ms ease-in-out;
+
+    ${({ $small }) =>
+        $small &&
+        css`
+            padding: 17px 16px 16px 16px;
+
+            @media (min-width: 768px) {
+                padding: 17px 24px 16px 24px;
+            }
+        `}
 `;
 
 export const buttonPrimary = css`
