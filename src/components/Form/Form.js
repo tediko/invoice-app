@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import Icon from '../shared/Icon/Icon';
 import Select from './Select/Select';
 import DatePicker from './DatePicker/DatePicker';
@@ -23,6 +24,7 @@ const Form = () => {
     const { colors } = useTheme();
     const { windowWidth } = useGlobalContext();
     const isTablet = windowWidth >= 768;
+    const datePicker = useMemo(() => <DatePicker />, []);
 
     return (
         <StyledForm>
@@ -96,7 +98,7 @@ const Form = () => {
                         <InputsGroup $fullWidthMobile>
                             <InputWrapper>
                                 <Label>Invoice Date</Label>
-                                <DatePicker />
+                                {datePicker}
                             </InputWrapper>
                             <InputWrapper>
                                 <Label>Payment Terms</Label>
