@@ -56,6 +56,7 @@ export const TotalValue = styled.span`
     align-items: center;
     font-weight: 600;
     color: ${({ theme }) => theme.colors.textSecondary};
+    transition: color 400ms ease-in-out;
 `;
 
 export const Delete = styled.button`
