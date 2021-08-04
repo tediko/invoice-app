@@ -21,6 +21,7 @@ export const theme = {
             bgFilter: 'hsl(0, 0%, 100%)',
             bgFilterBox: 'hsl(231, 73%, 93%)',
             bgFilterShadow: 'rgba(72, 84, 159, 25%)',
+            bgDeleteModal: 'hsl(0, 0%, 100%)',
             // Typography
             textPrimary: 'hsl(231, 28%, 7%)',
             textSecondary: 'hsl(231, 36%, 63%)',
@@ -80,6 +81,7 @@ export const theme = {
             bgFilter: 'hsl(233, 30%, 21%)',
             bgFilterBox: 'hsl(233, 31%, 17%)',
             bgFilterShadow: 'rgba(0, 0, 0, 25%)',
+            bgDeleteModal: 'hsl(233, 31%, 17%)',
             // Typography
             textPrimary: 'hsl(0, 0%, 100%)',
             textSecondary: 'hsl(231, 75%, 93%)',
