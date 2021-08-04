@@ -45,6 +45,7 @@ export const List = styled.ul`
 
 export const Item = styled.li`
     padding: 0 24px;
+    transition: border 400ms ease-in-out;
 
     &:not(:last-child) {
         border-bottom: 1px solid ${({ theme }) => theme.colors.bgSelectBorder};
