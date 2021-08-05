@@ -1,13 +1,13 @@
-import { forwardRef, useState } from 'react';
-import { useTheme } from 'styled-components';
+import { forwardRef } from 'react';
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import dateToString from '../../../utilities/dateToString';
+import { useGlobalContext } from '../../App/context';
 import Icon from '../../shared/Icon/Icon';
 import { CustomPicker } from './DatePickerStyles';
 
 const DatePicker = () => {
-    const [startDate, setStartDate] = useState(new Date());
+    const { invoice, handleDatePickerChange } = useGlobalContext();
 
     const CustomInput = forwardRef(({ value, onClick }, ref) => (
         <CustomPicker type="button" onClick={onClick} value={value} ref={ref}>
@@ -17,9 +17,9 @@ const DatePicker = () => {
     ));
     return (
         <ReactDatePicker
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            minDate={new Date()}
+            selected={invoice.createdAt}
+            onChange={(date) => handleDatePickerChange(date)}
+            minDate={invoice.createdAt}
             customInput={<CustomInput />}
         />
     );
