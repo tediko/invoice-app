@@ -13,6 +13,11 @@ const Select = () => {
         setIsExpanded(!isExpanded);
     };
 
+    const handleClick = (event) => {
+        handleInvoiceChange(event);
+        setIsExpanded(!isExpanded);
+    };
+
     return (
         <StyledSelect>
             <Cta
@@ -33,7 +38,7 @@ const Select = () => {
                             type="button"
                             name="paymentTerms"
                             value="1"
-                            onClick={(event) => handleInvoiceChange(event)}
+                            onClick={(event) => handleClick(event)}
                         >
                             Net 1 Days
                         </Option>
@@ -43,7 +48,7 @@ const Select = () => {
                             type="button"
                             name="paymentTerms"
                             value="7"
-                            onClick={(event) => handleInvoiceChange(event)}
+                            onClick={(event) => handleClick(event)}
                         >
                             Net 7 Days
                         </Option>
@@ -53,7 +58,7 @@ const Select = () => {
                             type="button"
                             name="paymentTerms"
                             value="14"
-                            onClick={(event) => handleInvoiceChange(event)}
+                            onClick={(event) => handleClick(event)}
                         >
                             Net 14 Days
                         </Option>
@@ -63,7 +68,7 @@ const Select = () => {
                             type="button"
                             name="paymentTerms"
                             value="30"
-                            onClick={(event) => handleInvoiceChange(event)}
+                            onClick={(event) => handleClick(event)}
                         >
                             Net 30 Days
                         </Option>
