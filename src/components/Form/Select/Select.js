@@ -1,5 +1,5 @@
 import Icon from '../../shared/Icon/Icon';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useTheme } from 'styled-components';
 import { useGlobalContext } from '../../App/context';
 import { StyledSelect, Cta, List, Item, Option } from './SelectStyles';
@@ -8,6 +8,24 @@ const Select = () => {
     const { invoice, handleInvoiceChange } = useGlobalContext();
     const { colors } = useTheme();
     const [isExpanded, setIsExpanded] = useState(false);
+    const ref = useRef();
+
+    /* Running an effect whenever isExpanded changes and we are binding a click event to the document 
+    so that whenever the user clicks on the document, we can check if it is inside or outside the list 
+    and hide the list accordingly. */
+    useEffect(() => {
+        const checkIfClickedOutside = (event) => {
+            const target = event.target;
+            if (isExpanded && ref.current && !ref.current.contains(target)) {
+                setIsExpanded(!isExpanded);
+            }
+        };
+        document.addEventListener('click', checkIfClickedOutside);
+
+        return () => {
+            document.removeEventListener('click', checkIfClickedOutside);
+        };
+    }, [isExpanded]);
 
     const expandSelect = () => {
         setIsExpanded(!isExpanded);
@@ -32,7 +50,7 @@ const Select = () => {
                 <Icon name={'arrow-down'} size={12} color={colors.purple} />
             </Cta>
             {isExpanded && (
-                <List id="select-list">
+                <List id="select-list" ref={ref}>
                     <Item>
                         <Option
                             type="button"
