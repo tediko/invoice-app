@@ -21,10 +21,16 @@ import {
 } from './FormStyles';
 
 const Form = () => {
+    const {
+        windowWidth,
+        invoice,
+        handleInvoiceChange,
+        handleSenderAddressChange,
+        handleClientAddressChange,
+        handleSubmit,
+    } = useGlobalContext();
     const { colors } = useTheme();
-    const { windowWidth } = useGlobalContext();
     const isTablet = windowWidth >= 768;
-    const datePicker = useMemo(() => <DatePicker />, []);
 
     return (
         <StyledForm>
@@ -40,57 +46,124 @@ const Form = () => {
                     </Link>
                 )}
                 <Title>New Invoice</Title>
-                <InvoiceForm>
+                <InvoiceForm
+                    id="invoice-form"
+                    onSubmit={(event) => handleSubmit(event)}
+                >
                     <Fieldset>
                         <Legend>Bill from</Legend>
                         <InputWrapper>
-                            <Label>Street Address</Label>
-                            <Input type="text" />
+                            <Label htmlFor="street">Street Address</Label>
+                            <Input
+                                type="text"
+                                name="street"
+                                value={invoice.senderAddress.street}
+                                onChange={(event) =>
+                                    handleSenderAddressChange(event)
+                                }
+                            />
                         </InputWrapper>
                         <InputsGroup>
                             <InputWrapper>
-                                <Label>City</Label>
-                                <Input type="text" />
+                                <Label htmlFor="city">City</Label>
+                                <Input
+                                    type="text"
+                                    name="city"
+                                    value={invoice.senderAddress.city}
+                                    onChange={(event) =>
+                                        handleSenderAddressChange(event)
+                                    }
+                                />
                             </InputWrapper>
                             <InputWrapper>
-                                <Label>Post Code</Label>
-                                <Input type="text" />
+                                <Label htmlFor="postCode">Post Code</Label>
+                                <Input
+                                    type="text"
+                                    name="postCode"
+                                    value={invoice.senderAddress.postCode}
+                                    onChange={(event) =>
+                                        handleSenderAddressChange(event)
+                                    }
+                                />
                             </InputWrapper>
                             <InputWrapper>
-                                <Label>Country</Label>
-                                <Input type="text" />
+                                <Label htmlFor="country">Country</Label>
+                                <Input
+                                    type="text"
+                                    name="country"
+                                    value={invoice.senderAddress.country}
+                                    onChange={(event) =>
+                                        handleSenderAddressChange(event)
+                                    }
+                                />
                             </InputWrapper>
                         </InputsGroup>
                     </Fieldset>
                     <Fieldset>
                         <Legend>Bill to</Legend>
                         <InputWrapper>
-                            <Label>Client's Name</Label>
-                            <Input type="text" />
-                        </InputWrapper>
-                        <InputWrapper>
-                            <Label>Client's Email</Label>
+                            <Label htmlFor="clientName">Client's Name</Label>
                             <Input
-                                type="email"
-                                placeholder="e.g. email@example.com"
+                                type="text"
+                                name="clientName"
+                                value={invoice.clientName}
+                                onChange={(event) => handleInvoiceChange(event)}
                             />
                         </InputWrapper>
                         <InputWrapper>
-                            <Label>Street Address</Label>
-                            <Input type="text" />
+                            <Label htmlFor="clientEmail">Client's Email</Label>
+                            <Input
+                                type="email"
+                                placeholder="e.g. email@example.com"
+                                name="clientEmail"
+                                value={invoice.clientEmail}
+                                onChange={(event) => handleInvoiceChange(event)}
+                            />
+                        </InputWrapper>
+                        <InputWrapper>
+                            <Label htmlFor="street">Street Address</Label>
+                            <Input
+                                type="text"
+                                name="street"
+                                value={invoice.clientAddress.street}
+                                onChange={(event) =>
+                                    handleClientAddressChange(event)
+                                }
+                            />
                         </InputWrapper>
                         <InputsGroup>
                             <InputWrapper>
-                                <Label>City</Label>
-                                <Input type="text" />
+                                <Label htmlFor="city">City</Label>
+                                <Input
+                                    type="text"
+                                    name="city"
+                                    value={invoice.clientAddress.city}
+                                    onChange={(event) =>
+                                        handleClientAddressChange(event)
+                                    }
+                                />
                             </InputWrapper>
                             <InputWrapper>
-                                <Label>Post Code</Label>
-                                <Input type="text" />
+                                <Label htmlFor="postCode">Post Code</Label>
+                                <Input
+                                    type="text"
+                                    name="postCode"
+                                    value={invoice.clientAddress.postCode}
+                                    onChange={(event) =>
+                                        handleClientAddressChange(event)
+                                    }
+                                />
                             </InputWrapper>
                             <InputWrapper>
-                                <Label>Country</Label>
-                                <Input type="text" />
+                                <Label htmlFor="country">Country</Label>
+                                <Input
+                                    type="text"
+                                    name="country"
+                                    value={invoice.clientAddress.country}
+                                    onChange={(event) =>
+                                        handleClientAddressChange(event)
+                                    }
+                                />
                             </InputWrapper>
                         </InputsGroup>
                     </Fieldset>
@@ -98,17 +171,24 @@ const Form = () => {
                         <InputsGroup $fullWidthMobile>
                             <InputWrapper>
                                 <Label>Invoice Date</Label>
-                                {datePicker}
+                                <DatePicker />
                             </InputWrapper>
                             <InputWrapper>
                                 <Label>Payment Terms</Label>
                                 <Select />
                             </InputWrapper>
                             <InputWrapper $fullWidth>
-                                <Label>Project Description</Label>
+                                <Label htmlFor="description">
+                                    Project Description
+                                </Label>
                                 <Input
                                     type="text"
                                     placeholder="e.g. Graphic Design Service"
+                                    name="description"
+                                    value={invoice.description}
+                                    onChange={(event) =>
+                                        handleInvoiceChange(event)
+                                    }
                                 />
                             </InputWrapper>
                         </InputsGroup>
