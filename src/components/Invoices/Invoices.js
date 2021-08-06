@@ -5,7 +5,7 @@ import Button from '../shared/Button/Button';
 import { Container, Header, Info, Title, Text } from './InvoicesStyles';
 
 const Invoices = () => {
-    const { windowWidth } = useGlobalContext();
+    const { windowWidth, openForm } = useGlobalContext();
     const isDesktop = windowWidth >= 768;
 
     return (
@@ -16,7 +16,9 @@ const Invoices = () => {
                     <Text>7 invoices</Text>
                 </Info>
                 <Filter isDesktop={isDesktop} />
-                <Button $newInvoice>New {isDesktop && 'Invoice'}</Button>
+                <Button type="button" $newInvoice onClick={openForm}>
+                    New {isDesktop && 'Invoice'}
+                </Button>
             </Header>
             <List />
         </Container>
