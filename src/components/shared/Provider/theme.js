@@ -97,7 +97,7 @@ export const theme = {
             btnPrimary: 'hsl(252, 94%, 67%)',
             btnPrimaryHover: 'hsl(252, 100%, 73%)',
             btnSecondary: 'hsl(233, 30%, 21%)',
-            btnSecondaryHover: 'hsl(0, 0%, 100%)',
+            btnSecondaryHover: 'hsl(233, 30%, 15%)',
             btnSave: 'hsl(231, 20%, 27%)',
             btnSaveHover: 'hsl(233, 31%, 17%)',
             btnDelete: 'hsl(0, 80%, 63%)',
