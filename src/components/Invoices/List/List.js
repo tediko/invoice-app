@@ -17,12 +17,12 @@ import {
 
 const List = () => {
     const { colors } = useTheme();
-    const { state, windowWidth } = useGlobalContext();
+    const { windowWidth, filteredInvoices } = useGlobalContext();
     const isDesktop = windowWidth >= 768;
 
     return (
         <StyledList>
-            {state.invoices.map(
+            {filteredInvoices.map(
                 ({ id, paymentDue, clientName, status, total }) => (
                     <Item key={id}>
                         <Link>
