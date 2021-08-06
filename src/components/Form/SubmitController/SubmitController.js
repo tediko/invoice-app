@@ -7,7 +7,12 @@ const SubmitController = () => {
 
     return (
         <StyledSubmitController>
-            <Button $small type="button" $secondary>
+            <Button
+                $small
+                type="submit"
+                $secondary
+                onClick={(event) => handleSubmit(event, 'discard')}
+            >
                 Discard
             </Button>
             <Button
