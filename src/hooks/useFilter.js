@@ -8,8 +8,7 @@ const useFilter = (callback) => {
     const previousFilterType = useRef(initialFilterType);
 
     /**
-     * Running an effect whenever callback changes and we are calling handleFilter with current type to
-     * return a filtered list.
+     * Running an effect whenever callback changes and call handleFilter() with current type
      */
     useEffect(() => {
         handleFilter(filterType);
