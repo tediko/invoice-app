@@ -20,7 +20,7 @@ export const Button = styled.button`
 `;
 
 export const List = styled.ul`
-    display: none;
+    display: flex;
     position: absolute;
     flex-flow: column;
     gap: 16px;
@@ -41,6 +41,8 @@ export const StatusFilter = styled.button`
     ${buttonDefault}
     position: relative;
     padding: 0 0 0 29px;
+    width: 100%;
+    text-align: left;
 
     &::before {
         position: absolute;
