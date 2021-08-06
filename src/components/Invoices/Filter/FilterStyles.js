@@ -57,7 +57,7 @@ export const StatusFilter = styled.button`
         transition: background-color 400ms ease-in-out, border 300ms ease-in-out;
 
         ${({ $isActive }) =>
-            $isActive &&
+            $isActive === true &&
             css`
                 background-color: ${({ theme }) => theme.colors.purple};
                 background-image: url('${checkIcon}');
