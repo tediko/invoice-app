@@ -32,7 +32,7 @@ const Select = () => {
     };
 
     const handleClick = (event) => {
-        handleInvoiceChange(event);
+        handleInvoiceChange(event, 'invoice');
         setIsExpanded(!isExpanded);
     };
 
