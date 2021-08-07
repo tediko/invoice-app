@@ -1,4 +1,5 @@
 import { useGlobalContext } from '../../App/context';
+import languageSensitiveNum from '../../../utilities/languageSensitiveNum';
 import {
     StyledSummary,
     Container,
@@ -11,7 +12,7 @@ import {
     ItemTotal,
 } from './SummaryStyles';
 
-const Summary = () => {
+const Summary = ({ invoice }) => {
     const { windowWidth } = useGlobalContext();
     const isDesktop = windowWidth >= 768;
 
@@ -26,18 +27,24 @@ const Summary = () => {
                         <Heading $jsEnd>Total</Heading>
                     </Head>
                 )}
-                <Item>
-                    <ItemName>Banner Design</ItemName>
-                    <ItemQty>1 {!isDesktop && ' x £ 156.00'}</ItemQty>
-                    {isDesktop && <ItemPrice>£ 156.00</ItemPrice>}
-                    <ItemTotal>£ 156.00</ItemTotal>
-                </Item>
-                <Item>
-                    <ItemName>Email Design</ItemName>
-                    <ItemQty>2 {!isDesktop && ' x £ 200.00'}</ItemQty>
-                    {isDesktop && <ItemPrice>£ 200.00</ItemPrice>}
-                    <ItemTotal>£ 400.00</ItemTotal>
-                </Item>
+                {invoice.items.map((item, index) => (
+                    <Item key={index}>
+                        <ItemName>{item.name}</ItemName>
+                        <ItemQty>
+                            {item.quantity}{' '}
+                            {!isDesktop &&
+                                ` x £ ${languageSensitiveNum(item.price)}`}
+                        </ItemQty>
+                        {isDesktop && (
+                            <ItemPrice>
+                                {`£ ${languageSensitiveNum(item.price)}`}
+                            </ItemPrice>
+                        )}
+                        <ItemTotal>
+                            {`£ ${languageSensitiveNum(item.total)}`}
+                        </ItemTotal>
+                    </Item>
+                ))}
             </Container>
         </StyledSummary>
     );
