@@ -19,7 +19,7 @@ const List = () => {
     const {
         windowWidth,
         items,
-        handleItemsChange,
+        handleInvoiceChange,
         handleItemsAdd,
         handleItemsRemove,
     } = useGlobalContext();
@@ -43,7 +43,12 @@ const List = () => {
                                 name="name"
                                 value={item.name}
                                 onChange={(event) =>
-                                    handleItemsChange(index, event)
+                                    handleInvoiceChange(
+                                        event,
+                                        'items',
+                                        null,
+                                        index
+                                    )
                                 }
                             />
                         </InputWrapper>
@@ -59,7 +64,12 @@ const List = () => {
                                 name="quantity"
                                 value={item.quantity}
                                 onChange={(event) =>
-                                    handleItemsChange(index, event)
+                                    handleInvoiceChange(
+                                        event,
+                                        'items',
+                                        null,
+                                        index
+                                    )
                                 }
                                 $qty
                             />
@@ -76,7 +86,12 @@ const List = () => {
                                 name="price"
                                 value={item.price}
                                 onChange={(event) =>
-                                    handleItemsChange(index, event)
+                                    handleInvoiceChange(
+                                        event,
+                                        'items',
+                                        null,
+                                        index
+                                    )
                                 }
                             />
                         </InputWrapper>
