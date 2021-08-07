@@ -10,7 +10,7 @@ import {
 } from './DeleteModalStyles';
 
 const DeleteModal = () => {
-    const { state, toggleDeleteModal, deleteItem } = useGlobalContext();
+    const { state, toggleDeleteModal, deleteInvoice } = useGlobalContext();
     const history = useHistory();
 
     const routeChange = () => {
@@ -38,7 +38,7 @@ const DeleteModal = () => {
                         type="button"
                         $delete
                         onClick={() => {
-                            deleteItem(), routeChange();
+                            deleteInvoice(), routeChange();
                         }}
                     >
                         Delete
