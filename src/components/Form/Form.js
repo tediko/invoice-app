@@ -24,8 +24,6 @@ const Form = () => {
         windowWidth,
         invoice,
         handleInvoiceChange,
-        handleSenderAddressChange,
-        handleClientAddressChange,
         handleSubmit,
         toggleForm,
     } = useGlobalContext();
@@ -59,7 +57,7 @@ const Form = () => {
                                 name="street"
                                 value={invoice.senderAddress.street}
                                 onChange={(event) =>
-                                    handleSenderAddressChange(event)
+                                    handleInvoiceChange(event, 'senderAddress')
                                 }
                             />
                         </InputWrapper>
@@ -71,7 +69,10 @@ const Form = () => {
                                     name="city"
                                     value={invoice.senderAddress.city}
                                     onChange={(event) =>
-                                        handleSenderAddressChange(event)
+                                        handleInvoiceChange(
+                                            event,
+                                            'senderAddress'
+                                        )
                                     }
                                 />
                             </InputWrapper>
@@ -82,7 +83,10 @@ const Form = () => {
                                     name="postCode"
                                     value={invoice.senderAddress.postCode}
                                     onChange={(event) =>
-                                        handleSenderAddressChange(event)
+                                        handleInvoiceChange(
+                                            event,
+                                            'senderAddress'
+                                        )
                                     }
                                 />
                             </InputWrapper>
@@ -93,7 +97,10 @@ const Form = () => {
                                     name="country"
                                     value={invoice.senderAddress.country}
                                     onChange={(event) =>
-                                        handleSenderAddressChange(event)
+                                        handleInvoiceChange(
+                                            event,
+                                            'senderAddress'
+                                        )
                                     }
                                 />
                             </InputWrapper>
@@ -107,7 +114,9 @@ const Form = () => {
                                 type="text"
                                 name="clientName"
                                 value={invoice.clientName}
-                                onChange={(event) => handleInvoiceChange(event)}
+                                onChange={(event) =>
+                                    handleInvoiceChange(event, 'invoice')
+                                }
                             />
                         </InputWrapper>
                         <InputWrapper>
@@ -117,7 +126,9 @@ const Form = () => {
                                 placeholder="e.g. email@example.com"
                                 name="clientEmail"
                                 value={invoice.clientEmail}
-                                onChange={(event) => handleInvoiceChange(event)}
+                                onChange={(event) =>
+                                    handleInvoiceChange(event, 'invoice')
+                                }
                             />
                         </InputWrapper>
                         <InputWrapper>
@@ -127,7 +138,7 @@ const Form = () => {
                                 name="street"
                                 value={invoice.clientAddress.street}
                                 onChange={(event) =>
-                                    handleClientAddressChange(event)
+                                    handleInvoiceChange(event, 'clientAddress')
                                 }
                             />
                         </InputWrapper>
@@ -139,7 +150,10 @@ const Form = () => {
                                     name="city"
                                     value={invoice.clientAddress.city}
                                     onChange={(event) =>
-                                        handleClientAddressChange(event)
+                                        handleInvoiceChange(
+                                            event,
+                                            'clientAddress'
+                                        )
                                     }
                                 />
                             </InputWrapper>
@@ -150,7 +164,10 @@ const Form = () => {
                                     name="postCode"
                                     value={invoice.clientAddress.postCode}
                                     onChange={(event) =>
-                                        handleClientAddressChange(event)
+                                        handleInvoiceChange(
+                                            event,
+                                            'clientAddress'
+                                        )
                                     }
                                 />
                             </InputWrapper>
@@ -161,7 +178,10 @@ const Form = () => {
                                     name="country"
                                     value={invoice.clientAddress.country}
                                     onChange={(event) =>
-                                        handleClientAddressChange(event)
+                                        handleInvoiceChange(
+                                            event,
+                                            'clientAddress'
+                                        )
                                     }
                                 />
                             </InputWrapper>
@@ -187,7 +207,7 @@ const Form = () => {
                                     name="description"
                                     value={invoice.description}
                                     onChange={(event) =>
-                                        handleInvoiceChange(event)
+                                        handleInvoiceChange(event, 'invoice')
                                     }
                                 />
                             </InputWrapper>
