@@ -36,7 +36,7 @@ const Form = () => {
         <StyledForm>
             <Container>
                 {!isTablet && (
-                    <Link>
+                    <Link to="/">
                         <Icon
                             name={'arrow-left'}
                             size={10}
