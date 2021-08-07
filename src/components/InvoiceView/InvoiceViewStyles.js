@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { Link as RouterLink } from 'react-router-dom';
 import { buttonDefault } from '../shared/Button/ButtonStyles';
 import { primaryFontStyles } from '../../utilities/typographyStyles';
 
@@ -36,7 +37,7 @@ export const Container = styled.div`
     }
 `;
 
-export const Link = styled.a`
+export const Link = styled(RouterLink)`
     ${buttonDefault}
     display: flex;
     align-items: center;
