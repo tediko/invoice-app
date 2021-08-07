@@ -1,11 +1,10 @@
-import { useMemo } from 'react';
+import { useTheme } from 'styled-components';
+import { useGlobalContext } from '../App/context';
 import Icon from '../shared/Icon/Icon';
 import Select from './Select/Select';
 import DatePicker from './DatePicker/DatePicker';
 import List from './List/List';
 import SubmitController from './SubmitController/SubmitController';
-import { useTheme } from 'styled-components';
-import { useGlobalContext } from '../App/context';
 import {
     StyledForm,
     Container,
@@ -28,6 +27,7 @@ const Form = () => {
         handleSenderAddressChange,
         handleClientAddressChange,
         handleSubmit,
+        discard,
     } = useGlobalContext();
     const { colors } = useTheme();
     const isTablet = windowWidth >= 768;
@@ -36,7 +36,7 @@ const Form = () => {
         <StyledForm>
             <Container>
                 {!isTablet && (
-                    <Link to="/">
+                    <Link to="/" onClick={() => discard()}>
                         <Icon
                             name={'arrow-left'}
                             size={10}
