@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link as RouterLink } from 'react-router-dom';
 import {
     headingExtraSmall,
     headingMedium,
@@ -17,7 +18,7 @@ export const Item = styled.li`
     transition: background-color 400ms ease-in-out;
 `;
 
-export const Link = styled.a`
+export const Link = styled(RouterLink)`
     display: grid;
     grid-template-rows: 1.5fr 1fr 1fr;
     grid-template-areas: 'uid clientname' 'paymentdue status' 'totalprice status';
