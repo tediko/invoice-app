@@ -1,4 +1,6 @@
 import Summary from './Summary/Summary';
+import dateToString from '../../utilities/dateToString';
+import languageSensitiveNum from '../../utilities/languageSensitiveNum';
 import {
     StyledInvoiceInfo,
     Container,
@@ -18,49 +20,50 @@ import {
     TotalText,
 } from '../InvoiceInfo/InvoiceInfoStyles';
 
-const InvoiceInfo = () => {
+const InvoiceInfo = ({ invoice }) => {
     return (
         <StyledInvoiceInfo>
             <Container>
                 <Key>
                     <Uid>
-                        <Hashtag>#</Hashtag>XM9141
+                        <Hashtag>#</Hashtag>
+                        {invoice.id}
                     </Uid>
-                    <Heading>Graphic Design</Heading>
+                    <Heading>{invoice.description}</Heading>
                 </Key>
                 <SenderAddress>
-                    <span>19 Union Terrace</span>
-                    <span>London</span>
-                    <span>E1 3EZ</span>
-                    <span>United Kingdom</span>
+                    <span>{invoice.senderAddress.street}</span>
+                    <span>{invoice.senderAddress.city}</span>
+                    <span>{invoice.senderAddress.postCode}</span>
+                    <span>{invoice.senderAddress.country}</span>
                 </SenderAddress>
                 <CreatedDate>
                     <Heading>Invoice Date</Heading>
-                    <Text>21 Aug 2021</Text>
+                    <Text>{dateToString(invoice.createdAt)}</Text>
                 </CreatedDate>
                 <ClientInfo>
                     <Heading>Bill to</Heading>
-                    <Text>Alex Grim</Text>
+                    <Text>{invoice.clientName}</Text>
                     <ClientAddress>
-                        <span>84 Church Way</span>
-                        <span>Bradford</span>
-                        <span>BD1 9PB</span>
-                        <span>United Kingdom</span>
+                        <span>{invoice.clientAddress.street}</span>
+                        <span>{invoice.clientAddress.city}</span>
+                        <span>{invoice.clientAddress.postCode}</span>
+                        <span>{invoice.clientAddress.country}</span>
                     </ClientAddress>
                 </ClientInfo>
                 <Email>
                     <Heading>Sent to</Heading>
-                    <Text>alexgrim@mail.com</Text>
+                    <Text>{invoice.clientEmail}</Text>
                 </Email>
                 <PaymentDue>
                     <Heading>Payment Due</Heading>
-                    <Text>20 Sep 2021</Text>
+                    <Text>{dateToString(invoice.paymentDue)}</Text>
                 </PaymentDue>
             </Container>
             <Summary />
             <Total>
                 <TotalHeading>Amount Due</TotalHeading>
-                <TotalText>£ 556.00</TotalText>
+                <TotalText>£ {languageSensitiveNum(invoice.total)}</TotalText>
             </Total>
         </StyledInvoiceInfo>
     );
