@@ -6,7 +6,7 @@
  * @param    {number}  terms - Number of days to add
  * @return  {object} New date object
  */
-export const generatePaymentDueDate = (createDate, terms) => {
+const generatePaymentDueDate = (createDate, terms) => {
     const numTerms = parseInt(terms);
     const dateObj = new Date();
     const paymentDue = new Date(
@@ -15,3 +15,5 @@ export const generatePaymentDueDate = (createDate, terms) => {
 
     return paymentDue;
 };
+
+export default generatePaymentDueDate;
