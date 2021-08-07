@@ -60,7 +60,7 @@ const InvoiceInfo = ({ invoice }) => {
                     <Text>{dateToString(invoice.paymentDue)}</Text>
                 </PaymentDue>
             </Container>
-            <Summary />
+            <Summary invoice={invoice} />
             <Total>
                 <TotalHeading>Amount Due</TotalHeading>
                 <TotalText>£ {languageSensitiveNum(invoice.total)}</TotalText>
