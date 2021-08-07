@@ -7,12 +7,10 @@
  * @return  {object} New date object
  */
 const generatePaymentDueDate = (createDate, terms) => {
-    const numTerms = parseInt(terms);
-    const dateObj = new Date();
-    const paymentDue = new Date(
-        dateObj.setDate(createDate.getDate() + numTerms)
-    );
-
+    // Convert terms to milliseconds.
+    // terms(days) * hours in the day * minutes in hour * seconds in minute * milliseconds in second
+    const daysToMilliseconds = parseInt(terms) * 24 * 60 * 60 * 1000;
+    const paymentDue = new Date(createDate.getTime() + daysToMilliseconds);
     return paymentDue;
 };
 
