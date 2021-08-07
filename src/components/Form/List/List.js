@@ -5,6 +5,7 @@ import { useGlobalContext } from '../../App/context';
 import {
     Fieldset,
     Legend,
+    Wrapper,
     InputsGroup,
     InputWrapper,
     Label,
@@ -15,62 +16,92 @@ import {
 
 const List = () => {
     const { colors } = useTheme();
-    const { items, handleItemsChange, handleItemsAdd, handleItemsRemove } =
-        useGlobalContext();
+    const {
+        windowWidth,
+        items,
+        handleItemsChange,
+        handleItemsAdd,
+        handleItemsRemove,
+    } = useGlobalContext();
+    const isDesktop = windowWidth >= 768;
 
     return (
         <Fieldset>
             <Legend $lg>Item List</Legend>
-            {items.map((item, index) => (
-                <InputsGroup key={index}>
-                    <InputWrapper>
-                        <Label htmlFor="name">Item Name</Label>
-                        <Input
-                            type="text"
-                            name="name"
-                            value={item.name}
-                            onChange={(event) =>
-                                handleItemsChange(index, event)
-                            }
-                        />
-                    </InputWrapper>
-                    <InputWrapper>
-                        <Label htmlFor="quantity">Qty.</Label>
-                        <Input
-                            type="text"
-                            name="quantity"
-                            value={item.quantity}
-                            onChange={(event) =>
-                                handleItemsChange(index, event)
-                            }
-                        />
-                    </InputWrapper>
-                    <InputWrapper>
-                        <Label htmlFor="price">Price</Label>
-                        <Input
-                            type="text"
-                            name="price"
-                            value={item.price}
-                            onChange={(event) =>
-                                handleItemsChange(index, event)
-                            }
-                        />
-                    </InputWrapper>
-                    <InputWrapper>
-                        <Label>Total</Label>
-                        <TotalValue>{item.total}</TotalValue>
-                    </InputWrapper>
-                    <Delete
-                        type="button"
-                        onClick={() => handleItemsRemove(index)}
-                    >
-                        <Icon name="delete" size={16} color={colors.btnTheme} />
-                    </Delete>
-                </InputsGroup>
-            ))}
-            <Button type="button" $secondary onClick={handleItemsAdd}>
-                + Add New Item
-            </Button>
+            <Wrapper>
+                {items.map((item, index) => (
+                    <InputsGroup key={index}>
+                        <InputWrapper>
+                            <Label
+                                htmlFor="name"
+                                $srOnly={index > 0 && isDesktop}
+                            >
+                                Item Name
+                            </Label>
+                            <Input
+                                type="text"
+                                name="name"
+                                value={item.name}
+                                onChange={(event) =>
+                                    handleItemsChange(index, event)
+                                }
+                            />
+                        </InputWrapper>
+                        <InputWrapper>
+                            <Label
+                                htmlFor="quantity"
+                                $srOnly={index > 0 && isDesktop}
+                            >
+                                Qty.
+                            </Label>
+                            <Input
+                                type="text"
+                                name="quantity"
+                                value={item.quantity}
+                                onChange={(event) =>
+                                    handleItemsChange(index, event)
+                                }
+                                $qty
+                            />
+                        </InputWrapper>
+                        <InputWrapper>
+                            <Label
+                                htmlFor="price"
+                                $srOnly={index > 0 && isDesktop}
+                            >
+                                Price
+                            </Label>
+                            <Input
+                                type="text"
+                                name="price"
+                                value={item.price}
+                                onChange={(event) =>
+                                    handleItemsChange(index, event)
+                                }
+                            />
+                        </InputWrapper>
+                        <InputWrapper>
+                            <Label $srOnly={index > 0 && isDesktop}>
+                                Total
+                            </Label>
+                            <TotalValue>{item.total}</TotalValue>
+                        </InputWrapper>
+                        <Delete
+                            type="button"
+                            onClick={() => handleItemsRemove(index)}
+                        >
+                            <Icon
+                                name="delete"
+                                size={16}
+                                color={colors.btnTheme}
+                            />
+                        </Delete>
+                    </InputsGroup>
+                ))}
+                <Button type="button" $secondary onClick={handleItemsAdd}>
+                    + Add New Item
+                </Button>
+            </Wrapper>
         </Fieldset>
     );
 };
