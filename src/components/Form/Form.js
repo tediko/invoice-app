@@ -27,7 +27,7 @@ const Form = () => {
         handleSenderAddressChange,
         handleClientAddressChange,
         handleSubmit,
-        discard,
+        toggleForm,
     } = useGlobalContext();
     const { colors } = useTheme();
     const isTablet = windowWidth >= 768;
@@ -36,7 +36,7 @@ const Form = () => {
         <StyledForm>
             <Container>
                 {!isTablet && (
-                    <Link to="/" onClick={discard}>
+                    <Link to="/" onClick={toggleForm}>
                         <Icon
                             name={'arrow-left'}
                             size={10}
