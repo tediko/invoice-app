@@ -5,7 +5,7 @@
  * @param {number} windowWidth Number with window width
  * @return {string} Formatted string.
  */
-export const invoicesLengthMessage = (invoicesArr, filterType, windowWidth) => {
+const invoicesLengthMessage = (invoicesArr, filterType, windowWidth) => {
     const invoicesLength = invoicesArr.length;
     const isMobile = windowWidth <= 768;
     const type = filterType === 'all' ? 'total' : filterType;
@@ -26,3 +26,5 @@ export const invoicesLengthMessage = (invoicesArr, filterType, windowWidth) => {
         }
     }
 };
+
+export default invoicesLengthMessage;
