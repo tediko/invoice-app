@@ -3,7 +3,7 @@ import Filter from './Filter/Filter';
 import List from './List/List';
 import Button from '../shared/Button/Button';
 import ErrorMessage from './ErrorMessage/ErrorMessage';
-import { invoicesLengthMessage } from '../../utilities/invoicesLengthMessage';
+import invoicesLengthMessage from '../../utilities/invoicesLengthMessage';
 import { Container, Header, Info, Title, Text } from './InvoicesStyles';
 
 const Invoices = () => {
