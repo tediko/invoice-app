@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { primaryFontStyles } from '../../../utilities/typographyStyles';
 import {
     Input as InputStyles,
@@ -14,6 +14,12 @@ export const Fieldset = styled(FieldsetStyles)`
 
 export const Legend = styled(LegendStyles)``;
 
+export const Wrapper = styled.div`
+    display: flex;
+    flex-flow: column;
+    gap: 18px;
+`;
+
 export const InputsGroup = styled.div`
     display: grid;
     grid-template-columns: minmax(64px, 1fr) minmax(100px, 1fr) 94px auto;
@@ -22,6 +28,12 @@ export const InputsGroup = styled.div`
     width: 100%;
     row-gap: 18px;
     column-gap: 16px;
+
+    @media (min-width: 768px) {
+        grid-template-columns: 214px 51px 100px 1fr;
+        grid-template-areas: 'name qty price total delete';
+        grid-template-rows: auto;
+    }
 `;
 
 export const InputWrapper = styled(InputWrapperStyles)`
@@ -44,9 +56,30 @@ export const InputWrapper = styled(InputWrapperStyles)`
     }
 `;
 
-export const Label = styled(LabelStyles)``;
+export const Label = styled(LabelStyles)`
+    ${({ $srOnly }) =>
+        $srOnly === true &&
+        css`
+            position: absolute;
+            top: auto;
+            left: -10000px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        `}
+`;
 
-export const Input = styled(InputStyles)``;
+export const Input = styled(InputStyles)`
+    ${({ $qty }) =>
+        $qty &&
+        css`
+            @media (min-width: 768px) {
+                padding-left: 0;
+                padding-right: 0;
+                text-align: center;
+            }
+        `}
+`;
 
 export const TotalValue = styled.span`
     ${primaryFontStyles}
