@@ -7,7 +7,7 @@ import invoicesLengthMessage from '../../utilities/invoicesLengthMessage';
 import { Container, Header, Info, Title, Text } from './InvoicesStyles';
 
 const Invoices = () => {
-    const { windowWidth, openForm, filteredInvoices, filterType } =
+    const { windowWidth, toggleForm, filteredInvoices, filterType } =
         useGlobalContext();
     const isDesktop = windowWidth >= 768;
     const isEmpty = filteredInvoices.length === 0;
@@ -26,7 +26,7 @@ const Invoices = () => {
                     </Text>
                 </Info>
                 <Filter isDesktop={isDesktop} />
-                <Button type="button" $newInvoice onClick={openForm}>
+                <Button type="button" $newInvoice onClick={toggleForm}>
                     New {isDesktop && 'Invoice'}
                 </Button>
             </Header>

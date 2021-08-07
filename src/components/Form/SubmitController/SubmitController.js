@@ -3,11 +3,11 @@ import { useGlobalContext } from '../../App/context';
 import { StyledSubmitController } from './SubmitControllerStyles';
 
 const SubmitController = () => {
-    const { handleSubmit, discard } = useGlobalContext();
+    const { handleSubmit, toggleForm } = useGlobalContext();
 
     return (
         <StyledSubmitController>
-            <Button $small type="button" $secondary onClick={discard}>
+            <Button $small type="button" $secondary onClick={toggleForm}>
                 Discard
             </Button>
             <Button
