@@ -1,3 +1,4 @@
+import { Link as RouterLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { buttonDefault } from '../shared/Button/ButtonStyles';
 import {
@@ -96,7 +97,7 @@ export const Container = styled.div`
     }
 `;
 
-export const Link = styled.a`
+export const Link = styled(RouterLink)`
     ${buttonDefault}
     display: flex;
     align-items: center;
