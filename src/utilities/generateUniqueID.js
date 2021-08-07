@@ -29,7 +29,7 @@ const generateID = () => {
  * @param    {array}  arr - Array to check
  * @return {string} String with a unique ID.
  */
-export const generateUniqueId = (arr) => {
+const generateUniqueId = (arr) => {
     const allIdentificators = arr.map((item) => {
         return item.id;
     });
@@ -42,3 +42,5 @@ export const generateUniqueId = (arr) => {
         }
     }
 };
+
+export default generateUniqueId;
