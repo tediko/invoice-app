@@ -14,12 +14,12 @@ const CustomInput = forwardRef(({ value, onClick }, ref) => (
 ));
 
 const DatePicker = () => {
-    const { invoice, handleDatePickerChange } = useGlobalContext();
+    const { invoice, handleInvoiceChange } = useGlobalContext();
 
     return (
         <ReactDatePicker
             selected={invoice.createdAt}
-            onChange={(date) => handleDatePickerChange(date)}
+            onChange={(date) => handleInvoiceChange(false, 'date', date)}
             minDate={invoice.createdAt}
             customInput={<CustomInput />}
         />
