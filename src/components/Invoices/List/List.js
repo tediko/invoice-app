@@ -25,7 +25,7 @@ const List = () => {
             {filteredInvoices.map(
                 ({ id, paymentDue, clientName, status, total }) => (
                     <Item key={id}>
-                        <Link>
+                        <Link to={`/invoice/${id}`}>
                             <Uid>
                                 <Hashtag>#</Hashtag>
                                 {id}
