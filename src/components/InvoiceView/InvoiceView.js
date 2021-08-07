@@ -16,7 +16,7 @@ import {
 } from './InvoiceViewStyles';
 
 const InvoiceView = () => {
-    const { state, windowWidth } = useGlobalContext();
+    const { state, windowWidth, markAsPaid } = useGlobalContext();
     const { colors } = useTheme();
     const { id } = useParams();
     const [invoice, setInvoice] = useState(
@@ -39,7 +39,11 @@ const InvoiceView = () => {
                         <ButtonWrapper>
                             <Button $secondary>Edit</Button>
                             <Button $delete>Delete</Button>
-                            {!isPaid && <Button $primary>Mark as Paid</Button>}
+                            {!isPaid && (
+                                <Button $primary onClick={() => markAsPaid(id)}>
+                                    Mark as Paid
+                                </Button>
+                            )}
                         </ButtonWrapper>
                     )}
                 </Controller>
