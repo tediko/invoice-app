@@ -4,7 +4,7 @@ import {
     headingLarge,
 } from '../../utilities/typographyStyles';
 
-export const StyledDeleteModal = styled.div`
+export const StyledModal = styled.div`
     position: absolute;
     inset: 0 0 0 0;
     display: flex;
@@ -15,7 +15,7 @@ export const StyledDeleteModal = styled.div`
     z-index: 20;
 `;
 
-export const Modal = styled.div`
+export const Container = styled.div`
     width: 100%;
     max-width: 480px;
     padding: 32px;
