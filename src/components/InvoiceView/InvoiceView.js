@@ -60,8 +60,17 @@ const InvoiceView = () => {
             {!isDesktop && (
                 <ButtonWrapper>
                     <Button $secondary>Edit</Button>
-                    <Button $delete>Delete</Button>
-                    {!isPaid && <Button $primary>Mark as Paid</Button>}
+                    <Button $delete onClick={() => toggleModal(id, 'delete')}>
+                        Delete
+                    </Button>
+                    {!isPaid && (
+                        <Button
+                            $primary
+                            onClick={() => toggleModal(id, 'status')}
+                        >
+                            Mark as Paid
+                        </Button>
+                    )}
                 </ButtonWrapper>
             )}
         </StyledInvoiceView>
