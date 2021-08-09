@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledSubmitController = styled.div`
     position: absolute;
@@ -13,9 +13,13 @@ export const StyledSubmitController = styled.div`
     z-index: 3;
     transition: background-color 400ms ease-in-out;
 
-    & > :first-child {
-        margin-right: auto;
-    }
+    ${({ $isEdited }) =>
+        !$isEdited &&
+        css`
+            & > :first-child {
+                margin-right: auto;
+            }
+        `}
 
     @media (min-width: 768px) {
         padding: 32px 56px;
