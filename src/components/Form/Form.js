@@ -10,6 +10,7 @@ import {
     Container,
     Link,
     Title,
+    Hashtag,
     InvoiceForm,
     Fieldset,
     Legend,
@@ -46,9 +47,15 @@ const Form = () => {
                         Go back
                     </Link>
                 )}
-                <Title>
-                    {!isInvoiceEdited ? `New Invoice` : `Edit #${invoiceId}`}
-                </Title>
+                {!isInvoiceEdited ? (
+                    <Title>New Invoice</Title>
+                ) : (
+                    <Title>
+                        Edit <Hashtag>#</Hashtag>
+                        {invoiceId}
+                    </Title>
+                )}
+
                 <InvoiceForm
                     id="invoice-form"
                     onSubmit={(event) => handleSubmit(event)}
