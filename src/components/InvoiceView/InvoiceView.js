@@ -16,7 +16,8 @@ import {
 } from './InvoiceViewStyles';
 
 const InvoiceView = () => {
-    const { state, windowWidth, toggleModal } = useGlobalContext();
+    const { state, windowWidth, toggleModal, toggleEditForm } =
+        useGlobalContext();
     const { colors } = useTheme();
     const { id } = useParams();
     const [invoice, setInvoice] = useState(
@@ -37,7 +38,12 @@ const InvoiceView = () => {
                     <Status currStatus={invoice.status} />
                     {isDesktop && (
                         <ButtonWrapper>
-                            <Button $secondary>Edit</Button>
+                            <Button
+                                $secondary
+                                onClick={() => toggleEditForm(id)}
+                            >
+                                Edit
+                            </Button>
                             <Button
                                 $delete
                                 onClick={() => toggleModal(id, 'delete')}
@@ -59,7 +65,9 @@ const InvoiceView = () => {
             </Container>
             {!isDesktop && (
                 <ButtonWrapper>
-                    <Button $secondary>Edit</Button>
+                    <Button $secondary onClick={() => toggleEditForm(id)}>
+                        Edit
+                    </Button>
                     <Button $delete onClick={() => toggleModal(id, 'delete')}>
                         Delete
                     </Button>
