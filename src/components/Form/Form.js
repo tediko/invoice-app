@@ -21,20 +21,23 @@ import {
 
 const Form = () => {
     const {
+        state,
         windowWidth,
         invoice,
         handleInvoiceChange,
         handleSubmit,
-        toggleForm,
+        discardForm,
     } = useGlobalContext();
     const { colors } = useTheme();
     const isTablet = windowWidth >= 768;
+    const isInvoiceEdited = state.isInvoiceEdited;
+    const invoiceId = state.currInvoiceIndex;
 
     return (
         <StyledForm>
             <Container>
                 {!isTablet && (
-                    <Link to="/" onClick={toggleForm}>
+                    <Link to="/" onClick={discardForm}>
                         <Icon
                             name={'arrow-left'}
                             size={10}
@@ -43,7 +46,9 @@ const Form = () => {
                         Go back
                     </Link>
                 )}
-                <Title>New Invoice</Title>
+                <Title>
+                    {!isInvoiceEdited ? `New Invoice` : `Edit #${invoiceId}`}
+                </Title>
                 <InvoiceForm
                     id="invoice-form"
                     onSubmit={(event) => handleSubmit(event)}
