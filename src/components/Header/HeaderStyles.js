@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.svg';
 import avatar from '../../assets/images/image-avatar.jpg';
 
@@ -21,7 +22,7 @@ export const StyledHeader = styled.header`
     }
 `;
 
-export const Logo = styled.a`
+export const Logo = styled(Link)`
     position: relative;
     background-color: ${({ theme }) => theme.colors.purple};
     width: clamp(72px, 10.5vw, 80px);
