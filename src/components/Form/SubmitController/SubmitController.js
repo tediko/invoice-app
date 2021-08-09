@@ -3,28 +3,36 @@ import { useGlobalContext } from '../../App/context';
 import { StyledSubmitController } from './SubmitControllerStyles';
 
 const SubmitController = () => {
-    const { handleSubmit, toggleForm } = useGlobalContext();
+    const { state, handleSubmit, discardForm } = useGlobalContext();
+    const isInvoiceEdited = state.isInvoiceEdited;
 
     return (
-        <StyledSubmitController>
-            <Button $small type="button" $secondary onClick={toggleForm}>
+        <StyledSubmitController $isEdited={isInvoiceEdited}>
+            <Button $small type="button" $secondary onClick={discardForm}>
                 Discard
             </Button>
-            <Button
-                $small
-                type="submit"
-                $save
-                onClick={(event) => handleSubmit(event, 'save')}
-            >
-                Save as Draft
-            </Button>
+            {!isInvoiceEdited && (
+                <Button
+                    $small
+                    type="submit"
+                    $save
+                    onClick={(event) => handleSubmit(event, 'save')}
+                >
+                    Save as Draft
+                </Button>
+            )}
             <Button
                 $small
                 type="submit"
                 $primary
-                onClick={(event) => handleSubmit(event, 'add')}
+                onClick={(event) =>
+                    handleSubmit(
+                        event,
+                        `${!isInvoiceEdited ? 'add' : 'change'}`
+                    )
+                }
             >
-                Save & Send
+                Save {!isInvoiceEdited ? '& Send' : 'Changes'}
             </Button>
         </StyledSubmitController>
     );
