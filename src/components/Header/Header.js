@@ -9,7 +9,7 @@ const Header = () => {
 
     return (
         <StyledHeader>
-            <Logo aria-label="Home Page" />
+            <Logo aria-label="Home Page" to="/" />
             <ThemeToggle aria-label="Theme toggle" onClick={toggleTheme}>
                 <Icon
                     name={theme === 'light' ? 'moon' : 'sun'}
