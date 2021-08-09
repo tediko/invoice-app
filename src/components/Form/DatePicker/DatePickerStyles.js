@@ -8,4 +8,9 @@ export const CustomPicker = styled.button`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 `;
