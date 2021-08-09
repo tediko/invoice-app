@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTheme } from 'styled-components';
 import Icon from '../shared/Icon/Icon';
@@ -20,9 +19,7 @@ const InvoiceView = () => {
         useGlobalContext();
     const { colors } = useTheme();
     const { id } = useParams();
-    const [invoice, setInvoice] = useState(
-        state.invoices.find((item) => item.id === id)
-    );
+    const invoice = state.invoices.find((item) => item.id === id);
     const isPaid = invoice.status === 'paid' || invoice.status === 'draft';
     const isDesktop = windowWidth >= 768;
 
