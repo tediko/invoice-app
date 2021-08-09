@@ -27,7 +27,7 @@ const DatePicker = () => {
         <ReactDatePicker
             selected={new Date(invoice.createdAt)}
             onChange={(date) => handleInvoiceChange(false, 'date', date)}
-            minDate={new Date(invoice.createdAt)}
+            minDate={new Date()}
             customInput={<CustomInput isDisabled={isInvoiceEdited} />}
         />
     );
