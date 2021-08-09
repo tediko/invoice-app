@@ -119,6 +119,11 @@ export const Title = styled.h2`
     margin-bottom: 24px;
 `;
 
+export const Hashtag = styled.span`
+    color: ${({ theme }) => theme.colors.textTertiary};
+    transition: color 400ms ease-in-out;
+`;
+
 export const InvoiceForm = styled.form`
     ${customScrollbar}
     position: relative;
