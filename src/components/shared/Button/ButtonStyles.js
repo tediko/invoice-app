@@ -13,6 +13,15 @@ export const buttonDefault = css`
     cursor: pointer;
     transition: background-color 300ms ease-in-out, color 400ms ease-in-out;
 
+    &:focus {
+        outline: none;
+    }
+
+    &:focus-visible {
+        outline: 2px dashed ${({ theme }) => theme.colors.purple};
+        outline-offset: 3px;
+    }
+
     ${({ $small }) =>
         $small &&
         css`
