@@ -31,9 +31,13 @@ export const Logo = styled(Link)`
     cursor: pointer;
     overflow: hidden;
 
-    @media (min-width: 1024px) {
-        width: 100%;
-        height: 103px;
+    &:focus {
+        outline: none;
+    }
+
+    &:focus-visible {
+        outline: 2px dashed ${({ theme }) => theme.colors.purple};
+        outline-offset: 2px;
     }
 
     &::before {
@@ -69,6 +73,11 @@ export const Logo = styled(Link)`
             height: 40px;
         }
     }
+
+    @media (min-width: 1024px) {
+        width: 100%;
+        height: 103px;
+    }
 `;
 
 export const ThemeToggle = styled.button`
@@ -76,6 +85,15 @@ export const ThemeToggle = styled.button`
     border: none;
     padding: 0 clamp(24px, 4.5vw, 32px);
     cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus-visible {
+        outline: 2px dashed ${({ theme }) => theme.colors.purple};
+        outline-offset: -4px;
+    }
 
     @media (min-width: 768px) {
         &:hover svg {
