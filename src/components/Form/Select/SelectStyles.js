@@ -55,4 +55,13 @@ export const Item = styled.li`
 export const Option = styled.button`
     ${buttonDefault}
     padding: 15px 0;
+    width: 100%;
+    text-align: left;
+    transition: padding 350ms ease-in-out;
+
+    &:focus-visible {
+        outline: none;
+        color: ${({ theme }) => theme.colors.purple};
+        padding-left: 5px;
+    }
 `;
