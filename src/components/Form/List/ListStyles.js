@@ -99,6 +99,15 @@ export const Delete = styled.button`
     margin-bottom: 15px;
     cursor: pointer;
 
+    &:focus {
+        outline: none;
+    }
+
+    &:focus-visible {
+        outline: 2px dashed ${({ theme }) => theme.colors.purple};
+        outline-offset: 3px;
+    }
+
     @media (min-width: 768px) {
         svg {
             transition: color 300ms ease-in-out;
