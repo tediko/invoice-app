@@ -28,6 +28,14 @@ export const Link = styled(RouterLink)`
     border-radius: 8px;
     transition: border 350ms ease-in-out;
 
+    &:focus {
+        outline: none;
+    }
+
+    &:focus-visible {
+        border: 1px solid ${({ theme }) => theme.colors.purple};
+    }
+
     @media (min-width: 768px) {
         grid-template-rows: unset;
         grid-template-areas: unset;
