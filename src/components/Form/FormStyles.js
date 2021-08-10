@@ -88,12 +88,12 @@ export const Container = styled.div`
         height: 100%;
         border-radius: 0 20px 20px 0;
         overflow: hidden;
-        padding: 56px 32px 127px 56px;
+        padding: 56px 32px 127px 46px;
     }
 
     @media (min-width: 1024px) {
         max-width: 719px;
-        padding: 56px 32px 100px 159px;
+        padding: 56px 32px 100px 149px;
     }
 `;
 
@@ -138,7 +138,7 @@ export const InvoiceForm = styled.form`
     @media (min-width: 768px) {
         overflow-y: scroll;
         height: 80%;
-        padding: 0px 24px 0 0;
+        padding: 0px 24px 10px 10px;
     }
 `;
 
