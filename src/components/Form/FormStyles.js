@@ -131,6 +131,10 @@ export const InvoiceForm = styled.form`
     flex-flow: column;
     gap: 48px;
 
+    &:focus {
+        outline: none;
+    }
+
     @media (min-width: 768px) {
         overflow-y: scroll;
         height: 80%;
