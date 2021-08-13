@@ -36,11 +36,21 @@ const Modal = () => {
         }
     };
 
-    // If isShown we focus on our modal container and disable page scrolling
-    // Add event listener for keydown event to call focusTrap fn.
+    /**
+     * Function to hide Modal component after user click outside Modal contaienr.
+     */
+    const handleClickOutsideModal = (event) => {
+        const target = event.target;
+        if (target === modalRef.current) toggleModal();
+    };
+
+    // If isShown we focus on our modal container and disable page scrolling,
+    // add event listener for keydown event to call focusTrap fn,
+    // add event listener for click event to call handleClickOutsideModal fn.
     // Removing the event listener in the return function in order to avoid memory leaks.
     useEffect(() => {
-        document.addEventListener('keydown', focusTrap);
+        isShown && document.addEventListener('keydown', focusTrap),
+            document.addEventListener('click', handleClickOutsideModal);
         isShown && modalRef.current.focus();
         isShown
             ? (document.body.style.overflow = 'hidden')
@@ -48,6 +58,7 @@ const Modal = () => {
 
         return () => {
             document.removeEventListener('keydown', focusTrap);
+            document.removeEventListener('click', handleClickOutsideModal);
         };
     }, [isShown]);
 
