@@ -5,14 +5,14 @@ import {
 } from '../../utilities/typographyStyles';
 
 export const StyledModal = styled.div`
-    position: absolute;
+    position: fixed;
     inset: 0 0 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 24px;
     background-color: ${({ theme }) => theme.colors.blackAlpha50};
-    z-index: 20;
+    z-index: 100;
 `;
 
 export const Container = styled.div`
