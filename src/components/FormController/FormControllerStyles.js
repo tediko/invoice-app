@@ -1,9 +1,8 @@
 import { Link as RouterLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { buttonDefault } from '../shared/Button/ButtonStyles';
-import { headingLarge } from '../../utilities/typographyStyles';
 
-export const StyledForm = styled.div`
+export const StyledFormController = styled.div`
     position: absolute;
     top: clamp(72px, 10.5vw, 80px); /* header height */
     right: 0;
@@ -71,14 +70,4 @@ export const Link = styled(RouterLink)`
             color: ${({ theme }) => theme.colors.blueGrayish};
         }
     }
-`;
-
-export const Title = styled.h2`
-    ${headingLarge}
-    margin-bottom: 24px;
-`;
-
-export const Hashtag = styled.span`
-    color: ${({ theme }) => theme.colors.textTertiary};
-    transition: color 400ms ease-in-out;
 `;
