@@ -5,11 +5,11 @@ import { useGlobalContext } from '../App/context';
 
 const Header = () => {
     const { colors } = useTheme();
-    const { theme, toggleTheme } = useGlobalContext();
+    const { theme, toggleTheme, discardForm } = useGlobalContext();
 
     return (
         <StyledHeader>
-            <Logo aria-label="Home Page" to="/" />
+            <Logo aria-label="Home Page" to="/" onClick={discardForm} />
             <ThemeToggle aria-label="Theme toggle" onClick={toggleTheme}>
                 <Icon
                     name={theme === 'light' ? 'moon' : 'sun'}
