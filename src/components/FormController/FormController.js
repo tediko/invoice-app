@@ -25,7 +25,7 @@ const FormController = () => {
             (document.addEventListener('keydown', focusTrap),
             document.addEventListener('click', handleClickOutsideForm),
             formRef.current.focus(),
-            (document.body.style.overflow = 'hidden'));
+            isTablet && (document.body.style.overflow = 'hidden'));
         return () => {
             document.removeEventListener('keydown', focusTrap);
             document.removeEventListener('click', handleClickOutsideForm);
