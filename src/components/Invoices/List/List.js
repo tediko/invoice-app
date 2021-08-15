@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useTheme } from 'styled-components';
 import Icon from '../../shared/Icon/Icon';
 import Status from '../../shared/Status/Status';
@@ -17,8 +18,17 @@ import {
 
 const List = () => {
     const { colors } = useTheme();
-    const { windowWidth, filteredInvoices } = useGlobalContext();
+    const { windowWidth, filterType, filteredInvoices } = useGlobalContext();
     const isDesktop = windowWidth >= 768;
+
+    // Running an effect on filteredInvoices change and shift document title.
+    useEffect(() => {
+        if (filterType === 'all') {
+            document.title = `Invoices (${filteredInvoices.length})`;
+        } else {
+            document.title = `Invoices | ${filterType} (${filteredInvoices.length})`;
+        }
+    }, [filteredInvoices]);
 
     return (
         <StyledList>
