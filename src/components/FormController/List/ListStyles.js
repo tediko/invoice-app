@@ -22,7 +22,9 @@ export const Wrapper = styled.div`
 
 export const InputsGroup = styled.div`
     display: grid;
-    grid-template-columns: minmax(64px, 1fr) minmax(100px, 1fr) 94px auto;
+    grid-template-columns:
+        minmax(64px, 1fr) minmax(100px, 1fr) minmax(65px, 94px)
+        auto;
     grid-template-rows: auto auto;
     grid-template-areas: 'name name name name' 'qty price total delete';
     width: 100%;
