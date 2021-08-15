@@ -2,20 +2,15 @@ import { useTheme } from 'styled-components';
 import { useGlobalContext } from '../App/context';
 import Icon from '../shared/Icon/Icon';
 import SubmitController from './SubmitController/SubmitController';
-import {
-    StyledForm,
-    Container,
-    Link,
-    Title,
-    Hashtag,
-} from './FormControllerStyles';
+import { StyledForm, Container, Link } from './FormControllerStyles';
+import Form from './Form/Form';
 
 const FormController = () => {
     const { state, windowWidth, discardForm } = useGlobalContext();
     const { colors } = useTheme();
     const isTablet = windowWidth >= 768;
-    const isInvoiceEdited = state.isInvoiceEdited;
-    const invoiceId = state.currInvoiceIndex;
+    const isFormOpen = state.isFormOpen && !state.isInvoiceEdited;
+    const isFormEdited = state.isFormOpen && state.isInvoiceEdited;
 
     return (
         <StyledForm>
@@ -30,14 +25,8 @@ const FormController = () => {
                         Go back
                     </Link>
                 )}
-                {!isInvoiceEdited ? (
-                    <Title>New Invoice</Title>
-                ) : (
-                    <Title>
-                        Edit <Hashtag>#</Hashtag>
-                        {invoiceId}
-                    </Title>
-                )}
+                {isFormOpen && <Form />}
+                {isFormEdited && <Form isEdited />}
                 <SubmitController />
             </Container>
         </StyledForm>
