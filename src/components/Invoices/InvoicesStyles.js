@@ -3,11 +3,12 @@ import { headingTitle } from '../../utilities/typographyStyles';
 
 export const Container = styled.section`
     padding: 0 24px;
+    margin-bottom: 40px;
 
     @media (min-width: 768px) {
         width: 100%;
         max-width: 730px;
-        margin: 0 auto;
+        margin: 0 auto 40px auto;
         padding: 0;
     }
 `;
