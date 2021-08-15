@@ -20,7 +20,8 @@ const Filter = ({ isDesktop }) => {
                 setIsFilterOpen(false);
             }
         };
-        document.addEventListener('click', checkIfClickedOutside);
+        isFilterOpen &&
+            document.addEventListener('click', checkIfClickedOutside);
 
         return () => {
             document.removeEventListener('click', checkIfClickedOutside);
