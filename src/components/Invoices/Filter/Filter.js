@@ -15,11 +15,12 @@ const Filter = ({ isDesktop }) => {
     and hide the list accordingly. */
     useEffect(() => {
         const checkIfClickedOutside = (event) => {
-            const target = event.target;
-            if (isFilterOpen && ref.current && !ref.current.contains(target)) {
+            const target = event.target.nodeName;
+            if (target !== 'BUTTON' && target !== 'UL') {
                 setIsFilterOpen(false);
             }
         };
+
         isFilterOpen &&
             document.addEventListener('click', checkIfClickedOutside);
 
