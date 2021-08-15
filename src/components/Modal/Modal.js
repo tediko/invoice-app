@@ -49,16 +49,16 @@ const Modal = () => {
     // add event listener for click event to call handleClickOutsideModal fn.
     // Removing the event listener in the return function in order to avoid memory leaks.
     useEffect(() => {
-        isShown && document.addEventListener('keydown', focusTrap),
-            document.addEventListener('click', handleClickOutsideModal);
-        isShown && modalRef.current.focus();
-        isShown
-            ? (document.body.style.overflow = 'hidden')
-            : (document.body.style.overflow = 'unset');
+        isShown &&
+            (document.addEventListener('keydown', focusTrap),
+            document.addEventListener('click', handleClickOutsideModal),
+            modalRef.current.focus(),
+            (document.body.style.overflow = 'hidden'));
 
         return () => {
             document.removeEventListener('keydown', focusTrap);
             document.removeEventListener('click', handleClickOutsideModal);
+            document.body.style.overflow = 'unset';
         };
     }, [isShown]);
 
