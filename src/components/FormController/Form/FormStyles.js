@@ -3,6 +3,7 @@ import {
     primaryFontStyles,
     headingExtraSmall,
     headingMediumLarge,
+    headingLarge,
 } from '../../../utilities/typographyStyles';
 
 const customScrollbar = css`
@@ -39,6 +40,16 @@ export const defaultInput = css`
         border: 1px solid ${({ theme }) => theme.colors.purple};
         outline: none;
     }
+`;
+
+export const Title = styled.h2`
+    ${headingLarge}
+    margin-bottom: 24px;
+`;
+
+export const Hashtag = styled.span`
+    color: ${({ theme }) => theme.colors.textTertiary};
+    transition: color 400ms ease-in-out;
 `;
 
 export const StyledForm = styled.form`
