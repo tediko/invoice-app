@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTheme } from 'styled-components';
 import Icon from '../shared/Icon/Icon';
@@ -22,6 +23,11 @@ const InvoiceView = () => {
     const invoice = state.invoices.find((item) => item.id === id);
     const isPaid = invoice.status === 'paid' || invoice.status === 'draft';
     const isDesktop = windowWidth >= 768;
+
+    // Running an effect on render and change document title.
+    useEffect(() => {
+        document.title = `Invoices | #${id}`;
+    }, []);
 
     return (
         <StyledInvoiceView>
