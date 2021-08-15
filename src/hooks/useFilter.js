@@ -15,6 +15,13 @@ const useFilter = (callback) => {
     }, [callback]);
 
     /**
+     * Running an effect whenever filteredInvoices changes and call changeDocumentTitle()
+     */
+    useEffect(() => {
+        changeDocumentTitle(filterType, filteredInvoices);
+    }, [filteredInvoices]);
+
+    /**
      * Function to filter filteredInvoices based on filter type.
      * @param    {String}  string - String with filter type
      */
@@ -48,6 +55,19 @@ const useFilter = (callback) => {
         previousFilterType.current = type;
         handleFilter(type);
         setFilterType(type);
+    };
+
+    /**
+     * Function to change document title based on filter type and filteredInvoices
+     * @param    {String}  type - String with filter type
+     * @param    {Array}  invoices - Array with invoices
+     */
+    const changeDocumentTitle = (type, invoices) => {
+        if (type === 'all') {
+            document.title = `Invoices (${invoices.length})`;
+        } else {
+            document.title = `Invoices | ${type} (${invoices.length})`;
+        }
     };
 
     return { filteredInvoices, filterType, handleFilter, changeFilterType };
