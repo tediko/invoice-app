@@ -8,7 +8,7 @@ export const StyledFormController = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 9;
+    z-index: 99;
 
     @media (min-width: 768px) {
         background-color: ${({ theme }) => theme.colors.blackAlpha50};
