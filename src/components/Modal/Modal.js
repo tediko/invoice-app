@@ -10,7 +10,6 @@ const Modal = () => {
     const isDeleteModal = state.isModalOpen.name === 'delete';
     const isStatusModal = state.isModalOpen.name === 'status';
     const isShown = state.isModalOpen.status;
-    const title = document.title;
     const modalRef = useRef();
 
     /**
@@ -45,24 +44,23 @@ const Modal = () => {
         if (target === modalRef.current) toggleModal();
     };
 
+    const title = document.title;
     // If isShown we focus on our modal container and disable page scrolling,
     // add event listener for keydown event to call focusTrap fn,
     // add event listener for click event to call handleClickOutsideModal fn.
-    // add document title.
     // Removing the event listener in the return function in order to avoid memory leaks.
     useEffect(() => {
         isShown &&
             (document.addEventListener('keydown', focusTrap),
             document.addEventListener('click', handleClickOutsideModal),
             modalRef.current.focus(),
-            (document.body.style.overflow = 'hidden'),
-            (document.title = 'Invoices | Confirmation'));
+            (document.body.style.overflow = 'hidden'));
 
         return () => {
             document.removeEventListener('keydown', focusTrap);
             document.removeEventListener('click', handleClickOutsideModal);
             document.body.style.overflow = 'unset';
-            document.title = title;
+            console.log(title);
         };
     }, [isShown]);
 

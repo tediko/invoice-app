@@ -15,12 +15,10 @@ const FormController = () => {
     const isFormEdited = state.isFormOpen && state.isInvoiceEdited;
     const formRef = useRef();
     const isShown = state.isFormOpen;
-    const title = document.title;
 
     // If isShown we focus on our FormController container and disable page scrolling,
     // add event listener for keydown event to call focusTrap fn,
     // add event listener for click event to call handleClickOutsideForm fn.
-    // add document title based on isFormOpen/isFormEdited variables.
     // Removing the event listener in the return function in order to avoid memory leaks.
     useEffect(() => {
         isShown &&
@@ -28,13 +26,10 @@ const FormController = () => {
             document.addEventListener('click', handleClickOutsideForm),
             formRef.current.focus(),
             (document.body.style.overflow = 'hidden'));
-        isFormOpen && (document.title = 'Invoices | Create Invoice');
-        isFormEdited && (document.title = 'Invoices | Edit Invoice');
         return () => {
             document.removeEventListener('keydown', focusTrap);
             document.removeEventListener('click', handleClickOutsideForm);
             document.body.style.overflow = 'unset';
-            document.title = title;
         };
     }, [isShown]);
 
