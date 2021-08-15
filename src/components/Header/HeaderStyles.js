@@ -9,7 +9,7 @@ export const StyledHeader = styled.header`
     background-color: ${({ theme }) => theme.colors.bgHeader};
     height: clamp(72px, 10.5vw, 80px);
     transition: background-color 400s ease-in-out;
-    z-index: 10;
+    z-index: 100;
 
     @media (min-width: 1024px) {
         position: sticky;
