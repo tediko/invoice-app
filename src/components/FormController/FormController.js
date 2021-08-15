@@ -24,14 +24,22 @@ const FormController = () => {
         isShown &&
             (document.addEventListener('keydown', focusTrap),
             document.addEventListener('click', handleClickOutsideForm),
-            formRef.current.focus(),
-            isTablet && (document.body.style.overflow = 'hidden'));
+            formRef.current.focus());
         return () => {
             document.removeEventListener('keydown', focusTrap);
             document.removeEventListener('click', handleClickOutsideForm);
-            document.body.style.overflow = 'unset';
         };
     }, [isShown]);
+
+    // Disable page scrolling based on isTablet variable.
+    useEffect(() => {
+        isTablet && (document.body.style.overflow = 'hidden');
+        !isTablet && (document.body.style.overflow = 'unset');
+
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isTablet]);
 
     /**
      * Function to hide Form component after user click outside Form contaienr.
