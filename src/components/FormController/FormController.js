@@ -21,13 +21,15 @@ const FormController = () => {
     // add event listener for click event to call handleClickOutsideForm fn.
     // Removing the event listener in the return function in order to avoid memory leaks.
     useEffect(() => {
-        isShown && document.addEventListener('keydown', focusTrap);
-        isShown && document.addEventListener('click', handleClickOutsideForm);
-        isShown && formRef.current.focus();
-
+        isShown &&
+            (document.addEventListener('keydown', focusTrap),
+            document.addEventListener('click', handleClickOutsideForm),
+            formRef.current.focus(),
+            (document.body.style.overflow = 'hidden'));
         return () => {
             document.removeEventListener('keydown', focusTrap);
             document.removeEventListener('click', handleClickOutsideForm);
+            document.body.style.overflow = 'unset';
         };
     }, [isShown]);
 
