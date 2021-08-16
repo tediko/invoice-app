@@ -20,7 +20,8 @@ const InvoiceView = () => {
     const { colors } = useTheme();
     const { id } = useParams();
     const invoice = state.invoices.find((item) => item.id === id);
-    const isPaid = invoice.status === 'paid' || invoice.status === 'draft';
+    const isPaid = invoice.status === 'paid';
+    const isPaidOrDraft = isPaid || invoice.status === 'draft';
     const isDesktop = windowWidth >= 768;
 
     // Running an effect on render and change document title.
@@ -40,16 +41,21 @@ const InvoiceView = () => {
                     <Status currStatus={invoice.status} />
                     {isDesktop && (
                         <ButtonWrapper>
-                            <Button $secondary onClick={() => editInvoice(id)}>
-                                Edit
-                            </Button>
+                            {!isPaid && (
+                                <Button
+                                    $secondary
+                                    onClick={() => editInvoice(id)}
+                                >
+                                    Edit
+                                </Button>
+                            )}
                             <Button
                                 $delete
                                 onClick={() => toggleModal(id, 'delete')}
                             >
                                 Delete
                             </Button>
-                            {!isPaid && (
+                            {!isPaidOrDraft && (
                                 <Button
                                     $primary
                                     onClick={() => toggleModal(id, 'status')}
@@ -64,13 +70,15 @@ const InvoiceView = () => {
             </Container>
             {!isDesktop && (
                 <ButtonWrapper>
-                    <Button $secondary onClick={() => editInvoice(id)}>
-                        Edit
-                    </Button>
+                    {!isPaid && (
+                        <Button $secondary onClick={() => editInvoice(id)}>
+                            Edit
+                        </Button>
+                    )}
                     <Button $delete onClick={() => toggleModal(id, 'delete')}>
                         Delete
                     </Button>
-                    {!isPaid && (
+                    {!isPaidOrDraft && (
                         <Button
                             $primary
                             onClick={() => toggleModal(id, 'status')}
