@@ -8,7 +8,7 @@ import { StyledFormController, Container, Link } from './FormControllerStyles';
 import Form from './Form/Form';
 
 const FormController = () => {
-    const { state, windowWidth, discardForm } = useGlobalContext();
+    const { state, windowWidth, discard } = useGlobalContext();
     const { colors } = useTheme();
     const isTablet = windowWidth >= 768;
     const isFormOpen = state.isFormOpen && !state.isInvoiceEdited;
@@ -46,14 +46,14 @@ const FormController = () => {
      */
     const handleClickOutsideForm = (event) => {
         const target = event.target;
-        if (target === formRef.current) discardForm();
+        if (target === formRef.current) discard();
     };
 
     /**
      * Function to trap user focus within component.
      */
     const focusTrap = (event) => {
-        if (event.key === 'Escape') discardForm();
+        if (event.key === 'Escape') discard();
         if (event.key !== 'Tab') return;
 
         const formElements =
@@ -84,7 +84,7 @@ const FormController = () => {
         >
             <Container>
                 {!isTablet && (
-                    <Link to="/" onClick={discardForm}>
+                    <Link to="/" onClick={discard}>
                         <Icon
                             name={'arrow-left'}
                             size={10}
