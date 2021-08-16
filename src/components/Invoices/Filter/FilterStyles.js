@@ -16,6 +16,12 @@ export const Button = styled.button`
 
     @media (min-width: 768px) {
         gap: 16px;
+
+        &:hover {
+            svg {
+                transform: rotate(180deg);
+            }
+        }
     }
 `;
 
