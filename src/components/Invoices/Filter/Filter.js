@@ -43,7 +43,7 @@ const Filter = ({ isDesktop }) => {
                     size={11}
                     color={colors.purple}
                     customStyle={{
-                        transition: 'color 350ms ease-in-out',
+                        transition: 'transform 350ms ease-in-out',
                     }}
                 />
             </Button>
