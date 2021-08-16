@@ -3,7 +3,6 @@ import * as ACTION_TYPES from '../actions/action_type';
 export const invoicesReducer = (state, action) => {
     if (action.type === ACTION_TYPES.ADD_INVOICE) {
         const newList = [
-            ...state.invoices,
             {
                 ...action.payload.invoice,
                 id: action.payload.id,
@@ -13,6 +12,7 @@ export const invoicesReducer = (state, action) => {
                     return (curr += acc.total);
                 }, 0),
             },
+            ...state.invoices,
         ];
 
         return { ...state, isFormOpen: false, invoices: newList };
