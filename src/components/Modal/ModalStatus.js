@@ -3,7 +3,7 @@ import { useGlobalContext } from '../App/context';
 import { Container, Title, Text, CtaGroup } from './ModalStyles';
 
 const ModalStatus = () => {
-    const { state, toggleModal, markAsPaid } = useGlobalContext();
+    const { state, toggleModal, markInvoiceAsPaid } = useGlobalContext();
     const invoiceId = state.currInvoiceIndex;
 
     return (
@@ -20,7 +20,7 @@ const ModalStatus = () => {
                 <Button
                     type="button"
                     $primary
-                    onClick={() => markAsPaid(invoiceId)}
+                    onClick={() => markInvoiceAsPaid(invoiceId)}
                 >
                     Mark as Paid
                 </Button>
