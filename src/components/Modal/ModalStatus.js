@@ -20,9 +20,7 @@ const ModalStatus = () => {
                 <Button
                     type="button"
                     $primary
-                    onClick={() => {
-                        markAsPaid(invoiceId), toggleModal();
-                    }}
+                    onClick={() => markAsPaid(invoiceId)}
                 >
                     Mark as Paid
                 </Button>
