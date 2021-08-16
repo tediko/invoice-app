@@ -60,7 +60,6 @@ const Modal = () => {
             document.removeEventListener('keydown', focusTrap);
             document.removeEventListener('click', handleClickOutsideModal);
             document.body.style.overflow = 'unset';
-            console.log(title);
         };
     }, [isShown]);
 
