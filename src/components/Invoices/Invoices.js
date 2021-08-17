@@ -2,7 +2,6 @@ import { useGlobalContext } from '../App/context';
 import Filter from './Filter/Filter';
 import List from './List/List';
 import Button from '../shared/Button/Button';
-import ErrorMessage from './ErrorMessage/ErrorMessage';
 import invoicesLengthMessage from '../../utilities/invoicesLengthMessage';
 import { Container, Header, Info, Title, Text } from './InvoicesStyles';
 
@@ -10,7 +9,6 @@ const Invoices = () => {
     const { windowWidth, createInvoice, filteredInvoices, filterType } =
         useGlobalContext();
     const isDesktop = windowWidth >= 768;
-    const isEmpty = filteredInvoices.length === 0;
 
     return (
         <Container>
@@ -30,7 +28,7 @@ const Invoices = () => {
                     New {isDesktop && 'Invoice'}
                 </Button>
             </Header>
-            {isEmpty ? <ErrorMessage /> : <List />}
+            <List />
         </Container>
     );
 };
