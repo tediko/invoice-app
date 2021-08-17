@@ -130,6 +130,17 @@ export const Error = styled.span`
     font-size: 0.625rem;
     font-weight: 600;
     color: ${({ theme }) => theme.colors.red};
+    opacity: 0;
+    animation: fadeIn 350ms ease-in-out forwards;
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 `;
 
 export const Input = styled.input`
