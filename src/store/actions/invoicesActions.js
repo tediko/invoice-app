@@ -44,10 +44,9 @@ export const remove = () => {
     };
 };
 
-export const paid = (index) => {
+export const paid = () => {
     return {
         type: ACTION_TYPES.PAID,
-        payload: { id: index },
     };
 };
 
