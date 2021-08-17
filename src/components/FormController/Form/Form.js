@@ -10,6 +10,7 @@ import {
     Legend,
     InputWrapper,
     Label,
+    ErrorsWrapper,
     Error,
     Input,
     InputsGroup,
@@ -19,6 +20,7 @@ const Form = ({ isEdited }) => {
     const { state, invoice, handleInvoiceChange, handleSubmit } =
         useGlobalContext();
     const errors = state.errors.err;
+    const messages = state.errors.msg;
     const invoiceId = state.currInvoiceIndex;
 
     return (
@@ -273,6 +275,13 @@ const Form = ({ isEdited }) => {
                     </InputsGroup>
                 </Fieldset>
                 <List />
+                {messages.length > 0 && (
+                    <ErrorsWrapper>
+                        {messages.map((item, index) => (
+                            <Error key={index}>{item}</Error>
+                        ))}
+                    </ErrorsWrapper>
+                )}
             </StyledForm>
         </>
     );
