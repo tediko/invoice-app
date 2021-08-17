@@ -30,10 +30,7 @@ const Form = ({ isEdited }) => {
                     {invoiceId}
                 </Title>
             )}
-            <StyledForm
-                id="invoice-form"
-                onSubmit={(event) => handleSubmit(event)}
-            >
+            <StyledForm id="invoice-form">
                 <Fieldset>
                     <Legend>Bill from</Legend>
                     <InputWrapper>
