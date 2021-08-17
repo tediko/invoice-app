@@ -11,6 +11,7 @@ export const StyledFormController = styled.div`
     z-index: 99;
 
     @media (min-width: 768px) {
+        position: fixed;
         background-color: ${({ theme }) => theme.colors.blackAlpha50};
     }
 
