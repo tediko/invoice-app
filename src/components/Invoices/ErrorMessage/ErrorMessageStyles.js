@@ -32,5 +32,5 @@ export const Text = styled.p`
 `;
 
 export const Bold = styled.span`
-    font-weight: 600;
+    font-weight: 700;
 `;
