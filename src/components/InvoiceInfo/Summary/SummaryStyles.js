@@ -42,7 +42,7 @@ export const Item = styled.div`
 
 export const Text = styled.p`
     ${primaryFontStyles}
-    font-weight: 600;
+    font-weight: 700;
     color: ${({ theme }) => theme.colors.textPrimary};
     transition: color 400ms ease-in-out;
 `;
