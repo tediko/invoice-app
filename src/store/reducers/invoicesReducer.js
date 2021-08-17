@@ -58,7 +58,7 @@ export const invoicesReducer = (state, action) => {
 
     if (action.type === ACTION_TYPES.PAID) {
         const newList = state.invoices.map((item) => {
-            if (item.id === action.payload.id) {
+            if (item.id === state.currInvoiceIndex) {
                 item.status = 'paid';
             }
             return item;
