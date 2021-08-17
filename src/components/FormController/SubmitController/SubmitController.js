@@ -13,8 +13,8 @@ const SubmitController = () => {
             </Button>
             {!isInvoiceEdited && (
                 <Button
-                    $small
                     type="submit"
+                    $small
                     $save
                     onClick={(event) => handleSubmit(event, 'save')}
                 >
@@ -22,8 +22,9 @@ const SubmitController = () => {
                 </Button>
             )}
             <Button
-                $small
+                form="invoice-form"
                 type="submit"
+                $small
                 $primary
                 onClick={(event) =>
                     handleSubmit(
