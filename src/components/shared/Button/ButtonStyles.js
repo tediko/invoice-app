@@ -5,7 +5,7 @@ import plusIcon from '../../../assets/images/icon-plus.svg';
 export const buttonDefault = css`
     ${primaryFontStyles}
     padding: 17px 24px 16px 24px;
-    font-weight: 600;
+    font-weight: 700;
     background-color: transparent;
     color: ${({ theme }) => theme.colors.textPrimary};
     border: none;
