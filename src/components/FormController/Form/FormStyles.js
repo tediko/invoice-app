@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import {
     primaryFontStyles,
+    secondaryFontStyles,
     headingExtraSmall,
     headingMediumLarge,
     headingLarge,
@@ -106,13 +107,32 @@ export const InputWrapper = styled.div`
 
 export const Label = styled.label`
     ${primaryFontStyles}
+    display: flex;
+    justify-content: space-between;
     color: ${({ theme }) => theme.colors.textSecondary};
     transition: color 400ms ease-in-out;
+
+    ${({ $error }) =>
+        $error &&
+        css`
+            color: ${({ theme }) => theme.colors.red};
+        `};
+`;
+
+export const Error = styled.span`
+    ${secondaryFontStyles}
+    font-size: 0.625rem;
 `;
 
 export const Input = styled.input`
     ${primaryFontStyles}
     ${defaultInput}
+
+    ${({ $error }) =>
+        $error &&
+        css`
+            border: 1px solid ${({ theme }) => theme.colors.red};
+        `};
 `;
 
 export const InputsGroup = styled.div`
