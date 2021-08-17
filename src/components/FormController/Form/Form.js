@@ -17,8 +17,7 @@ import {
 } from './FormStyles';
 
 const Form = ({ isEdited }) => {
-    const { state, invoice, handleInvoiceChange, handleSubmit } =
-        useGlobalContext();
+    const { state, invoice, handleInvoiceChange } = useGlobalContext();
     const errors = state.errors.err;
     const messages = state.errors.msg;
     const invoiceId = state.currInvoiceIndex;
