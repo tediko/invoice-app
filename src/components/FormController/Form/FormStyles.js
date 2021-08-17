@@ -32,7 +32,7 @@ export const defaultInput = css`
     border: 1px solid ${({ theme }) => theme.colors.bgInputBorder};
     background-color: ${({ theme }) => theme.colors.bgInput};
     color: ${({ theme }) => theme.colors.textPrimary};
-    font-weight: 600;
+    font-weight: 700;
     transition: border 400ms ease-in-out, background-color 400ms ease-in-out,
         color 400ms ease-in-out;
     -webkit-appearance: none;
@@ -119,9 +119,17 @@ export const Label = styled.label`
         `};
 `;
 
+export const ErrorsWrapper = styled.div`
+    display: flex;
+    flex-flow: column;
+    margin-top: -15px;
+`;
+
 export const Error = styled.span`
     ${secondaryFontStyles}
     font-size: 0.625rem;
+    font-weight: 600;
+    color: ${({ theme }) => theme.colors.red};
 `;
 
 export const Input = styled.input`
