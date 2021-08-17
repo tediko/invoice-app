@@ -97,5 +97,15 @@ export const invoicesReducer = (state, action) => {
         };
     }
 
+    if (action.type === ACTION_TYPES.SET_ERRORS) {
+        return {
+            ...state,
+            errors: {
+                err: action.payload.err,
+                msg: action.payload.msg,
+            },
+        };
+    }
+
     throw new Error('no matching action type');
 };
