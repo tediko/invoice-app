@@ -6,6 +6,7 @@ import {
     Legend as LegendStyles,
     InputWrapper as InputWrapperStyles,
     Label as LabelStyles,
+    Error as ErrorStyles,
 } from '../Form/FormStyles';
 
 export const Fieldset = styled(FieldsetStyles)`
@@ -70,6 +71,8 @@ export const Label = styled(LabelStyles)`
             overflow: hidden;
         `}
 `;
+
+export const Error = styled(ErrorStyles)``;
 
 export const Input = styled(InputStyles)`
     ${({ $qty }) =>
