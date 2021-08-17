@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const StyledStatus = styled.div`
     width: 104px;
     padding: 13px 0;
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
     border-radius: 6px;
     transition: background-color 400ms ease-in-out, color 400ms ease-in-out;
