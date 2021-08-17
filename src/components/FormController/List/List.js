@@ -9,6 +9,7 @@ import {
     InputsGroup,
     InputWrapper,
     Label,
+    Error,
     Input,
     TotalValue,
     Delete,
@@ -17,12 +18,15 @@ import {
 const List = () => {
     const { colors } = useTheme();
     const {
+        state,
         windowWidth,
         items,
         handleInvoiceChange,
         handleItemsAdd,
         handleItemsRemove,
     } = useGlobalContext();
+    const errors =
+        state.errors.err?.items === undefined ? false : state.errors.err?.items;
     const isDesktop = windowWidth >= 768;
 
     return (
@@ -35,13 +39,18 @@ const List = () => {
                             <Label
                                 htmlFor="name"
                                 $srOnly={index > 0 && isDesktop}
+                                $error={errors[index]?.name}
                             >
                                 Item Name
+                                {errors[index]?.name && (
+                                    <Error>can't be empty</Error>
+                                )}
                             </Label>
                             <Input
                                 type="text"
                                 name="name"
                                 value={item.name}
+                                $error={errors[index]?.name}
                                 onChange={(event) =>
                                     handleInvoiceChange(
                                         event,
@@ -56,6 +65,7 @@ const List = () => {
                             <Label
                                 htmlFor="quantity"
                                 $srOnly={index > 0 && isDesktop}
+                                $error={errors[index]?.quantity}
                             >
                                 Qty.
                             </Label>
@@ -63,6 +73,7 @@ const List = () => {
                                 type="text"
                                 name="quantity"
                                 value={item.quantity}
+                                $error={errors[index]?.quantity}
                                 onChange={(event) =>
                                     handleInvoiceChange(
                                         event,
@@ -78,6 +89,7 @@ const List = () => {
                             <Label
                                 htmlFor="price"
                                 $srOnly={index > 0 && isDesktop}
+                                $error={errors[index]?.price}
                             >
                                 Price
                             </Label>
@@ -85,6 +97,7 @@ const List = () => {
                                 type="text"
                                 name="price"
                                 value={item.price}
+                                $error={errors[index]?.price}
                                 onChange={(event) =>
                                     handleInvoiceChange(
                                         event,
