@@ -96,7 +96,7 @@ export const InputWrapper = styled.div`
     flex-flow: column;
     gap: 10px;
     flex: 1;
-    min-width: 130px;
+    min-width: 145px;
 
     ${({ $fullWidth }) =>
         $fullWidth &&
