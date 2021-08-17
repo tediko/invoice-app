@@ -18,7 +18,7 @@ export const secondaryFontStyles = css`
 /* Heading styles */
 const commonHeadingStyles = css`
     font-family: 'Spartan', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
 `;
 
 export const headingTitle = css`
