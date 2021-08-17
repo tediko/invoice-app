@@ -69,3 +69,10 @@ export const modal = (index, name) => {
         payload: { name: name ? name : '', id: index ? index : '' },
     };
 };
+
+export const errors = (err, msg) => {
+    return {
+        type: ACTION_TYPES.SET_ERRORS,
+        payload: { err, msg },
+    };
+};
