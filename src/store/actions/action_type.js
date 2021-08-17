@@ -6,3 +6,4 @@ export const PAID = 'PAID';
 export const CREATE = 'CREATE';
 export const DISCARD = 'DISCARD';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+export const SET_ERRORS = 'SET_ERRORS';
