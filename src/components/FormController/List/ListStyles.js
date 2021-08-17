@@ -92,7 +92,7 @@ export const TotalValue = styled.span`
     width: 100%;
     height: 100%;
     align-items: center;
-    font-weight: 600;
+    font-weight: 700;
     color: ${({ theme }) => theme.colors.textSecondary};
     transition: color 400ms ease-in-out;
 `;
