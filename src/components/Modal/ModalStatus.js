@@ -10,8 +10,8 @@ const ModalStatus = () => {
         <Container>
             <Title>Confirm Status</Title>
             <Text>
-                Are you sure you want to change status of invoice #
-                {state.currInvoiceIndex}? This action cannot be undone.
+                Are you sure you want to change status of invoice #{invoiceId}?
+                This action cannot be undone.
             </Text>
             <CtaGroup>
                 <Button type="button" $secondary onClick={toggleModal}>
@@ -20,7 +20,7 @@ const ModalStatus = () => {
                 <Button
                     type="button"
                     $primary
-                    onClick={() => markInvoiceAsPaid(invoiceId)}
+                    onClick={() => markInvoiceAsPaid()}
                 >
                     Mark as Paid
                 </Button>
