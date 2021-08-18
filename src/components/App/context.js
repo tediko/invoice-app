@@ -1,11 +1,32 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Provider from '../shared/Provider/Provider';
 import useThemeToggle from '../../hooks/useThemeToggle';
+import useManageInvoices from '../../hooks/useManageInvoices';
+import useFilter from '../../hooks/useFilter';
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
     const { theme, toggleTheme } = useThemeToggle();
+    const {
+        state,
+        invoice,
+        senderAddress,
+        clientAddress,
+        items,
+        handleInvoiceChange,
+        handleItemsAdd,
+        handleItemsRemove,
+        handleSubmit,
+        editInvoice,
+        deleteInvoice,
+        markInvoiceAsPaid,
+        createInvoice,
+        discard,
+        toggleModal,
+    } = useManageInvoices();
+    const { filteredInvoices, filterType, handleFilter, changeFilterType } =
+        useFilter(state);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     /**
@@ -26,7 +47,32 @@ const AppProvider = ({ children }) => {
     };
 
     return (
-        <AppContext.Provider value={{ theme, toggleTheme, windowWidth }}>
+        <AppContext.Provider
+            value={{
+                theme,
+                toggleTheme,
+                windowWidth,
+                state,
+                invoice,
+                senderAddress,
+                clientAddress,
+                items,
+                handleInvoiceChange,
+                handleItemsAdd,
+                handleItemsRemove,
+                handleSubmit,
+                editInvoice,
+                deleteInvoice,
+                markInvoiceAsPaid,
+                createInvoice,
+                discard,
+                toggleModal,
+                filteredInvoices,
+                filterType,
+                handleFilter,
+                changeFilterType,
+            }}
+        >
             <Provider themeColor={theme}>{children}</Provider>
         </AppContext.Provider>
     );
