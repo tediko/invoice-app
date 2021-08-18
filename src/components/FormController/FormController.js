@@ -33,7 +33,6 @@ const FormController = () => {
 
     // Disable page scrolling based on isTablet variable.
     useEffect(() => {
-        console.log(isTablet);
         isTablet && isShown && (document.body.style.overflow = 'hidden');
         !isTablet && (document.body.style.overflow = 'unset');
 
