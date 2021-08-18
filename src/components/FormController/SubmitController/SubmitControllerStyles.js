@@ -6,7 +6,7 @@ export const StyledSubmitController = styled.div`
     left: 0;
     right: 0;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 7px;
     padding: 24px;
     background-color: ${({ theme }) => theme.colors.bgForm};
