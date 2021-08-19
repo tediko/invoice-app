@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { useTheme } from 'styled-components';
 import { useGlobalContext } from '../App/context';
+import { backdropVariants, formVariants } from '../../utilities/framerVariants';
 import Icon from '../shared/Icon/Icon';
 import SubmitController from './SubmitController/SubmitController';
 import { Backdrop, StyledFormController, Link } from './FormControllerStyles';
@@ -15,6 +16,7 @@ const FormController = () => {
     const isFormEdited = state.isFormOpen && state.isInvoiceEdited;
     const formRef = useRef();
     const backdropRef = useRef();
+    const hasScroll = window.innerWidth > document.documentElement.clientWidth;
 
     // Side effect to add event listeners and disable page scrolling.
     // Removing the event listener in the return function in order to avoid memory leaks.
@@ -23,11 +25,13 @@ const FormController = () => {
         document.addEventListener('click', handleClickOutsideForm);
         formRef.current.focus();
         document.body.style.overflow = 'hidden';
+        hasScroll && (document.body.style.paddingRight = '17px');
 
         return () => {
             document.removeEventListener('keydown', focusTrap);
             document.removeEventListener('click', handleClickOutsideForm);
             document.body.style.overflow = 'unset';
+            document.body.style.paddingRight = 'unset';
         };
     }, []);
 
@@ -66,13 +70,23 @@ const FormController = () => {
 
     const controller = (
         <>
-            <Backdrop ref={backdropRef}></Backdrop>
+            <Backdrop
+                ref={backdropRef}
+                variants={backdropVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+            ></Backdrop>
             <StyledFormController
                 aria-modal
                 aria-label="Invoice form"
                 tabIndex={-1}
                 role="dialog"
                 ref={formRef}
+                variants={formVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
             >
                 {!isTablet && (
                     <Link to="/" onClick={discard}>
@@ -84,8 +98,7 @@ const FormController = () => {
                         Go back
                     </Link>
                 )}
-                {isFormOpen && <Form />}
-                {isFormEdited && <Form isEdited />}
+                <Form isEdited={isFormEdited} />
                 <SubmitController />
             </StyledFormController>
         </>
