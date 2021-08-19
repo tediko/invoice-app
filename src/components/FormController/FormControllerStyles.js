@@ -1,8 +1,9 @@
 import { Link as RouterLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { buttonDefault } from '../shared/Button/ButtonStyles';
+import { motion } from 'framer-motion';
 
-export const Backdrop = styled.div`
+export const Backdrop = styled(motion.div)`
     position: fixed;
     top: 0;
     right: 0;
@@ -12,7 +13,7 @@ export const Backdrop = styled.div`
     z-index: 99;
 `;
 
-export const StyledFormController = styled.div`
+export const StyledFormController = styled(motion.div)`
     position: fixed;
     top: clamp(72px, 10.5vw, 80px); /* header height */
     bottom: 0;
