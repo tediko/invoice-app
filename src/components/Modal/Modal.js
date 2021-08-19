@@ -13,15 +13,14 @@ const Modal = () => {
     const { state, toggleModal } = useGlobalContext();
     const isDeleteModal = state.isModalOpen.name === 'delete';
     const isStatusModal = state.isModalOpen.name === 'status';
-    const isShown = state.isModalOpen.status;
     const modalRef = useRef();
 
     /**
      * Function to trap user focus within Modal component.
      */
     const focusTrap = (event) => {
-        if (event.key === 'Escape' && isShown) toggleModal();
-        if (event.key !== 'Tab' || !isShown) return;
+        if (event.key === 'Escape') toggleModal();
+        if (event.key !== 'Tab') return;
 
         const modalElements = modalRef.current.querySelectorAll('button');
         const firstElement = modalElements[0];
@@ -48,23 +47,22 @@ const Modal = () => {
         if (target === modalRef.current) toggleModal();
     };
 
-    // If isShown we focus on our modal container and disable page scrolling,
     // add event listener for keydown event to call focusTrap fn,
     // add event listener for click event to call handleClickOutsideModal fn.
+    // Disable page scrolling,
     // Removing the event listener in the return function in order to avoid memory leaks.
     useEffect(() => {
-        isShown &&
-            (document.addEventListener('keydown', focusTrap),
-            document.addEventListener('click', handleClickOutsideModal),
-            modalRef.current.focus(),
-            (document.body.style.overflow = 'hidden'));
+        document.addEventListener('keydown', focusTrap);
+        document.addEventListener('click', handleClickOutsideModal);
+        modalRef.current.focus();
+        document.body.style.overflow = 'hidden';
 
         return () => {
             document.removeEventListener('keydown', focusTrap);
             document.removeEventListener('click', handleClickOutsideModal);
             document.body.style.overflow = 'unset';
         };
-    }, [isShown]);
+    }, []);
 
     const modal = (
         <StyledModal
@@ -76,13 +74,14 @@ const Modal = () => {
             variants={modalVariants}
             initial="hidden"
             animate="visible"
+            exit="exit"
         >
             {isDeleteModal && <ModalDelete variants={modalContainerVariants} />}
             {isStatusModal && <ModalStatus variants={modalContainerVariants} />}
         </StyledModal>
     );
 
-    return isShown ? ReactDOM.createPortal(modal, document.body) : null;
+    return ReactDOM.createPortal(modal, document.body);
 };
 
 export default Modal;
