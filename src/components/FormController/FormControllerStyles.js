@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { buttonDefault } from '../shared/Button/ButtonStyles';
 
 export const StyledFormController = styled.div`
-    position: absolute;
+    position: fixed;
     top: clamp(72px, 10.5vw, 80px); /* header height */
     right: 0;
     bottom: 0;
@@ -11,7 +11,6 @@ export const StyledFormController = styled.div`
     z-index: 99;
 
     @media (min-width: 768px) {
-        position: fixed;
         background-color: ${({ theme }) => theme.colors.blackAlpha50};
     }
 
