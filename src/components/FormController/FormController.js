@@ -4,7 +4,7 @@ import { useTheme } from 'styled-components';
 import { useGlobalContext } from '../App/context';
 import Icon from '../shared/Icon/Icon';
 import SubmitController from './SubmitController/SubmitController';
-import { StyledFormController, Container, Link } from './FormControllerStyles';
+import { Backdrop, StyledFormController, Link } from './FormControllerStyles';
 import Form from './Form/Form';
 
 const FormController = () => {
@@ -14,6 +14,7 @@ const FormController = () => {
     const isFormOpen = state.isFormOpen && !state.isInvoiceEdited;
     const isFormEdited = state.isFormOpen && state.isInvoiceEdited;
     const formRef = useRef();
+    const backdropRef = useRef();
 
     // Side effect to add event listeners and disable page scrolling.
     // Removing the event listener in the return function in order to avoid memory leaks.
@@ -35,7 +36,7 @@ const FormController = () => {
      */
     const handleClickOutsideForm = (event) => {
         const target = event.target;
-        if (target === formRef.current) discard();
+        if (target === backdropRef.current) discard();
     };
 
     /**
@@ -64,14 +65,15 @@ const FormController = () => {
     };
 
     const controller = (
-        <StyledFormController
-            aria-modal
-            aria-label="Invoice form"
-            tabIndex={-1}
-            role="dialog"
-            ref={formRef}
-        >
-            <Container>
+        <>
+            <Backdrop ref={backdropRef}></Backdrop>
+            <StyledFormController
+                aria-modal
+                aria-label="Invoice form"
+                tabIndex={-1}
+                role="dialog"
+                ref={formRef}
+            >
                 {!isTablet && (
                     <Link to="/" onClick={discard}>
                         <Icon
@@ -85,8 +87,8 @@ const FormController = () => {
                 {isFormOpen && <Form />}
                 {isFormEdited && <Form isEdited />}
                 <SubmitController />
-            </Container>
-        </StyledFormController>
+            </StyledFormController>
+        </>
     );
 
     return ReactDOM.createPortal(controller, document.body);
