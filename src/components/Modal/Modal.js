@@ -2,6 +2,10 @@ import { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import ModalDelete from './ModalDelete';
 import ModalStatus from './ModalStatus';
+import {
+    modalVariants,
+    modalContainerVariants,
+} from '../../utilities/framerVariants';
 import { useGlobalContext } from '../App/context';
 import { StyledModal } from './ModalStyles';
 
@@ -44,7 +48,6 @@ const Modal = () => {
         if (target === modalRef.current) toggleModal();
     };
 
-    const title = document.title;
     // If isShown we focus on our modal container and disable page scrolling,
     // add event listener for keydown event to call focusTrap fn,
     // add event listener for click event to call handleClickOutsideModal fn.
@@ -70,9 +73,12 @@ const Modal = () => {
             tabIndex={-1}
             role="dialog"
             ref={modalRef}
+            variants={modalVariants}
+            initial="hidden"
+            animate="visible"
         >
-            {isDeleteModal && <ModalDelete />}
-            {isStatusModal && <ModalStatus />}
+            {isDeleteModal && <ModalDelete variants={modalContainerVariants} />}
+            {isStatusModal && <ModalStatus variants={modalContainerVariants} />}
         </StyledModal>
     );
 
