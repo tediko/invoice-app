@@ -59,14 +59,14 @@ export const StyledForm = styled.form`
     display: flex;
     flex-flow: column;
     gap: 48px;
+    height: 80%;
+    overflow-y: scroll;
 
     &:focus {
         outline: none;
     }
 
     @media (min-width: 768px) {
-        overflow-y: scroll;
-        height: 80%;
         padding: 0px 24px 10px 10px;
     }
 `;
