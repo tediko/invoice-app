@@ -100,7 +100,7 @@ const FormController = () => {
         </StyledFormController>
     );
 
-    return isShown ? ReactDOM.createPortal(controller, document.body) : null;
+    return ReactDOM.createPortal(controller, document.body);
 };
 
 export default FormController;
