@@ -17,8 +17,9 @@ export const StyledFormController = styled(motion.div)`
     position: fixed;
     top: clamp(72px, 10.5vw, 80px); /* header height */
     bottom: 0;
+    left: -20px;
     background-color: ${({ theme }) => theme.colors.bgForm};
-    padding: 32px 4px 190px 24px;
+    padding: 32px 4px 190px 44px;
     transition: background-color 400ms ease-in-out;
     z-index: 99;
 
