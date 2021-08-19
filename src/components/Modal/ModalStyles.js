@@ -3,8 +3,9 @@ import {
     primaryFontStyles,
     headingLarge,
 } from '../../utilities/typographyStyles';
+import { motion } from 'framer-motion';
 
-export const StyledModal = styled.div`
+export const StyledModal = styled(motion.div)`
     position: fixed;
     inset: 0 0 0 0;
     display: flex;
@@ -15,7 +16,7 @@ export const StyledModal = styled.div`
     z-index: 100;
 `;
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
     width: 100%;
     max-width: 480px;
     padding: 32px;
