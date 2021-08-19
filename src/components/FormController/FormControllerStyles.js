@@ -38,7 +38,7 @@ export const StyledFormController = styled(motion.div)`
         pointer-events: none;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 700px) {
         max-width: 616px;
         border-radius: 0 20px 20px 0;
         overflow: hidden;
