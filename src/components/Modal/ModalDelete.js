@@ -3,7 +3,7 @@ import { useGlobalContext } from '../App/context';
 import { useHistory } from 'react-router-dom';
 import { Container, Title, Text, CtaGroup } from './ModalStyles';
 
-const ModalDelete = () => {
+const ModalDelete = ({ variants }) => {
     const { state, toggleModal, deleteInvoice } = useGlobalContext();
     const history = useHistory();
 
@@ -13,7 +13,7 @@ const ModalDelete = () => {
     };
 
     return (
-        <Container>
+        <Container variants={variants}>
             <Title>Confirm Deletion</Title>
             <Text>
                 Are you sure you want to delete invoice #
