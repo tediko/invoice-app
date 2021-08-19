@@ -47,9 +47,7 @@ const Modal = () => {
         if (target === modalRef.current) toggleModal();
     };
 
-    // add event listener for keydown event to call focusTrap fn,
-    // add event listener for click event to call handleClickOutsideModal fn.
-    // Disable page scrolling,
+    // Side effect to add event listeners and disable page scrolling.
     // Removing the event listener in the return function in order to avoid memory leaks.
     useEffect(() => {
         document.addEventListener('keydown', focusTrap);
