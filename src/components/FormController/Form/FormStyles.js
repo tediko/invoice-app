@@ -61,6 +61,7 @@ export const StyledForm = styled.form`
     gap: 48px;
     height: 80%;
     overflow-y: scroll;
+    padding-right: 20px;
 
     &:focus {
         outline: none;
