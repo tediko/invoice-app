@@ -14,32 +14,21 @@ const FormController = () => {
     const isFormOpen = state.isFormOpen && !state.isInvoiceEdited;
     const isFormEdited = state.isFormOpen && state.isInvoiceEdited;
     const formRef = useRef();
-    const isShown = state.isFormOpen;
 
-    // If isShown we focus on our FormController container and disable page scrolling,
-    // add event listener for keydown event to call focusTrap fn,
-    // add event listener for click event to call handleClickOutsideForm fn.
+    // Side effect to add event listeners and disable page scrolling.
     // Removing the event listener in the return function in order to avoid memory leaks.
     useEffect(() => {
-        isShown &&
-            (document.addEventListener('keydown', focusTrap),
-            document.addEventListener('click', handleClickOutsideForm),
-            formRef.current.focus());
+        document.addEventListener('keydown', focusTrap);
+        document.addEventListener('click', handleClickOutsideForm);
+        formRef.current.focus();
+        document.body.style.overflow = 'hidden';
+
         return () => {
             document.removeEventListener('keydown', focusTrap);
             document.removeEventListener('click', handleClickOutsideForm);
-        };
-    }, [isShown]);
-
-    // Disable page scrolling based on isTablet variable.
-    useEffect(() => {
-        isTablet && isShown && (document.body.style.overflow = 'hidden');
-        !isTablet && (document.body.style.overflow = 'unset');
-
-        return () => {
             document.body.style.overflow = 'unset';
         };
-    }, [isTablet, isShown]);
+    }, []);
 
     /**
      * Function to hide Form component after user click outside Form contaienr.
