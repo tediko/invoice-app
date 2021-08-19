@@ -2,25 +2,24 @@ import { Link as RouterLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { buttonDefault } from '../shared/Button/ButtonStyles';
 
-export const StyledFormController = styled.div`
+export const Backdrop = styled.div`
     position: fixed;
-    top: clamp(72px, 10.5vw, 80px); /* header height */
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     background-color: ${({ theme }) => theme.colors.blackAlpha50};
     z-index: 99;
-
-    @media (min-width: 1024px) {
-        top: 0;
-    }
 `;
 
-export const Container = styled.div`
-    position: relative;
+export const StyledFormController = styled.div`
+    position: fixed;
+    top: clamp(72px, 10.5vw, 80px); /* header height */
+    bottom: 0;
     background-color: ${({ theme }) => theme.colors.bgForm};
     padding: 32px 24px 190px 24px;
     transition: background-color 400ms ease-in-out;
+    z-index: 99;
 
     &::before {
         position: absolute;
@@ -40,7 +39,6 @@ export const Container = styled.div`
 
     @media (min-width: 768px) {
         max-width: 616px;
-        height: 100%;
         border-radius: 0 20px 20px 0;
         overflow: hidden;
         padding: 56px 32px 127px 46px;
@@ -49,6 +47,7 @@ export const Container = styled.div`
     @media (min-width: 1024px) {
         max-width: 719px;
         padding: 56px 32px 100px 149px;
+        top: 0;
     }
 `;
 
