@@ -24,6 +24,7 @@ export const Container = styled.div`
     background-color: ${({ theme }) => theme.colors.bgForm};
     padding: 32px 24px 190px 24px;
     transition: background-color 400ms ease-in-out;
+    height: 100%;
 
     &::before {
         position: absolute;
@@ -43,7 +44,6 @@ export const Container = styled.div`
 
     @media (min-width: 768px) {
         max-width: 616px;
-        height: 100%;
         border-radius: 0 20px 20px 0;
         overflow: hidden;
         padding: 56px 32px 127px 46px;
