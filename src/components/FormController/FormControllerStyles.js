@@ -8,11 +8,8 @@ export const StyledFormController = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
+    background-color: ${({ theme }) => theme.colors.blackAlpha50};
     z-index: 99;
-
-    @media (min-width: 768px) {
-        background-color: ${({ theme }) => theme.colors.blackAlpha50};
-    }
 
     @media (min-width: 1024px) {
         top: 0;
@@ -24,7 +21,6 @@ export const Container = styled.div`
     background-color: ${({ theme }) => theme.colors.bgForm};
     padding: 32px 24px 190px 24px;
     transition: background-color 400ms ease-in-out;
-    height: 100%;
 
     &::before {
         position: absolute;
@@ -44,6 +40,7 @@ export const Container = styled.div`
 
     @media (min-width: 768px) {
         max-width: 616px;
+        height: 100%;
         border-radius: 0 20px 20px 0;
         overflow: hidden;
         padding: 56px 32px 127px 46px;
