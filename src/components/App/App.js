@@ -1,23 +1,34 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import Wrapper from '../Wrapper/Wrapper';
 import Header from '../Header/Header';
 import Invoices from '../Invoices/Invoices';
 import FormController from '../FormController/FormController';
 import InvoiceView from '../InvoiceView/InvoiceView';
 import Modal from '../Modal/Modal';
+import { useGlobalContext } from './context';
+import { AnimatePresence } from 'framer-motion';
 
 const App = () => {
+    const { state } = useGlobalContext();
+    const isModalOpen = state.isModalOpen.status;
+    const isFormOpen = state.isFormOpen;
+    const location = useLocation();
+
     return (
         <Wrapper>
-            <FormController />
-            <Modal />
             <Header />
-            <Switch>
-                <Route exact path="/">
-                    <Invoices />
-                </Route>
-                <Route path="/invoice/:id" children={<InvoiceView />} />
-            </Switch>
+            <AnimatePresence>
+                {isFormOpen && <FormController />}
+                {isModalOpen && <Modal />}
+            </AnimatePresence>
+            <AnimatePresence exitBeforeEnter>
+                <Switch location={location} key={location.key}>
+                    <Route exact path="/">
+                        <Invoices />
+                    </Route>
+                    <Route path="/invoice/:id" children={<InvoiceView />} />
+                </Switch>
+            </AnimatePresence>
         </Wrapper>
     );
 };
