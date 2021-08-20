@@ -64,7 +64,7 @@ export const Link = styled(RouterLink)`
 
 export const MotionLink = motion(Link);
 
-export const Controller = styled.div`
+export const Controller = styled(motion.div)`
     display: flex;
     justify-content: space-between;
     align-items: center;
