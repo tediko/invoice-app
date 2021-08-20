@@ -5,11 +5,15 @@ import Icon from '../shared/Icon/Icon';
 import Status from '../shared/Status/Status';
 import Button from '../shared/Button/Button';
 import InvoiceInfo from '../InvoiceInfo/InvoiceInfo';
+import {
+    invoiceViewLinkVariants,
+    invoiceViewControllerVariants,
+} from '../../utilities/framerVariants';
 import { useGlobalContext } from '../App/context';
 import {
     StyledInvoiceView,
     Container,
-    Link,
+    MotionLink,
     Controller,
     Text,
     ButtonWrapper,
@@ -32,11 +36,22 @@ const InvoiceView = () => {
     return (
         <StyledInvoiceView>
             <Container>
-                <Link to="/">
+                <MotionLink
+                    to="/"
+                    variants={invoiceViewLinkVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                >
                     <Icon name={'arrow-left'} size={10} color={colors.purple} />
                     Go back
-                </Link>
-                <Controller>
+                </MotionLink>
+                <Controller
+                    variants={invoiceViewControllerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                >
                     <Text>Status</Text>
                     <Status currStatus={invoice.status} />
                     {isDesktop && (
