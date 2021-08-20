@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { headingBig } from '../../../utilities/typographyStyles';
 import errorImage from '../../../assets/images/illustration-empty.svg';
 
-export const StyledErrorMessage = styled.div`
+export const StyledErrorMessage = styled(motion.div)`
     display: flex;
     flex-flow: column;
     text-align: center;
