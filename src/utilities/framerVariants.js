@@ -93,11 +93,13 @@ export const invoicesListVariants = (index) => {
 };
 
 export const invoicesErrorMessageVariants = {
-    hidden: { x: -50 },
+    hidden: { x: -50, opacity: 0 },
     visible: {
         x: 0,
-        transition: { type: 'spring', stiffness: 300 },
+        opacity: 1,
+        transition: { type: 'spring' },
     },
+    exit: { opacity: 0 },
 };
 
 //InvoiceView variants
