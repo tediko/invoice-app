@@ -3,6 +3,7 @@ import Filter from './Filter/Filter';
 import List from './List/List';
 import Button from '../shared/Button/Button';
 import invoicesLengthMessage from '../../utilities/invoicesLengthMessage';
+import { invoicesHeaderVariants } from '../../utilities/framerVariants';
 import { Container, Header, Info, Title, Text } from './InvoicesStyles';
 
 const Invoices = () => {
@@ -12,7 +13,12 @@ const Invoices = () => {
 
     return (
         <Container>
-            <Header>
+            <Header
+                variants={invoicesHeaderVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+            >
                 <Info>
                     <Title>Invoices</Title>
                     <Text>
