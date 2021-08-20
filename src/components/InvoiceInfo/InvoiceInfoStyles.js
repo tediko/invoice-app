@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { motion } from 'framer-motion';
 import {
     primaryFontStyles,
     secondaryFontStyles,
@@ -7,7 +8,7 @@ import {
     headingLargeSmall,
 } from '../../utilities/typographyStyles';
 
-export const StyledInvoiceInfo = styled.article`
+export const StyledInvoiceInfo = styled(motion.article)`
     background-color: ${({ theme }) => theme.colors.bgView};
     transition: background-color 400ms ease-in-out;
     border-radius: 8px;
