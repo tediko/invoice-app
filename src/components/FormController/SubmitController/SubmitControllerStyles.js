@@ -6,20 +6,24 @@ export const StyledSubmitController = styled.div`
     left: 0;
     right: 0;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 7px;
-    padding: 24px;
+    padding: 24px 24px 24px 44px;
     background-color: ${({ theme }) => theme.colors.bgForm};
     z-index: 3;
     transition: background-color 400ms ease-in-out;
 
-    ${({ $isEdited }) =>
-        !$isEdited &&
-        css`
-            & > :first-child {
-                margin-right: auto;
-            }
-        `}
+    @media (min-width: 480px) {
+        justify-content: flex-end;
+
+        ${({ $isEdited }) =>
+            !$isEdited &&
+            css`
+                & > :first-child {
+                    margin-right: auto;
+                }
+            `}
+    }
 
     @media (min-width: 768px) {
         padding: 32px 56px;
