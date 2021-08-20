@@ -1,4 +1,5 @@
 import { useGlobalContext } from '../../App/context';
+import { invoicesErrorMessageVariants } from '../../../utilities/framerVariants';
 import {
     StyledErrorMessage,
     Illustration,
@@ -12,7 +13,11 @@ const ErrorMessage = () => {
     const isDesktop = windowWidth >= 768;
 
     return (
-        <StyledErrorMessage>
+        <StyledErrorMessage
+            variants={invoicesErrorMessageVariants}
+            initial="hidden"
+            animate="visible"
+        >
             <Illustration />
             <Title>There is nothing here</Title>
             <Text>
