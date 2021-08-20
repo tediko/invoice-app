@@ -5,6 +5,7 @@ import Status from '../../shared/Status/Status';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import languageSensitiveNum from '../../../utilities/languageSensitiveNum';
 import dateToString from '../../../utilities/dateToString';
+import { invoicesListVariants } from '../../../utilities/framerVariants';
 import { useGlobalContext } from '../../App/context';
 import {
     StyledList,
@@ -38,8 +39,17 @@ const List = () => {
             {!isEmpty && (
                 <StyledList>
                     {filteredInvoices.map(
-                        ({ id, paymentDue, clientName, status, total }) => (
-                            <Item key={id}>
+                        (
+                            { id, paymentDue, clientName, status, total },
+                            index
+                        ) => (
+                            <Item
+                                key={id}
+                                layout
+                                variants={invoicesListVariants(index)}
+                                initial="hidden"
+                                animate="visible"
+                            >
                                 <Link to={`/invoice/${id}`}>
                                     <Uid>
                                         <Hashtag>#</Hashtag>
