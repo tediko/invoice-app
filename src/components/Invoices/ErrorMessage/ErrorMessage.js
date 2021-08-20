@@ -17,6 +17,7 @@ const ErrorMessage = () => {
             variants={invoicesErrorMessageVariants}
             initial="hidden"
             animate="visible"
+            exit="exit"
         >
             <Illustration />
             <Title>There is nothing here</Title>
