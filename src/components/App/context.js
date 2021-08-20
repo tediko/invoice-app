@@ -25,8 +25,13 @@ const AppProvider = ({ children }) => {
         discard,
         toggleModal,
     } = useManageInvoices();
-    const { filteredInvoices, filterType, handleFilter, changeFilterType } =
-        useFilter(state);
+    const {
+        filteredInvoices,
+        filterType,
+        handleFilter,
+        changeFilterType,
+        resetFilterType,
+    } = useFilter(state);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     /**
@@ -71,6 +76,7 @@ const AppProvider = ({ children }) => {
                 filterType,
                 handleFilter,
                 changeFilterType,
+                resetFilterType,
             }}
         >
             <Provider themeColor={theme}>{children}</Provider>
