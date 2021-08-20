@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { headingTitle } from '../../utilities/typographyStyles';
 
 export const Container = styled.section`
@@ -13,7 +14,7 @@ export const Container = styled.section`
     }
 `;
 
-export const Header = styled.div`
+export const Header = styled(motion.div)`
     display: grid;
     grid-template-columns: 1fr auto auto;
     gap: 18px;
