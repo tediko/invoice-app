@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link as RouterLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import {
     headingExtraSmall,
     headingMedium,
@@ -11,7 +12,7 @@ export const StyledList = styled.ul`
     gap: 16px;
 `;
 
-export const Item = styled.li`
+export const Item = styled(motion.li)`
     background-color: ${({ theme }) => theme.colors.bgInvoiceItem};
     border-radius: 8px;
     box-shadow: 0 10px 10px -10px ${({ theme }) => theme.colors.bgInvoiceItemShadow};
