@@ -49,6 +49,7 @@ const List = () => {
                                 variants={invoicesListVariants(index)}
                                 initial="hidden"
                                 animate="visible"
+                                exit="exit"
                             >
                                 <Link to={`/invoice/${id}`}>
                                     <Uid>
