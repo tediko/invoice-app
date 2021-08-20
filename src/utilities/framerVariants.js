@@ -63,7 +63,6 @@ export const invoicesHeaderVariants = {
     },
     exit: {
         opacity: 0,
-        duration: 0.5,
     },
 };
 
@@ -87,6 +86,7 @@ export const invoicesListVariants = (index) => {
             transition: {
                 type: 'spring',
                 delay: 0.05 * index,
+                duration: 0.45,
             },
         },
     };
