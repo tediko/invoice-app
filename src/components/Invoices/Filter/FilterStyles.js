@@ -39,6 +39,7 @@ export const List = styled.ul`
     border-radius: 8px;
     transform: translateX(-50%);
     transition: background-color 400ms ease-in-out;
+    z-index: 10;
 `;
 
 export const Item = styled.li``;
