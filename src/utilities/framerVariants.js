@@ -50,3 +50,71 @@ export const modalContainerVariants = {
         transition: { duration: 0.5, delay: 0.1 },
     },
 };
+
+//Invoices variants
+export const invoicesHeaderVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            duration: 1,
+        },
+    },
+    exit: {
+        opacity: 0,
+        duration: 0.5,
+    },
+};
+
+export const invoicesListVariants = (index) => {
+    return {
+        hidden: {
+            y: 10,
+            opacity: 0,
+        },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                type: 'spring',
+                delay: 0.1 * index,
+            },
+        },
+        exit: {
+            y: 10,
+            opacity: 0,
+            transition: {
+                type: 'spring',
+                delay: 0.05 * index,
+            },
+        },
+    };
+};
+
+//InvoiceView variants
+export const invoiceViewLinkVariants = {
+    hidden: { x: -20, opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { type: 'spring', duration: 1 } },
+    exit: {
+        x: -20,
+        opacity: 0,
+    },
+};
+
+export const invoiceViewControllerVariants = {
+    hidden: { y: -20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { type: 'spring', duration: 1 } },
+    exit: { opacity: 0, duration: 1 },
+};
+
+//InvoiceInfo variants
+export const invoiceInfoVariants = {
+    hidden: { scale: 0.9, opacity: 0 },
+    visible: {
+        scale: 1,
+        opacity: 1,
+        transition: { type: 'spring', duration: 1 },
+    },
+    exit: { opacity: 0 },
+};
