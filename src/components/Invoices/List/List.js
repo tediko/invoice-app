@@ -20,7 +20,8 @@ import {
 
 const List = () => {
     const { colors } = useTheme();
-    const { windowWidth, filterType, filteredInvoices } = useGlobalContext();
+    const { windowWidth, filterType, filteredInvoices, resetFilterType } =
+        useGlobalContext();
     const isDesktop = windowWidth >= 768;
     const isEmpty = filteredInvoices.length === 0;
 
@@ -32,6 +33,13 @@ const List = () => {
             document.title = `Invoices | ${filterType} (${filteredInvoices.length})`;
         }
     }, [filteredInvoices]);
+
+    // Call resetFilterType after component is unmounted.
+    useEffect(() => {
+        return () => {
+            resetFilterType();
+        };
+    }, []);
 
     return (
         <>
