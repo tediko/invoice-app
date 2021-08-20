@@ -92,6 +92,14 @@ export const invoicesListVariants = (index) => {
     };
 };
 
+export const invoicesErrorMessageVariants = {
+    hidden: { x: -50 },
+    visible: {
+        x: 0,
+        transition: { type: 'spring', stiffness: 300 },
+    },
+};
+
 //InvoiceView variants
 export const invoiceViewLinkVariants = {
     hidden: { x: -20, opacity: 0 },
