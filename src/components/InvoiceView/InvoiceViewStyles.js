@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { Link as RouterLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { buttonDefault } from '../shared/Button/ButtonStyles';
 import { primaryFontStyles } from '../../utilities/typographyStyles';
 
@@ -60,6 +61,8 @@ export const Link = styled(RouterLink)`
         }
     }
 `;
+
+export const MotionLink = motion(Link);
 
 export const Controller = styled.div`
     display: flex;
