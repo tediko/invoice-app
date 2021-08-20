@@ -1,6 +1,7 @@
 import Summary from './Summary/Summary';
 import dateToString from '../../utilities/dateToString';
 import languageSensitiveNum from '../../utilities/languageSensitiveNum';
+import { invoiceInfoVariants } from '../../utilities/framerVariants';
 import {
     StyledInvoiceInfo,
     Container,
@@ -22,7 +23,12 @@ import {
 
 const InvoiceInfo = ({ invoice }) => {
     return (
-        <StyledInvoiceInfo>
+        <StyledInvoiceInfo
+            variants={invoiceInfoVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+        >
             <Container>
                 <Key>
                     <Uid>
