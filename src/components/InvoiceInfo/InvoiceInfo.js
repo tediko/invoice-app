@@ -23,8 +23,9 @@ import {
 } from '../InvoiceInfo/InvoiceInfoStyles';
 
 const InvoiceInfo = ({ invoice }) => {
+    const shouldReduceMotion = useReducedMotion();
     const variant = (element) => {
-        return useReducedMotion()
+        return shouldReduceMotion
             ? invoiceInfoVariants.reduced
             : invoiceInfoVariants[element];
     };

@@ -10,8 +10,9 @@ import {
 } from './RouteErrorStyles';
 
 const RouteError = () => {
+    const shouldReduceMotion = useReducedMotion();
     const variant = (element) => {
-        return useReducedMotion()
+        return shouldReduceMotion
             ? routeErrorVariants.reduced
             : routeErrorVariants[element];
     };

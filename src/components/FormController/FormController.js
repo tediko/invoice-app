@@ -17,8 +17,9 @@ const FormController = () => {
     const formRef = useRef();
     const backdropRef = useRef();
     const hasScroll = window.innerWidth > document.documentElement.clientWidth;
+    const shouldReduceMotion = useReducedMotion();
     const variant = (element) => {
-        return useReducedMotion()
+        return shouldReduceMotion
             ? FormControllerVariants.reduced
             : FormControllerVariants[element];
     };

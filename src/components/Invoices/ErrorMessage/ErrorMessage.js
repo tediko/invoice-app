@@ -12,8 +12,9 @@ import {
 const ErrorMessage = () => {
     const { windowWidth } = useGlobalContext();
     const isDesktop = windowWidth >= 768;
+    const shouldReduceMotion = useReducedMotion();
     const variant = (element) => {
-        return useReducedMotion()
+        return shouldReduceMotion
             ? invoicesVariants.reduced
             : invoicesVariants[element];
     };

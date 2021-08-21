@@ -12,8 +12,9 @@ const Modal = () => {
     const isDeleteModal = state.isModalOpen.name === 'delete';
     const isStatusModal = state.isModalOpen.name === 'status';
     const modalRef = useRef();
+    const shouldReduceMotion = useReducedMotion();
     const variant = (element) => {
-        return useReducedMotion()
+        return shouldReduceMotion
             ? modalVariants.reduced
             : modalVariants[element];
     };

@@ -11,8 +11,9 @@ const Invoices = () => {
     const { windowWidth, createInvoice, filteredInvoices, filterType } =
         useGlobalContext();
     const isDesktop = windowWidth >= 768;
+    const shouldReduceMotion = useReducedMotion();
     const variant = (element) => {
-        return useReducedMotion()
+        return shouldReduceMotion
             ? invoicesVariants.reduced
             : invoicesVariants[element];
     };

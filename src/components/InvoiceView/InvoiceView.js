@@ -25,8 +25,9 @@ const InvoiceView = () => {
     const isPaid = invoice.status === 'paid';
     const isPaidOrDraft = isPaid || invoice.status === 'draft';
     const isDesktop = windowWidth >= 768;
+    const shouldReduceMotion = useReducedMotion();
     const variant = (element) => {
-        return useReducedMotion()
+        return shouldReduceMotion
             ? invoiceViewVariants.reduced
             : invoiceViewVariants[element];
     };
