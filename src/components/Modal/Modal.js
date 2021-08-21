@@ -3,11 +3,7 @@ import ReactDOM from 'react-dom';
 import { useReducedMotion } from 'framer-motion';
 import ModalDelete from './ModalDelete';
 import ModalStatus from './ModalStatus';
-import {
-    modalVariants,
-    modalContainerVariants,
-    motionReducedVariants,
-} from '../../utilities/framerVariants';
+import { modalVariants } from '../../utilities/framerVariants';
 import { useGlobalContext } from '../App/context';
 import { StyledModal } from './ModalStyles';
 
@@ -16,10 +12,12 @@ const Modal = () => {
     const isDeleteModal = state.isModalOpen.name === 'delete';
     const isStatusModal = state.isModalOpen.name === 'status';
     const modalRef = useRef();
-    const shouldReduceMotion = useReducedMotion();
-    const variant = shouldReduceMotion
-        ? motionReducedVariants
-        : modalContainerVariants;
+    const variant = (element) => {
+        return useReducedMotion()
+            ? modalVariants.reduced
+            : modalVariants[element];
+    };
+    const containerVariant = variant('container');
 
     /**
      * Function to trap user focus within Modal component.
@@ -75,13 +73,13 @@ const Modal = () => {
             tabIndex={-1}
             role="dialog"
             ref={modalRef}
-            variants={modalVariants}
+            variants={variant('modal')}
             initial="hidden"
             animate="visible"
             exit="exit"
         >
-            {isDeleteModal && <ModalDelete variants={variant} />}
-            {isStatusModal && <ModalStatus variants={variant} />}
+            {isDeleteModal && <ModalDelete variants={containerVariant} />}
+            {isStatusModal && <ModalStatus variants={containerVariant} />}
         </StyledModal>
     );
 
