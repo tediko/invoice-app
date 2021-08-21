@@ -1,7 +1,11 @@
+import { useReducedMotion } from 'framer-motion';
 import Summary from './Summary/Summary';
 import dateToString from '../../utilities/dateToString';
 import languageSensitiveNum from '../../utilities/languageSensitiveNum';
-import { invoiceInfoVariants } from '../../utilities/framerVariants';
+import {
+    invoiceInfoVariants,
+    motionReducedVariants,
+} from '../../utilities/framerVariants';
 import {
     StyledInvoiceInfo,
     Container,
@@ -22,9 +26,14 @@ import {
 } from '../InvoiceInfo/InvoiceInfoStyles';
 
 const InvoiceInfo = ({ invoice }) => {
+    const shouldReduceMotion = useReducedMotion();
+    const infoVariant = shouldReduceMotion
+        ? motionReducedVariants
+        : invoiceInfoVariants;
+
     return (
         <StyledInvoiceInfo
-            variants={invoiceInfoVariants}
+            variants={infoVariant}
             initial="hidden"
             animate="visible"
             exit="exit"
