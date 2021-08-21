@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTheme } from 'styled-components';
+import { useReducedMotion } from 'framer-motion';
 import Icon from '../shared/Icon/Icon';
 import Status from '../shared/Status/Status';
 import Button from '../shared/Button/Button';
@@ -8,6 +9,7 @@ import InvoiceInfo from '../InvoiceInfo/InvoiceInfo';
 import {
     invoiceViewLinkVariants,
     invoiceViewControllerVariants,
+    motionReducedVariants,
 } from '../../utilities/framerVariants';
 import { useGlobalContext } from '../App/context';
 import {
@@ -27,6 +29,13 @@ const InvoiceView = () => {
     const isPaid = invoice.status === 'paid';
     const isPaidOrDraft = isPaid || invoice.status === 'draft';
     const isDesktop = windowWidth >= 768;
+    const shouldReduceMotion = useReducedMotion();
+    const linkVariant = shouldReduceMotion
+        ? motionReducedVariants
+        : invoiceViewLinkVariants;
+    const controllerVariant = shouldReduceMotion
+        ? motionReducedVariants
+        : invoiceViewControllerVariants;
 
     // Running an effect on render and change document title.
     useEffect(() => {
@@ -38,7 +47,7 @@ const InvoiceView = () => {
             <Container>
                 <MotionLink
                     to="/"
-                    variants={invoiceViewLinkVariants}
+                    variants={linkVariant}
                     initial="hidden"
                     animate="visible"
                     exit="exit"
@@ -47,7 +56,7 @@ const InvoiceView = () => {
                     Go back
                 </MotionLink>
                 <Controller
-                    variants={invoiceViewControllerVariants}
+                    variants={controllerVariant}
                     initial="hidden"
                     animate="visible"
                     exit="exit"
