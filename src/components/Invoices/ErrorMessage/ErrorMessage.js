@@ -1,9 +1,6 @@
 import { useReducedMotion } from 'framer-motion';
 import { useGlobalContext } from '../../App/context';
-import {
-    invoicesErrorMessageVariants,
-    motionReducedVariants,
-} from '../../../utilities/framerVariants';
+import { invoicesVariants } from '../../../utilities/framerVariants';
 import {
     StyledErrorMessage,
     Illustration,
@@ -15,14 +12,15 @@ import {
 const ErrorMessage = () => {
     const { windowWidth } = useGlobalContext();
     const isDesktop = windowWidth >= 768;
-    const shouldReduceMotion = useReducedMotion();
-    const errorVariant = shouldReduceMotion
-        ? motionReducedVariants
-        : invoicesErrorMessageVariants;
+    const variant = (element) => {
+        return useReducedMotion()
+            ? invoicesVariants.reduced
+            : invoicesVariants[element];
+    };
 
     return (
         <StyledErrorMessage
-            variants={errorVariant}
+            variants={variant('errorMessage')}
             initial="hidden"
             animate="visible"
             exit="exit"
