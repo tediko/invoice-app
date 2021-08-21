@@ -6,10 +6,7 @@ import Status from '../../shared/Status/Status';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import languageSensitiveNum from '../../../utilities/languageSensitiveNum';
 import dateToString from '../../../utilities/dateToString';
-import {
-    invoicesListVariants,
-    motionReducedVariants,
-} from '../../../utilities/framerVariants';
+import { invoicesVariants } from '../../../utilities/framerVariants';
 import { useGlobalContext } from '../../App/context';
 import {
     StyledList,
@@ -28,11 +25,11 @@ const List = () => {
         useGlobalContext();
     const isDesktop = windowWidth >= 768;
     const isEmpty = filteredInvoices.length === 0;
-    const shouldReduceMotion = useReducedMotion();
-    const listVariant = (index) =>
-        shouldReduceMotion
-            ? motionReducedVariants
-            : invoicesListVariants(index);
+    const variant = (element, index) => {
+        return useReducedMotion()
+            ? invoicesVariants.reduced
+            : invoicesVariants[element](index);
+    };
 
     // Running an effect on filteredInvoices change and shift document title.
     useEffect(() => {
@@ -63,7 +60,7 @@ const List = () => {
                             <Item
                                 key={id}
                                 layout
-                                variants={listVariant(index)}
+                                variants={variant('list', index)}
                                 initial="hidden"
                                 animate="visible"
                                 exit="exit"
