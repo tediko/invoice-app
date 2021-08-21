@@ -1,8 +1,13 @@
 import { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { useTheme } from 'styled-components';
+import { useReducedMotion } from 'framer-motion';
 import { useGlobalContext } from '../App/context';
-import { backdropVariants, formVariants } from '../../utilities/framerVariants';
+import {
+    backdropVariants,
+    formVariants,
+    motionReducedVariants,
+} from '../../utilities/framerVariants';
 import Icon from '../shared/Icon/Icon';
 import SubmitController from './SubmitController/SubmitController';
 import { Backdrop, StyledFormController, Link } from './FormControllerStyles';
@@ -12,11 +17,14 @@ const FormController = () => {
     const { state, windowWidth, discard } = useGlobalContext();
     const { colors } = useTheme();
     const isTablet = windowWidth >= 768;
-    const isFormOpen = state.isFormOpen && !state.isInvoiceEdited;
     const isFormEdited = state.isFormOpen && state.isInvoiceEdited;
     const formRef = useRef();
     const backdropRef = useRef();
     const hasScroll = window.innerWidth > document.documentElement.clientWidth;
+    const shouldReduceMotion = useReducedMotion();
+    const formVariant = shouldReduceMotion
+        ? motionReducedVariants
+        : formVariants;
 
     // Side effect to add event listeners and disable page scrolling.
     // Removing the event listener in the return function in order to avoid memory leaks.
@@ -83,7 +91,7 @@ const FormController = () => {
                 tabIndex={-1}
                 role="dialog"
                 ref={formRef}
-                variants={formVariants}
+                variants={formVariant}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
