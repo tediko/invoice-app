@@ -241,17 +241,3 @@ export const routeErrorVariants = {
         },
     },
 };
-
-// Motion reduced variants
-export const motionReducedVariants = {
-    hidden: {
-        opacity: 0,
-    },
-    visible: {
-        opacity: 1,
-        transition: { duration: 0.5, delay: 0.1 },
-    },
-    exit: {
-        opacity: 0,
-    },
-};
