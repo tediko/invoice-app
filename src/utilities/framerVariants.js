@@ -140,32 +140,6 @@ export const invoicesVariants = {
     },
 };
 
-export const invoicesListVariants = (index) => {
-    return {
-        hidden: {
-            y: 10,
-            opacity: 0,
-        },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                type: 'spring',
-                delay: 0.1 * index,
-            },
-        },
-        exit: {
-            y: 10,
-            opacity: 0,
-            transition: {
-                type: 'spring',
-                delay: 0.05 * index,
-                duration: 0.45,
-            },
-        },
-    };
-};
-
 // InvoiceView variants
 export const invoiceViewVariants = {
     link: {
