@@ -1,10 +1,5 @@
 import { useReducedMotion } from 'framer-motion';
-import {
-    routeErrorVariants,
-    routeErrorIllustrationVariants,
-    routeErrorTitleVariants,
-    motionReducedVariants,
-} from '../../utilities/framerVariants';
+import { routeErrorVariants } from '../../utilities/framerVariants';
 import {
     StyledRouteError,
     Illustration,
@@ -15,13 +10,11 @@ import {
 } from './RouteErrorStyles';
 
 const RouteError = () => {
-    const shouldReduceMotion = useReducedMotion();
-    const illustrationVariant = shouldReduceMotion
-        ? motionReducedVariants
-        : routeErrorIllustrationVariants;
-    const titleVariant = shouldReduceMotion
-        ? motionReducedVariants
-        : routeErrorTitleVariants;
+    const variant = (element) => {
+        return useReducedMotion()
+            ? routeErrorVariants.reduced
+            : routeErrorVariants[element];
+    };
 
     return (
         <StyledRouteError
@@ -30,8 +23,8 @@ const RouteError = () => {
             animate="visible"
             exit="exit"
         >
-            <Illustration variants={illustrationVariant} />
-            <Title variants={titleVariant}>404!</Title>
+            <Illustration variants={variant('illustration')} />
+            <Title variants={variant('title')}>404!</Title>
             <Subtitle>Ooops! You weren't supposed to see this</Subtitle>
             <Text>
                 It looks like you've reached a URL that doesn't exist. Please
