@@ -18,7 +18,7 @@ const RouteError = () => {
 
     return (
         <StyledRouteError
-            variants={routeErrorVariants}
+            variants={variant('routeError')}
             initial="hidden"
             animate="visible"
             exit="exit"
