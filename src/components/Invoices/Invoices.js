@@ -1,20 +1,28 @@
+import { useReducedMotion } from 'framer-motion';
 import { useGlobalContext } from '../App/context';
 import Filter from './Filter/Filter';
 import List from './List/List';
 import Button from '../shared/Button/Button';
 import invoicesLengthMessage from '../../utilities/invoicesLengthMessage';
-import { invoicesHeaderVariants } from '../../utilities/framerVariants';
+import {
+    invoicesHeaderVariants,
+    motionReducedVariants,
+} from '../../utilities/framerVariants';
 import { Container, Header, Info, Title, Text } from './InvoicesStyles';
 
 const Invoices = () => {
     const { windowWidth, createInvoice, filteredInvoices, filterType } =
         useGlobalContext();
     const isDesktop = windowWidth >= 768;
+    const shouldReduceMotion = useReducedMotion();
+    const headerVariant = shouldReduceMotion
+        ? motionReducedVariants
+        : invoicesHeaderVariants;
 
     return (
         <Container>
             <Header
-                variants={invoicesHeaderVariants}
+                variants={headerVariant}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
