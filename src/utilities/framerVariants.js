@@ -1,4 +1,4 @@
-//FormController variants
+// FormController variants
 export const backdropVariants = {
     hidden: {
         opacity: 0,
@@ -27,7 +27,7 @@ export const formVariants = {
     },
 };
 
-//Modal variants
+// Modal variants
 export const modalVariants = {
     hidden: {
         opacity: 0,
@@ -51,7 +51,7 @@ export const modalContainerVariants = {
     },
 };
 
-//Invoices variants
+// Invoices variants
 export const invoicesHeaderVariants = {
     hidden: { opacity: 0, x: -50 },
     visible: {
@@ -102,7 +102,7 @@ export const invoicesErrorMessageVariants = {
     exit: { opacity: 0 },
 };
 
-//InvoiceView variants
+// InvoiceView variants
 export const invoiceViewLinkVariants = {
     hidden: { x: -20, opacity: 0 },
     visible: { x: 0, opacity: 1, transition: { type: 'spring', duration: 1 } },
@@ -118,7 +118,7 @@ export const invoiceViewControllerVariants = {
     exit: { opacity: 0, duration: 1 },
 };
 
-//InvoiceInfo variants
+// InvoiceInfo variants
 export const invoiceInfoVariants = {
     hidden: { scale: 0.9, opacity: 0 },
     visible: {
@@ -127,6 +127,34 @@ export const invoiceInfoVariants = {
         transition: { type: 'spring', duration: 1 },
     },
     exit: { opacity: 0 },
+};
+
+// RouteError
+export const routeErrorVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1 } },
+    exit: { opacity: 0 },
+};
+
+export const routeErrorIllustrationVariants = {
+    hidden: { scale: 0.9 },
+    visible: { scale: 1, transition: { duration: 1 } },
+    exit: { scale: 0.8 },
+};
+
+export const routeErrorTitleVariants = {
+    hidden: { x: -100, opacity: 0 },
+    visible: {
+        x: 0,
+        opacity: 1,
+        transition: {
+            type: 'spring',
+            bounce: 0.8,
+            delay: 0.3,
+            duration: 1,
+        },
+    },
+    exit: { scale: 0.8 },
 };
 
 // Motion reduced variants
