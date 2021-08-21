@@ -6,7 +6,7 @@ import ModalStatus from './ModalStatus';
 import {
     modalVariants,
     modalContainerVariants,
-    modalContainerReducedVariants,
+    motionReducedVariants,
 } from '../../utilities/framerVariants';
 import { useGlobalContext } from '../App/context';
 import { StyledModal } from './ModalStyles';
@@ -18,7 +18,7 @@ const Modal = () => {
     const modalRef = useRef();
     const shouldReduceMotion = useReducedMotion();
     const variant = shouldReduceMotion
-        ? modalContainerReducedVariants
+        ? motionReducedVariants
         : modalContainerVariants;
 
     /**
