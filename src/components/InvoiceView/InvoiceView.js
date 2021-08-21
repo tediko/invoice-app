@@ -21,7 +21,10 @@ const InvoiceView = () => {
     const { state, windowWidth, toggleModal, editInvoice } = useGlobalContext();
     const { colors } = useTheme();
     const { id } = useParams();
-    const [invoice] = useState(state.invoices.find((item) => item.id === id));
+    const [invoice, setInvoice] = useState(
+        state.invoices.find((item) => item.id === id)
+    );
+    const [isDeleting, setIsDeleting] = useState(false);
     const isPaid = invoice.status === 'paid';
     const isPaidOrDraft = isPaid || invoice.status === 'draft';
     const isDesktop = windowWidth >= 768;
@@ -36,6 +39,13 @@ const InvoiceView = () => {
     useEffect(() => {
         document.title = `Invoices | #${id}`;
     }, []);
+
+    // setInvoice only if isDeleting is false on dependency array change
+    // to prevent render error where invoice doesn't exist.
+    useEffect(() => {
+        !isDeleting &&
+            setInvoice(state.invoices.find((item) => item.id === id));
+    }, [state.invoices]);
 
     return (
         <StyledInvoiceView>
@@ -70,7 +80,10 @@ const InvoiceView = () => {
                             )}
                             <Button
                                 $delete
-                                onClick={() => toggleModal(id, 'delete')}
+                                onClick={() => {
+                                    toggleModal(id, 'delete');
+                                    setIsDeleting(true);
+                                }}
                             >
                                 Delete
                             </Button>
