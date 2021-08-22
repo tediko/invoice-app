@@ -1,110 +1,111 @@
-# Frontend Mentor - Invoice app
+# Invoice app
 
 ![Design preview for the Invoice app coding challenge](./src/assets/preview.jpg)
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for purchasing this premium Frontend Mentor coding challenge.
+-   [Overview](#overview)
+    -   [Intro](#intro)
+    -   [Usage](#usage)
+    -   [Links](#links)
+-   [My process](#my-process)
+    -   [Built with](#built-with)
+    -   [Features](#features)
+-   [Setup](#setup)
+-   [Useful resources](#useful-resources)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects. These premium challenges are perfect portfolio pieces, so please feel free to use what you create in your portfolio to show others.
+## Overview
 
-**To do this challenge, you need a strong understanding of HTML, CSS, and JavaScript.**
+### Intro
 
-## The challenge
+Hello! This is an **invoicing application** build with **_React JS_** and **_styled-components_**. The application is used to manage invoices and allows the user to _create, read, update, filter by status_ and _delete_ invoices. There is an option in the app to switch between a _dark_ and a _light_ **theme**. All transitions are smoothly displayed by using **Framer Motion** library to create animations.
 
-Your challenge is to build out this invoicing application and get it looking as close to the design as possible.
+### Usage
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+-   Invoices can be created either as drafts or as pending. Clicking _"Save as Draft"_ allow the user to leave any form field blank and set the status to _"draft"_. Clicking _"Save & Send"_ require all forms fields to be filled in, and set the status to _"pending"_. The created invoice receives a unique ID. Each ID consists of the 2 random uppercased letters followed by 4 random numbers.
+-   When saving changes to an invoice, all fields are required when the _"Save Changes"_ button is clicked. If the user clicks _"Cancel"_, any unsaved changes reset.
+-   If the invoice being edited is a _"draft"_ and the _"Save Changes"_ button is clicked the status update to _"pending"_. All fields are required at this stage.
+-   Clicking the _"Mark as Paid"_ button change the invoice's status to _"paid"_. This option is displayed only when the invoice status is _"pending"_.
+-   Users receive a confirmation modal when trying to _delete_ or _change_ status of invoice because both of those actions are irreversible.
+-   Clicking the _sun/moon_ button toggle _light_ and _dark_ mode.
+-   The `Tab` and `Shift+Tab` keys will cycle through the **focus trap's** tabbable elements _but will not leave the focus trap_ when _modal_ or _form_ is open.
+-   Invoices list can be **filtered** by status (_draft/pending/paid_) by using _"Filter by status"_ button.
+-   Keep track of any changes with `localStorage`.
 
-We provide the data in a local `data.json` file, so use that to populate the content on first load. If you want to take it up a notch, feel free to build this as a full-stack application!
+### Links
 
-Your users should be able to:
+-   [Live site URL](https://invoice-tediko.netlify.app/) to see live version.
+-   [Frontend Mentor](https://www.frontendmentor.io) challenges allow you to improve your skills in a real-life workflow.
 
--   View the optimal layout for the app depending on their device's screen size
--   See hover states for all interactive elements on the page
--   Create, read, update, and delete invoices
--   Receive form validations when trying to create/edit an invoice
--   Save draft invoices, and mark pending invoices as paid
--   Filter invoices by status (draft/pending/paid)
--   Toggle light and dark mode
--   **Bonus**: Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
+## My process
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+The first time I used `useReducer` hook to manage application state. I noticed that my state logic getting more complex as the few elements of my state relies on the value of another element of my state. Together with _useReducer_, the `useContext` hook turned out to be handy. It allowed me to create common data that can be accessed throughout the component hierarchy without passing the props down manually to each level which in turn allowed me to avoid **Prop drilling** _(also called "threading")_ that is the process you have to go through to get data to parts of the React Component tree.
 
-### Expected Behaviour
+In order to create a _theme switcher_ and _provide colors_ for components I used **styled-components** `<ThemeProvider>` wrapper component. By leveraging the theme provider I only need to write my styles in one single object and invoke them in any component that is a descendant of that provider.
 
--   Creating an invoice
-    -   When creating a new invoice, an ID needs to be created. Each ID should be 2 random uppercased letters followed by 4 random numbers.
-    -   Invoices can be created either as drafts or as pending. Clicking "Save as Draft" should allow the user to leave any form field blank, but should create an ID if one doesn't exist and set the status to "draft". Clicking "Save & Send" should require all forms fields to be filled in, and should set the status to "pending".
-    -   Changing the Payments Terms field should set the `paymentDue` property based on the `createdAt` date plus the numbers of days set for the payment terms.
-    -   The `total` should be the sum of all items on the invoice.
--   Editing an invoice
-    -   When saving changes to an invoice, all fields are required when the "Save Changes" button is clicked. If the user clicks "Cancel", any unsaved changes should be reset.
-    -   If the invoice being edited is a "draft", the status needs to be updated to "pending" when the "Save Changes" button is clicked. All fields are required at this stage.
--   Users should be able to mark invoices as paid by clicking the "Mark as Paid" button. This should change the invoice's status to "paid".
--   Users should receive a confirmation modal when trying to delete invoices.
--   Feel free not to add custom styling for the date and dropdown form fields. The designs for those fields are optional extras and are mostly for illustration purposes.
+When creating the form I learned what **Controlled Component** is. In HTML, form elements such as `<input>`, `<textarea>`, and `<select>` typically maintain their own state and update it based on user input. In React, mutable state is typically kept in the state property of components, and only updated with `setState()`. Then the React component that renders a form also controls what happens in that form on subsequent user input.
 
-## Where to find everything
+To make application more `ADA compliant` (_which means the website should be entirely accessible using just keyboard)_ I prevent focus go outside the modal once the modal is opened. In this case, the **focus trap** turns on when the _form_ or modal with _invoice deletion_/_status change_ is opened. I did this by using a simple function that is invoking on the _keydown event_. Function saves to the variable all focusable elements in modal container and check if the `event.key` is `Tab`. If so and it encounters the last focusable element, select the first element. The same logic corresponds to `Shift + Tab` but with a reverse action. `Esc` key closes the modal. In order to create an accessible modal I followed [this great](https://nainacodes.com/blog/create-an-accessible-and-reusable-react-modal) tutorial that follow the [WAI-ARIA Practices](https://www.w3.org/TR/wai-aria-practices/#dialog_modal).
 
-Your task is to build out the project to the design file provided. We provide both Sketch and Figma versions of the design, so you can choose which tool you prefer to use. You can download the design file on the platform. **Please be sure not to share them with anyone else.** The design download comes with a `README.md` file as well to help you get set up.
+It was **by far** the largest and most comprehensive project I have done so far. It showed me how important it is to _plan_ so that you don't have to change things that previously worked well in the middle of the project. A valuable lesson!
 
-All the required assets for this project are in the `/assets` folder. The assets are already exported for the correct screen size and optimized. Some images are reusable at multiple screen sizes. So if you don't see an image in a specific folder, it will typically be in another folder for that page.
+### Built with
 
-The design system in the design file will give you more information about the various colors, fonts, and styles used in this project.
+-   ReactJS
+-   Styled-components
+-   Framer Motion API
+-   react-datepicker
+-   Webpack
+-   Mobile first
+-   Semantic HTML5 markup
 
-## Building your project
+### Features
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+-   I used **_ReactJS_** library to create an app. React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.
+-   To style my app I used **_styled-components_** library. Styled Components are one of the new ways to use CSS in modern JavaScript. It is the meant to be a successor of CSS Modules, a way to write CSS that's scoped to a single component, and not leak to any other element in the page. Also allows you to write plain CSS in your components without worrying about class name collisions.
+-   To animate the pages transitions and modals I used **_Framer Motion API_**. Framer Motion is an open source, production-ready library that's designed for creating creative animations. In order to support users who have enabled their device’s Reduced Motion setting and make **accessible animations** I used `useReducedMotion` hook. Based on whether `useReducedMotion` returns `true` or not we're passing different values to `animate`. That replace _position transitions_ with _opacity_.
+-   Added **prefers-color-scheme** CSS media feature which is used to detect if the user has requested a _light_ or _dark_ color theme and save it to **_Local Storage_**. I made it with window interface `matchMedia()` method. It returns a new `MediaQueryList object` that can then be used to determine if the document matches the media query string. In this case _prefers-color-scheme_.
+-   Implemented **focus trap** inside modal to make it _ADA compliant_. Focus trap in short prevent our focus go outside the modal once the modal is opened.
+-   `:focus-visible` pseudo class. This selector only indicate focus when it is helpful to the user - such as in cases where the user interacts with the page via a keyboard or some other non-pointing device. It isn't supported by Safari yet, but there is simple [workaround](https://stackoverflow.com/questions/31402576/enable-focus-only-on-keyboard-use-or-tab-press).
+-   To create this project I used webpack. More specifically i used `laravel mix` which is a wrapper for webpack and targets the 80% usecase.
 
-1. Separate the `starter-code` from the rest of this project and rename it to something meaningful for you. Initialize the codebase as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/). **⚠️ IMPORTANT ⚠️: There are already a couple of `.gitignore` files in this project. Please do not remove them or change the content of the files. If you create a brand new project, please use the `.gitignore` files provided in your new codebase. This is to avoid the accidental upload of the design files to GitHub. With these premium challenges, please be sure not to share the design files in your GitHub repo. Thanks!**
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+## Setup
 
-## Deploying your project
+To run this project, clone it and install it locally using npm:
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+```
+$ git clone git@github.com:tediko/planets-fact.git
+$ cd planets-fact
+$ npm install
+```
 
--   [GitHub Pages](https://pages.github.com/)
--   [Vercel](https://vercel.com/)
--   [Netlify](https://www.netlify.com/)
+Use npm to build and compile assets in a local environment:
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+```
+$ npm run build
+```
 
-## Create a custom `README.md`
+Watch assets for changes and rebuild your bundle each time you update a file with:
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+```
+$ npm run mix-watch
+or
+$ npx mix watch
+```
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+## Useful resources
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
-
-## Submitting your solution
-
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
-
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
-
-**⚠️ IMPORTANT ⚠️: With these premium challenges, please be sure not to upload the design files to GitHub when you're submitting to the platform and sharing it around. If you've created a brand new project, the easiest way to do that is to copy across the `.gitignore` provided in this starter project.**
-
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack).
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback.
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-**Have fun building!** 🚀
+-   [DOCS - ReactJS](https://reactjs.org/)
+-   [VIDEO - ReactJS tutorial by The Net Ninja](https://www.youtube.com/watch?v=j942wKiXFu8&list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d)
+-   [DOCS- Styled-components](https://styled-components.com/)
+-   [LINK - useReducer hook](https://blog.logrocket.com/guide-to-react-usereducer-hook/)
+-   [LINK - useContext hook](https://medium.com/technofunnel/usecontext-in-react-hooks-aa9a60b8a461)
+-   [LINK - Prop Drilling ("threading")](https://kentcdodds.com/blog/prop-drilling)
+-   [LINK - ThemeProvider](https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/)
+-   [DOCS - Forms/Controlled Component](https://reactjs.org/docs/forms.html)
+-   [LINK - Accessible modal](https://nainacodes.com/blog/create-an-accessible-and-reusable-react-modal)
+-   [LINK - Prettier](https://prettier.io/)
+-   [DOCS - Framer Motion API](https://www.framer.com/api/motion/)
+-   [DOCS - Framer Motion - useReducedMotion hook](https://www.framer.com/docs/guide-accessibility/)
+-   [DOCS - prefer-color-sheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
+-   [LINK - webpack](https://laravel-mix.com/docs/6.0/what-is-mix)
