@@ -66,6 +66,8 @@ It was **by far** the largest and most comprehensive project I have done so far.
 -   To animate the pages transitions and modals I used **_Framer Motion API_**. Framer Motion is an open source, production-ready library that's designed for creating creative animations. In order to support users who have enabled their device’s Reduced Motion setting and make **accessible animations** I used `useReducedMotion` hook. Based on whether `useReducedMotion` returns `true` or not we're passing different values to `animate`. That replace _position transitions_ with _opacity_.
 -   Added **prefers-color-scheme** CSS media feature which is used to detect if the user has requested a _light_ or _dark_ color theme and save it to **_Local Storage_**. I made it with window interface `matchMedia()` method. It returns a new `MediaQueryList object` that can then be used to determine if the document matches the media query string. In this case _prefers-color-scheme_.
 -   Implemented **focus trap** inside modal to make it _ADA compliant_. Focus trap in short prevent our focus go outside the modal once the modal is opened.
+-   Learned about the **optional chaining** operator (**`?.`**) that enables you to read the value of a property located deep within a chain of connected objects without having to check that each reference in the chain is valid. The `?.` operator is like the `.` chaining operator, except that instead of causing an error if a reference is nullish (`null` or `undefined`).
+-   For _Invoice Date_ picker I used **React Date Picker** package. This is a simple and reusable Datepicker component for React.
 -   `:focus-visible` pseudo class. This selector only indicate focus when it is helpful to the user - such as in cases where the user interacts with the page via a keyboard or some other non-pointing device. It isn't supported by Safari yet, but there is simple [workaround](https://stackoverflow.com/questions/31402576/enable-focus-only-on-keyboard-use-or-tab-press).
 -   To create this project I used webpack. More specifically i used `laravel mix` which is a wrapper for webpack and targets the 80% usecase.
 
@@ -104,6 +106,8 @@ $ npx mix watch
 -   [LINK - ThemeProvider](https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/)
 -   [DOCS - Forms/Controlled Component](https://reactjs.org/docs/forms.html)
 -   [LINK - Accessible modal](https://nainacodes.com/blog/create-an-accessible-and-reusable-react-modal)
+-   [DOCS - Optional chaining operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+-   [LINK - React Date Picker](https://www.npmjs.com/package/react-datepicker)
 -   [LINK - Prettier](https://prettier.io/)
 -   [DOCS - Framer Motion API](https://www.framer.com/api/motion/)
 -   [DOCS - Framer Motion - useReducedMotion hook](https://www.framer.com/docs/guide-accessibility/)
