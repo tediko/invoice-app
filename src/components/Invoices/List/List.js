@@ -21,13 +21,7 @@ import {
 
 const List = () => {
     const { colors } = useTheme();
-    const {
-        state,
-        windowWidth,
-        filterType,
-        filteredInvoices,
-        resetFilterType,
-    } = useGlobalContext();
+    const { windowWidth, filterType, filteredInvoices } = useGlobalContext();
     const isDesktop = windowWidth >= 768;
     const isEmpty = filteredInvoices.length === 0;
     const shouldReduceMotion = useReducedMotion();
@@ -45,11 +39,6 @@ const List = () => {
             document.title = `Invoices | ${filterType} (${filteredInvoices.length})`;
         }
     }, [filteredInvoices]);
-
-    // Call resetFilterType after state.invoices has changed.
-    useEffect(() => {
-        resetFilterType();
-    }, [state.invoices]);
 
     return (
         <>
