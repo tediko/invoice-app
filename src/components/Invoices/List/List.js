@@ -21,8 +21,13 @@ import {
 
 const List = () => {
     const { colors } = useTheme();
-    const { windowWidth, filterType, filteredInvoices, resetFilterType } =
-        useGlobalContext();
+    const {
+        state,
+        windowWidth,
+        filterType,
+        filteredInvoices,
+        resetFilterType,
+    } = useGlobalContext();
     const isDesktop = windowWidth >= 768;
     const isEmpty = filteredInvoices.length === 0;
     const shouldReduceMotion = useReducedMotion();
@@ -41,12 +46,10 @@ const List = () => {
         }
     }, [filteredInvoices]);
 
-    // Call resetFilterType after component is unmounted.
+    // Call resetFilterType after state.invoices has changed.
     useEffect(() => {
-        return () => {
-            resetFilterType();
-        };
-    }, []);
+        resetFilterType();
+    }, [state.invoices]);
 
     return (
         <>
