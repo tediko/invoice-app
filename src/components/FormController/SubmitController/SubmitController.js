@@ -1,10 +1,11 @@
+import { useState } from 'react';
 import Button from '../../shared/Button/Button';
 import { useGlobalContext } from '../../App/context';
 import { StyledSubmitController } from './SubmitControllerStyles';
 
 const SubmitController = () => {
     const { state, handleSubmit, discard } = useGlobalContext();
-    const isInvoiceEdited = state.isInvoiceEdited;
+    const [isInvoiceEdited] = useState(state.isInvoiceEdited);
 
     return (
         <StyledSubmitController $isEdited={isInvoiceEdited}>
