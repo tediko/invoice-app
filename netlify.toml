@@ -1,3 +1,4 @@
 # The following redirect is intended for use with most SPA's that handles routing internally.
 
-/invoice id=:id  /invoice/:id  301
+[[redirects]]
+/* id=:id  /invoice/:id  301
