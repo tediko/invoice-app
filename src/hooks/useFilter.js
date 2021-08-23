@@ -50,20 +50,11 @@ const useFilter = (callback) => {
         setFilterType(type);
     };
 
-    /**
-     * Function to reset filter type to initial value.
-     */
-    const resetFilterType = () => {
-        setFilterType(initialFilterType);
-        handleFilter(initialFilterType);
-    };
-
     return {
         filteredInvoices,
         filterType,
         handleFilter,
         changeFilterType,
-        resetFilterType,
     };
 };
 
