@@ -53,7 +53,6 @@ const useFilter = (callback) => {
     return {
         filteredInvoices,
         filterType,
-        handleFilter,
         changeFilterType,
     };
 };
