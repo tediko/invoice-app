@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { useTheme } from 'styled-components';
 import { useReducedMotion } from 'framer-motion';
@@ -13,7 +13,7 @@ const FormController = () => {
     const { state, windowWidth, discard } = useGlobalContext();
     const { colors } = useTheme();
     const isTablet = windowWidth >= 768;
-    const isFormEdited = state.isFormOpen && state.isInvoiceEdited;
+    const [isFormEdited] = useState(state.isFormOpen && state.isInvoiceEdited);
     const formRef = useRef();
     const backdropRef = useRef();
     const hasScroll = window.innerWidth > document.documentElement.clientWidth;
