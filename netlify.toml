@@ -1,5 +1,8 @@
 # The following redirect is intended for use with most SPA's that handles routing internally.
+
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  from = "/invoice"
+   to = "/index.html"
+  status = 301
+  force = false
+  query = {id = ":id"}
